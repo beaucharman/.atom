@@ -1,0 +1,33 @@
+"*":
+  "atom-beautify":
+    _analyticsUserId: "d7ca8837-80e3-440b-b595-572c04923b81"
+  "autocomplete-plus": {}
+  blame: {}
+  core:
+    disabledPackages: [
+      "jshint"
+    ]
+    themes: [
+      "nucleus-dark-ui"
+      "one-dark-syntax"
+    ]
+  editor:
+    autoIndentOnPaste: false
+    fontSize: 15
+    invisibles: {}
+    lineHeight: 1.4
+  "exception-reporting":
+    userId: "e0d1e790-1db9-9b33-aa17-8a943263deaa"
+  "fuzzy-finder": {}
+  "git-plus": {}
+  linter: {}
+  minimap:
+    plugins:
+      pigments: true
+  "one-dark-ui": {}
+  react: {}
+  tabs:
+    usePreviewTabs: true
+  "tree-view": {}
+  welcome:
+    showOnStartup: false
