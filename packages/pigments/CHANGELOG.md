@@ -1,3 +1,107 @@
+<a name="v0.21.0"></a>
+# v0.21.0 (2016-01-25)
+
+## Features
+
+- Add a new setting to completely ignore some editor when rendering colors ([c6b4f867](https://github.com/abe33/atom-pigments/commit/c6b4f867a2f2f954c8c453ced90cd9611d6aa59c), [#132](https://github.com/abe33/atom-pigments/issues/132))
+- Implement support for color-picker API ([0aed4216](https://github.com/abe33/atom-pigments/commit/0aed42164b37bbd19ad9d11319d37e5fa3af2a88), [#16](https://github.com/abe33/atom-pigments/issues/16))
+- Add a Color::isLiteral method to know when a color relies on variables or not ([273f9b29](https://github.com/abe33/atom-pigments/commit/273f9b298726174852d88be8cf0180a0b1d4222e))
+
+## Bug Fixes
+
+- Prevent highlighting colors when there's a space between the color and a punctuation ([5aed636e](https://github.com/abe33/atom-pigments/commit/5aed636edfe11ec4afa1ab27dca8936b576fa65e))
+- Fix name prefixes not matching words with a tab before ([114b772b](https://github.com/abe33/atom-pigments/commit/114b772bf26b5217ff66cca1b42978fbca3a0fba))
+- Fix invalid consumedServices definition ([018c3172](https://github.com/abe33/atom-pigments/commit/018c3172379c3cc0d6bc3fb1345718ba0f36124f))
+
+<a name="v0.20.0"></a>
+# v0.20.0 (2016-01-20)
+
+## Features
+
+- Add a pigments:report command ([8c29bd7e](https://github.com/abe33/atom-pigments/commit/8c29bd7e3a9f2f0e1bf12db6f5466fb63eb831a0))  <br>It dumps a bunch of pigments related data into a text editor for easy
+  copy paste.
+  Paths from the project directories are redacted to avoid leaking
+  username.
+- Implement support for marker layers when available ([62f0c5fd](https://github.com/abe33/atom-pigments/commit/62f0c5fdce462f4b5807d89689b15479dd6176d2))
+
+<a name="v0.19.7"></a>
+# v0.19.7 (2016-01-18)
+
+## Bug Fixes
+
+- Prevent rendering of marker without color ([6e7947a1](https://github.com/abe33/atom-pigments/commit/6e7947a1c833dbc7b11f7c1027a52f3d4b3c0cb8), [#108](https://github.com/abe33/atom-pigments/issues/108))
+- Fix filtering on marker with no colors ([14d15534](https://github.com/abe33/atom-pigments/commit/14d1553446d47a30116ba725ac990ccfec38431f), [#129](https://github.com/abe33/atom-pigments/issues/129))
+
+<a name="v0.19.6"></a>
+# v0.19.6 (2016-01-11)
+
+## Bug Fixes
+
+- Fix gutter colors displayed even when ignored ([a858edb4](https://github.com/abe33/atom-pigments/commit/a858edb4b506ae3a1b4fd0ccb5bed3e16516bfcb), [#127](https://github.com/abe33/atom-pigments/issues/127))
+- Fix infinite loops in split utility ([4f52ba92](https://github.com/abe33/atom-pigments/commit/4f52ba925ec5ef67d1cbf999cdecbec5a5ee76aa))
+
+<a name="v0.19.5"></a>
+# v0.19.5 (2015-12-23)
+
+## Bug Fixes
+
+- Force re-render if rendered region is empty ([25ac6752](https://github.com/abe33/atom-pigments/commit/25ac67521f3a973028d1b9d706f73b18e0baa334))
+- Fix condition on model existence in markers update ([6ac0affa](https://github.com/abe33/atom-pigments/commit/6ac0affa49493067a3386a406d34834344920a02))
+
+<a name="v0.19.4"></a>
+# v0.19.4 (2015-12-22)
+
+## Bug Fixes
+
+- Fix inconsistencies when rendering markers synchronously ([6af4270c](https://github.com/abe33/atom-pigments/commit/6af4270cf093f80b254e8c6a209c62cd546e160e), [#124](https://github.com/abe33/atom-pigments/issues/124))
+
+<a name="v0.19.3"></a>
+# v0.19.3 (2015-12-11)
+
+## Dependencies Update
+
+- Bump atom-utils version ([407fecbc](https://github.com/abe33/atom-pigments/commit/407fecbcf51586f916dee719f4b167f3a450d57b))
+
+<a name="v0.19.2"></a>
+# v0.19.2 (2015-12-09)
+
+## Bug Fixes
+
+- Fix infinite loop in strip method in some case ([661244f6](https://github.com/abe33/atom-pigments/commit/661244f65b0bde5ecd435a01e1407606ad4efc08))
+
+<a name="v0.19.1"></a>
+# v0.19.1 (2015-11-26)
+
+## Bug Fixes
+
+- Prevent error when autocomplete access a disposed provider ([14d2d26e](https://github.com/abe33/atom-pigments/commit/14d2d26e2807638e84d89a5e4d46e1e049356d61), [#118](https://github.com/abe33/atom-pigments/issues/118))
+- Fix SVG colors not detected when followed by a class ([72941ec8](https://github.com/abe33/atom-pigments/commit/72941ec84bea42ed8d88e55b64c710bd248d3218))
+
+
+<a name="v0.19.0"></a>
+# v0.19.0 (2015-11-18)
+
+## Features
+
+- Implement first draft of colors in gutter ([659f6e9e](https://github.com/abe33/atom-pigments/commit/659f6e9ee9818ac1c53bb9f8c756fcb50ee55cfd), [#97](https://github.com/abe33/atom-pigments/issues/97))
+- Implement generic #AARRGGBB color support ([4dfb3fd1](https://github.com/abe33/atom-pigments/commit/4dfb3fd185a138ad053619e5c3dc376c37c580b0), [#103](https://github.com/abe33/atom-pigments/issues/103))
+  <br>#RRGGBBAA form is now only supported in css related files.
+- Implement different shade and tint operations for sass ([b51d6efb](https://github.com/abe33/atom-pigments/commit/b51d6efb35d1565d6e5565a6e1108dffa7491916))
+- Implement a scoping mechanism for color expressions ([b8918c7e](https://github.com/abe33/atom-pigments/commit/b8918c7ec066777bd5243c753779e638b7238887))  <br>It allows to filter expressions to use based on the extension of the
+  file we’re parsing.
+- Implement custom element update using atom-utils ([284606e3](https://github.com/abe33/atom-pigments/commit/284606e33a73f1b8b3afbaef05d3a268c5f98b14))
+- Implement variable expressions service consumer ([9d149920](https://github.com/abe33/atom-pigments/commit/9d149920e7af4595b9df533dfc612aa170752289))
+- Implement color expressions service consumer ([0e5bd672](https://github.com/abe33/atom-pigments/commit/0e5bd672a2ecf5bca149f65aa10cccf6945d5334))
+
+## Bug Fixes
+
+- Fix hsl/hsv and other expressions not supporting floats ([18d61ba5](https://github.com/abe33/atom-pigments/commit/18d61ba56cb2543c20b61d5888a4edd52c7d94b1), [#115](https://github.com/abe33/atom-pigments/issues/115))
+- Prevent creation of empty variables expression ([44e22d94](https://github.com/abe33/atom-pigments/commit/44e22d94e608cc3dec7647a06e3262f270fb789d))
+
+## Dependencies Update
+
+- Bump version of atom-utils ([38d09c33](https://github.com/abe33/atom-pigments/commit/38d09c33bf2499adf32b1e8b56c24d065998488b))
+
 <a name="v0.18.1"></a>
 # v0.18.1 (2015-10-27)
 

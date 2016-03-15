@@ -6,6 +6,7 @@
   core:
     disabledPackages: [
       "jshint"
+      "react"
     ]
     themes: [
       "nucleus-dark-ui"
@@ -16,11 +17,13 @@
     fontSize: 15
     invisibles: {}
     lineHeight: 1.4
+  emmet: {}
   "exception-reporting":
     userId: "e0d1e790-1db9-9b33-aa17-8a943263deaa"
   "fuzzy-finder": {}
   "git-plus": {}
   linter: {}
+  "linter-eslint": {}
   minimap:
     plugins:
       pigments: true

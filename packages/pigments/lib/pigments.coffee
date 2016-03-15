@@ -1,4 +1,4 @@
-{CompositeDisposable} = require 'atom'
+{CompositeDisposable, Disposable} = require 'atom'
 uris = require './uris'
 ColorProject = require './color-project'
 [PigmentsProvider, PigmentsAPI, url] = []
@@ -31,6 +31,14 @@ module.exports =
       description: "Glob patterns of files to ignore when scanning the project for variables."
       items:
         type: 'string'
+
+    ignoredBufferNames:
+      type: 'array'
+      default: []
+      description: "Glob patterns of files that won't get any colors highlighted"
+      items:
+        type: 'string'
+
     extendedSearchNames:
       type: 'array'
       default: ['**/*.css']
@@ -64,7 +72,7 @@ module.exports =
     markerType:
       type: 'string'
       default: 'background'
-      enum: ['background', 'outline', 'underline', 'dot', 'square-dot']
+      enum: ['background', 'outline', 'underline', 'dot', 'square-dot', 'gutter']
     sortPaletteColors:
       type: 'string'
       default: 'none'
@@ -86,8 +94,6 @@ module.exports =
       title: 'Ignore VCS Ignored Paths'
 
   activate: (state) ->
-    require './register-elements'
-
     @project = if state.project?
       atom.deserializers.deserialize(state.project)
     else
@@ -98,6 +104,7 @@ module.exports =
       'pigments:show-palette': => @showPalette()
       'pigments:project-settings': => @showSettings()
       'pigments:reload': => @reloadProjectVariables()
+      'pigments:report': => @createPigmentsReport()
 
     convertMethod = (action) => (event) =>
       marker = if @lastEvent?
@@ -155,6 +162,40 @@ module.exports =
     PigmentsAPI ?= require './pigments-api'
     new PigmentsAPI(@getProject())
 
+  consumeColorPicker: (api) ->
+    @getProject().setColorPickerAPI(api)
+
+    new Disposable =>
+      @getProject().setColorPickerAPI(null)
+
+  consumeColorExpressions: (options={}) ->
+    registry = @getProject().getColorExpressionsRegistry()
+
+    if options.expressions?
+      names = options.expressions.map (e) -> e.name
+      registry.createExpressions(options.expressions)
+
+      new Disposable -> registry.removeExpression(name) for name in names
+    else
+      {name, regexpString, handle, scopes, priority} = options
+      registry.createExpression(name, regexpString, priority, scopes, handle)
+
+      new Disposable -> registry.removeExpression(name)
+
+  consumeVariableExpressions: (options={}) ->
+    registry = @getProject().getVariableExpressionsRegistry()
+
+    if options.expressions?
+      names = options.expressions.map (e) -> e.name
+      registry.createExpressions(options.expressions)
+
+      new Disposable -> registry.removeExpression(name) for name in names
+    else
+      {name, regexpString, handle, scopes, priority} = options
+      registry.createExpression(name, regexpString, priority, scopes, handle)
+
+      new Disposable -> registry.removeExpression(name)
+
   shouldDisplayContextMenu: (event) ->
     @lastEvent = event
     setTimeout (=> @lastEvent = null), 10
@@ -199,3 +240,53 @@ module.exports =
       @project.loadPathsAndVariables()
     .catch (reason) ->
       console.error reason
+
+  createPigmentsReport: ->
+    atom.workspace.open('pigments-report.json').then (editor) =>
+      editor.setText(@createReport())
+
+  createReport: ->
+    o =
+      atom: atom.getVersion()
+      pigments: atom.packages.getLoadedPackage('pigments').metadata.version
+      platform: require('os').platform()
+      config: atom.config.get('pigments')
+      project:
+        config:
+          sourceNames: @project.sourceNames
+          searchNames: @project.searchNames
+          ignoredNames: @project.ignoredNames
+          ignoredScopes: @project.ignoredScopes
+          includeThemes: @project.includeThemes
+          ignoreGlobalSourceNames: @project.ignoreGlobalSourceNames
+          ignoreGlobalSearchNames: @project.ignoreGlobalSearchNames
+          ignoreGlobalIgnoredNames: @project.ignoreGlobalIgnoredNames
+          ignoreGlobalIgnoredScopes: @project.ignoreGlobalIgnoredScopes
+        paths: @project.getPaths()
+        variables:
+          colors: @project.getColorVariables().length
+          total: @project.getVariables().length
+
+    JSON.stringify(o, null, 2)
+    .replace(///#{atom.project.getPaths().join('|')}///g, '<root>')
+
+  loadDeserializersAndRegisterViews: ->
+    ColorBuffer = require './color-buffer'
+    ColorSearch = require './color-search'
+    Palette = require './palette'
+    ColorBufferElement = require './color-buffer-element'
+    ColorMarkerElement = require './color-marker-element'
+    ColorResultsElement = require './color-results-element'
+    ColorProjectElement = require './color-project-element'
+    PaletteElement = require './palette-element'
+    VariablesCollection = require './variables-collection'
+
+    ColorBufferElement.registerViewProvider(ColorBuffer)
+    ColorResultsElement.registerViewProvider(ColorSearch)
+    ColorProjectElement.registerViewProvider(ColorProject)
+    PaletteElement.registerViewProvider(Palette)
+
+    atom.deserializers.add(ColorProject)
+    atom.deserializers.add(VariablesCollection)
+
+module.exports.loadDeserializersAndRegisterViews()
