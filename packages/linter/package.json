@@ -53,8 +53,8 @@
   "homepage": "https://github.com/atom-community/linter#readme",
   "_id": "linter@1.11.3",
   "_shasum": "91c7f07d13b539f26a62943c3463d0b0d593de5c",
-  "_resolved": "file:../d-116019-42177-bovp7q/package.tgz",
-  "_from": "../d-116019-42177-bovp7q/package.tgz",
+  "_resolved": "file:../d-116216-49210-x7924p/package.tgz",
+  "_from": "../d-116216-49210-x7924p/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -70,7 +70,7 @@
       },
       {
         "name": "brace-expansion",
-        "version": "1.1.2",
+        "version": "1.1.3",
         "path": "node_modules/minimatch/node_modules/brace-expansion/index.js"
       },
       {

@@ -1,0 +1,41 @@
+{
+  "name": "vector-syntax",
+  "theme": "syntax",
+  "version": "0.3.0",
+  "description": "A radical syntax theme inspired by the outrageous style of the eighties. Based on Simurai's Duotone Syntax.",
+  "keywords": [
+    "duotone",
+    "syntax",
+    "eighties",
+    "pink",
+    "blue"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nkpfstr/vector-syntax.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">1.0.0"
+  },
+  "readme": "# Vector Syntax\n\nA radical syntax theme inspired by the outrageous style of the eighties. Based on Simurai's [DuoTone Syntax](https://github.com/simurai/duotone-syntax).\n\n![screenshot](https://dl.dropboxusercontent.com/u/3106750/github/vector-syntax-screenshot.png)\n\n### Currently tested and optimized for these languages:\n\n- C\n- Clojure\n- CoffeeScript\n- C#\n- CSS\n- GF Markdown\n- Go\n- Haskell\n- HTML\n- Java\n- JavaScript\n- JSON\n- Less\n- Perl\n- PHP\n- Python\n- Ruby\n- SASS\n- SCSS\n- Stylus\n- (La-)TeX\n- XML\n- YAML\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/nkpfstr/vector-syntax/issues"
+  },
+  "homepage": "https://github.com/nkpfstr/vector-syntax#readme",
+  "_id": "vector-syntax@0.3.0",
+  "_shasum": "f8f52130184109bcb9160a71d999d92ab477d487",
+  "_resolved": "file:../d-116318-47500-1gsq301/package.tgz",
+  "_from": "../d-116318-47500-1gsq301/package.tgz",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

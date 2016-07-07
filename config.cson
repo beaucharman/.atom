@@ -1,36 +1,26 @@
 "*":
-  "atom-beautify":
-    _analyticsUserId: "d7ca8837-80e3-440b-b595-572c04923b81"
-  "autocomplete-plus": {}
-  blame: {}
   core:
     disabledPackages: [
-      "jshint"
-      "react"
+      "linter-scss-lint"
+      "terminal-plus"
+      "linter-stylelint"
     ]
     themes: [
       "nucleus-dark-ui"
-      "one-dark-syntax"
+      "atom-panda-syntax"
     ]
   editor:
-    autoIndentOnPaste: false
-    fontSize: 15
     invisibles: {}
-    lineHeight: 1.4
-  emmet: {}
+    preferredLineLength: 100
   "exception-reporting":
-    userId: "e0d1e790-1db9-9b33-aa17-8a943263deaa"
-  "fuzzy-finder": {}
-  "git-plus": {}
-  linter: {}
-  "linter-eslint": {}
+    userId: "a634a639-3037-ef5d-5539-76580142b6eb"
+  linter:
+    errorPanelHeight: 778
   minimap:
     plugins:
       pigments: true
+      pigmentsDecorationsZIndex: 0
   "one-dark-ui": {}
-  react: {}
-  tabs:
-    usePreviewTabs: true
   "tree-view": {}
   welcome:
     showOnStartup: false

@@ -1,3 +1,4 @@
+fs = require 'fs'
 {Emitter, CompositeDisposable, Task, Range} = require 'atom'
 Color = require './color'
 ColorMarker = require './color-marker'
@@ -37,6 +38,18 @@ class ColorBuffer
     @subscriptions.add @editor.onDidChangePath (path) =>
       @project.appendPath(path) if @isVariablesSource()
       @update()
+
+    if @project.getPaths()? and @isVariablesSource() and !@project.hasPath(@editor.getPath())
+      if fs.existsSync(@editor.getPath())
+        @project.appendPath(@editor.getPath())
+      else
+        saveSubscription = @editor.onDidSave ({path}) =>
+          @project.appendPath(path)
+          @update()
+          saveSubscription.dispose()
+          @subscriptions.remove(saveSubscription)
+
+        @subscriptions.add(saveSubscription)
 
     @subscriptions.add @project.onDidUpdateVariables =>
       return unless @variableInitialized
@@ -346,6 +359,19 @@ class ColorBuffer
   findValidColorMarkers: (properties) ->
     @findColorMarkers(properties).filter (marker) =>
       marker? and marker.color?.isValid() and not marker?.isIgnored()
+
+  selectColorMarkerAndOpenPicker: (colorMarker) ->
+    return if @destroyed
+
+    @editor.setSelectedBufferRange(colorMarker.marker.getBufferRange())
+
+    # For the moment it seems only colors in #RRGGBB format are detected
+    # by the color picker, so we'll exclude anything else
+    return unless @editor.getSelectedText()?.match(/^#[0-9a-fA-F]{3,8}$/)
+
+    if @project.colorPickerAPI?
+      @project.colorPickerAPI.open(@editor, @editor.getLastCursor())
+
 
   scanBufferForColors: (options={}) ->
     return Promise.reject("This ColorBuffer is already destroyed") if @destroyed

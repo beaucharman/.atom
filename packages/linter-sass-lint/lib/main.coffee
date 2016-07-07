@@ -1,10 +1,5 @@
 {CompositeDisposable} = require 'atom'
-{find} = helpers = require 'atom-linter'
 path = require 'path'
-globule = require 'globule'
-{spawnSync} = require 'child_process'
-{getPath} = require 'consistent-path'
-env = Object.assign({}, process.env, {PATH: getPath()})
 prefixPath = null
 
 module.exports =
@@ -59,10 +54,13 @@ module.exports =
   # Determines whether to use the sass-lint package included with linter-sass-lint
   # or the users globally installed sass-lint version
   findExecutable: ->
+    {spawnSync} = require 'child_process'
+    consistentEnv = require 'consistent-env'
     if not @globalSassLint
       return require path.join(__dirname, '..', 'node_modules', 'sass-lint')
     if @globalPath is '' and prefixPath is null
       npmCommand = if process.platform is 'win32' then 'npm.cmd' else 'npm'
+      env = Object.assign({}, consistentEnv())
       try
         prefixPath = spawnSync(npmCommand, [
           'get'
@@ -75,6 +73,10 @@ module.exports =
     return require path.join(@globalPath or prefixPath, 'lib', 'node_modules', 'sass-lint')
 
   provideLinter: ->
+    {find} = require 'atom-linter'
+    globule = require 'globule'
+    helpers = require './helpers'
+
     provider =
       name: 'sass-lint'
       grammarScopes: ['source.css.scss', 'source.scss', 'source.css.sass', 'source.sass']
@@ -88,7 +90,7 @@ module.exports =
         config = if projectConfig isnt null then projectConfig else globalConfig
 
         try
-          linter = this.findExecutable()
+          linter = @findExecutable()
         catch error
           if error.message is 'prefix' then atom.notifications.addError """
             **Error getting $PATH - linter-sass-lint**\n
@@ -134,7 +136,7 @@ module.exports =
           if globule.isMatch(compiledConfig.files.include, relativePath) and not globule.isMatch(compiledConfig.files.ignore, relativePath)
             result = linter.lintText({
               text: editor.getText(),
-              format: path.extname(filePath).slice(1),
+              format: helpers.getFileSyntax(filePath),
               filename: filePath
             }, {}, config)
         catch error
@@ -167,7 +169,8 @@ module.exports =
           line = if msg.line then msg.line - 1 else 0
           col = if msg.column then msg.column - 1 else 0
           text = if msg.message then ' ' + msg.message else 'Unknown Error'
-          html = '<span class="badge badge-flexible">' + msg.ruleId + '</span>' + text
+          ruleHref = helpers.getRuleURI(msg.ruleId)
+          html = '<a href="'+ ruleHref + '" class="badge badge-flexible sass-lint">' + msg.ruleId + '</a>' + text
 
           result = {
             type: if msg.severity is 1 then 'Warning' else if msg.severity is 2 then 'Error' else 'Info',

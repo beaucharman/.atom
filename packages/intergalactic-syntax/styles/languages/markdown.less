@@ -1,0 +1,129 @@
+.markup {
+
+    &.changed {
+        //color: green;
+    }
+
+    &.deleted {
+        //color: red;
+    }
+    
+    &.italic {
+        color: red;
+        font-style: italic;
+    }
+
+    &.bold {
+        color: grey;
+        font-weight: bold;
+    }
+
+    &.heading .punctuation.definition.heading {
+        color: grey;
+    }
+
+    &.inserted {
+        color: grey;
+    }
+
+
+  &.list {
+    color: grey;
+    font-weight: bold;
+  }
+
+  &.raw{
+    color: grey;
+
+    &.inline {
+      color: grey;
+    }
+  }
+
+  &.strike {
+      color: grey;
+      text-decoration: line-through;
+  }
+  &.underline {
+    text-decoration: underline;
+  }
+
+  &.heading {
+    color: grey;
+    font-weight: normal;
+    position: relative;
+
+    &.heading-1 {
+      //font-size: 20px;
+      //line-height: 200%;
+      //line-height: normal;
+      //bottom: 0.5em;
+    }
+
+    &.heading-2 {
+      //font-size:160%;
+      //line-height: inherit;
+      //bottom: 0.25em;
+    }
+
+    &.heading-3 {
+      //font-size:140%;
+      //line-height: inherit;
+      //bottom: 0.15em;
+    }
+
+    &.heading-4 {
+      //font-size:120%;
+      //line-height: inherit;
+      //bottom: 0.05em;
+    }
+  }
+
+
+}
+
+
+
+ .source.pfm .markup{
+  &.math{
+    color: grey;
+  }
+}
+
+
+.quote {
+  color: grey;
+  font-style: italic;
+
+
+}
+
+.source.gfm .markup.heading{
+  font-weight: normal;
+  color:grey;
+}
+
+.gfm.variable {
+  color: grey;
+}
+
+
+.gfm.entity {
+  color: grey;
+}
+
+.gfm.username{
+  // name after @ in citation
+  color: grey;
+}
+
+// citation
+.gfm.mention{
+  // @ symbol before citation
+  color: grey;
+}
+
+.gfm.list {
+  color: grey;
+  font-weight: bold;
+}

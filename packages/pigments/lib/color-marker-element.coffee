@@ -44,14 +44,10 @@ class ColorMarkerElement extends HTMLElement
     @subscriptions.add @subscribeTo this,
       click: (e) =>
         colorBuffer = @colorMarker.colorBuffer
-        editor = colorBuffer.editor
 
-        return unless colorBuffer? and editor?
+        return unless colorBuffer?
 
-        editor.setSelectedBufferRange(@colorMarker.marker.getBufferRange())
-
-        if colorBuffer.project.colorPickerAPI?
-          colorBuffer.project.colorPickerAPI.open(editor, editor.getLastCursor())
+        colorBuffer.selectColorMarkerAndOpenPicker(@colorMarker)
 
     @render()
 
@@ -66,10 +62,12 @@ class ColorMarkerElement extends HTMLElement
     @innerHTML = ''
     {style, regions, class: cls} = @renderer.render(@colorMarker)
 
-    if regions?.some((r) -> r.invalid) and !SPEC_MODE
+    regions = (regions or []).filter (r) -> r?
+
+    if regions?.some((r) -> r?.invalid) and !SPEC_MODE
       return @bufferElement.requestMarkerUpdate([this])
 
-    @appendChild(region) for region in regions if regions?
+    @appendChild(region) for region in regions
     if cls?
       @className = cls
     else

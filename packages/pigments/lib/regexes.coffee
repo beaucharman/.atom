@@ -13,7 +13,7 @@ module.exports =
   intOrPercent: "(?:#{percent}|#{int})"
   floatOrPercent: "(?:#{percent}|#{float})"
   comma: '\\s*,\\s*'
-  notQuote: "[^\"'\\n]+"
+  notQuote: "[^\"'\\n\\r]+"
   hexadecimal: '[\\da-fA-F]'
   ps: '\\(\\s*'
   pe: '\\s*\\)'
@@ -25,4 +25,4 @@ module.exports =
       variableNames.push v.name.replace(/[-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&")
     variableNames = variableNames.join('|')
 
-    "(?:#{namePrefixes})(#{variableNames})(?!_|-|\\w|\\d|[ \\t]*[\\.:=])"
+    "(?:#{namePrefixes})(#{variableNames})(\\s+!default)?(?!_|-|\\w|\\d|[ \\t]*[\\.:=])"

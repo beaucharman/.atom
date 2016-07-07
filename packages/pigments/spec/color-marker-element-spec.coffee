@@ -23,7 +23,7 @@ describe 'ColorMarkerElement', ->
     editor = atom.workspace.buildTextEditor({})
     editor.setText("""
     body {
-      color: red;
+      color: #f00;
       bar: foo;
       foo: bar;
     }
@@ -33,7 +33,7 @@ describe 'ColorMarkerElement', ->
       invalidate: 'touch'
     })
     color = new Color('#ff0000')
-    text = 'red'
+    text = '#f00'
 
     colorMarker = new ColorMarker({
       marker
@@ -41,9 +41,7 @@ describe 'ColorMarkerElement', ->
       text
       colorBuffer: {
         editor
-        project:
-          colorPickerAPI:
-            open: jasmine.createSpy('color-picker.open')
+        selectColorMarkerAndOpenPicker: jasmine.createSpy('select-color')
         ignoredScopes: []
         getMarkerLayer: -> editor
       }
@@ -75,11 +73,8 @@ describe 'ColorMarkerElement', ->
 
       click(colorMarkerElement)
 
-    it 'selects the text in the editor', ->
-      expect(editor.getSelectedScreenRange()).toEqual([[1,9],[4,1]])
-
-    it 'opens the color picker', ->
-      expect(colorMarker.colorBuffer.project.colorPickerAPI.open).toHaveBeenCalled()
+    it 'calls selectColorMarkerAndOpenPicker on the buffer', ->
+      expect(colorMarker.colorBuffer.selectColorMarkerAndOpenPicker).toHaveBeenCalled()
 
   ##    ########     ###     ######  ##    ##
   ##    ##     ##   ## ##   ##    ## ##   ##
@@ -106,7 +101,7 @@ describe 'ColorMarkerElement', ->
       expect(regions.length).toEqual(4)
 
     it 'fills the region with the covered text', ->
-      expect(regions[0].textContent).toEqual('red;')
+      expect(regions[0].textContent).toEqual('#f00;')
       expect(regions[1].textContent).toEqual('  bar: foo;')
       expect(regions[2].textContent).toEqual('  foo: bar;')
       expect(regions[3].textContent).toEqual('}')

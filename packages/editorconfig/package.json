@@ -46,14 +46,14 @@
   "homepage": "https://github.com/sindresorhus/atom-editorconfig#readme",
   "_id": "editorconfig@1.2.4",
   "_shasum": "37fe8586bd97042be966318a684985e028dad9f8",
-  "_resolved": "file:../d-116019-42231-njd6ht/package.tgz",
-  "_from": "../d-116019-42231-njd6ht/package.tgz",
+  "_resolved": "file:../d-116216-48087-j88oer/package.tgz",
+  "_from": "../d-116216-48087-j88oer/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
       {
         "name": "atom-set-text",
-        "version": "1.1.0",
+        "version": "1.1.1",
         "path": "node_modules/atom-set-text/index.js"
       },
       {
@@ -63,7 +63,7 @@
       },
       {
         "name": "bluebird",
-        "version": "3.1.1",
+        "version": "3.3.4",
         "path": "node_modules/editorconfig/node_modules/bluebird/js/release/bluebird.js"
       },
       {
@@ -100,6 +100,8 @@
         "node_modules/editorconfig/lib/fnmatch.js",
         "node_modules/editorconfig/lib/ini.js",
         "node_modules/editorconfig/lib/version.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/browser/bluebird.core.js",
+        "node_modules/editorconfig/node_modules/bluebird/js/browser/bluebird.core.min.js",
         "node_modules/editorconfig/node_modules/bluebird/js/browser/bluebird.js",
         "node_modules/editorconfig/node_modules/bluebird/js/browser/bluebird.min.js",
         "node_modules/editorconfig/node_modules/bluebird/js/release/any.js",

@@ -1,3 +1,41 @@
+## 1.5.0
+- Allows the inclusion of files with extra extensions such as 'file.scss.liquid'
+- Updated to Atom linter ^5.0.1
+- Includes eslint updates for development
+
+## 1.4.3
+- Force latest version of sass-lint 1.7.0
+- Update a few dependencies
+
+## 1.4.2
+- Include latest version of sass-lint
+- Fix dependency issue with eslint-config-airbnb-base
+
+## 1.4.1
+- Update included version of sass-lint to 1.6.0 :tada:
+
+## 1.4.0
+- Updated eslint and globule dependencies
+- Added links to the sass-lint rule documentation on all rule id badges/lint messages
+- Updated tests for new lint message format
+
+## 1.3.1
+- Updated multiple dependencies
+- Removed unnecessary test characters
+
+## 1.3.0
+- Updated to use consistent-env rather than the consistent-path package
+- Updated to use the latest eslint (2.5.1) and eslint-config-airbnb (6.2.0) packages
+- Added multiple node versions to our travis test file
+
+### 1.2.0
+- Updated eslint to use v2.4.0 [#54](https://github.com/AtomLinter/linter-sass-lint/pull/54)
+- Improved package startup time. [#55](https://github.com/AtomLinter/linter-sass-lint/pull/55)
+
+Thanks to
+- [ypresto](https://github.com/ypresto)
+- [Arcanemagus](https://github.com/Arcanemagus)
+
 ### 1.1.2
 - Lock down eslint to 2.2.x due to [eslint #5476](https://github.com/eslint/eslint/issues/5476)
 
