@@ -96,6 +96,21 @@ atom-text-editor .search-results .marker.current-result .region {
 			color: @pink;
 			font-style: italic;
 		}
+		&.accessor {
+			color: @lighter-gray;
+		}
+		&.logical {
+			color: @light-orange;
+		}
+		&.key {
+			color: @light-orange;
+		}
+		&.comparison {
+			color: @light-orange;
+		}
+		&.php.class {
+			color: @orange;
+		}
 	}
 	&.other.important {
 		color: lighten(@red, 6%);
@@ -125,11 +140,28 @@ atom-text-editor .search-results .marker.current-result .region {
 			}
 		}
 	}
+	&.pug, &.jade {
+		&.type {
+			&.import {
+				&.include {
+					color: @purple;
+				}
+			}
+		}
+	}
 }
+
 .constant {
 	color: @orange;
 	&.character.escape {
 		color: @blue;
+	}
+	&.id {
+		&.tag {
+			&.pug, &.jade {
+				color: @light-blue;
+			}
+		}
 	}
 	&.numeric {
 		color: @orange;
@@ -150,15 +182,33 @@ atom-text-editor .search-results .marker.current-result .region {
 		color: darken(@pink, 10%);
 	}
 	&.parameter.function {
-		color: @syntax-text-color;
+		color: @lighter-gray;
 		font-style: italic;
+	}
+	&.control {
+		&.import {
+			&.include {
+				&.pug {
+					color: @green;
+				}
+			}
+		}
 	}
 	&.other {
 		&.js {
 			&.readwrite {
 				color: @syntax-text-color;
 			}
+			&.property {
+				color: @very-light-gray;
+			}
 		}
+		&.php {
+			color: @lighter-gray;
+		}
+	}
+	&.php {
+		color: @pink;
 	}
 }
 .invalid {
@@ -166,7 +216,7 @@ atom-text-editor .search-results .marker.current-result .region {
 		border-bottom: 1px dashed fade(@red, 50%);
 	}
 	&.deprecated {
-		border-bottom: 1px dashed fade(@purple, 12.5%);
+		background-color: fade(#FF2C6D, 62%);
 	}
 }
 
@@ -225,9 +275,20 @@ atom-text-editor .search-results .marker.current-result .region {
 				color: @orange;
 			}
 		}
+		&.php {
+			&.variable {
+				color: @lighter-gray;
+			}
+		}
 	}
 	&.section.embedded {
 		color: lighten(@pink, 10%);
+		&.php {
+			&.begin,
+			&.end {
+				color: @very-light-gray;
+			}
+		}
 	}
 }
 .support {
@@ -236,17 +297,31 @@ atom-text-editor .search-results .marker.current-result .region {
 	}
 	&.type {
 		color: @white;
+		&.object {
+			&.module {
+				&.js {
+					color: @purple;
+				}
+			}
+		}
 	}
 	&.function {
-		color: @blue-light;
+		color: @light-blue;
 		&.any-method {
-			color: @blue-light;
+			color: @light-blue;
+		}
+	}
+	&.other {
+		&.namespace {
+			&.php {
+				color: @purple;
+			}
 		}
 	}
 }
 .entity {
 	&.name.function {
-		color: @blue-light;
+		color: @light-blue;
 	}
 	&.name.type {
 		color: @light-orange;
@@ -292,6 +367,16 @@ atom-text-editor .search-results .marker.current-result .region {
 	&.method-call.java {
 		color: @very-light-gray;
 	}
+	&.function-call {
+		&.object.php {
+			color: @light-blue;
+		}
+	}
+	&.function {
+		&.arguments {
+			font-style: italic;
+		}
+	}
 }
 .none {
 	color: @syntax-text-color;
@@ -332,6 +417,14 @@ atom-text-editor .search-results .marker.current-result .region {
 	color: lighten(@light-gray, 5);
 	&.heading {
 		color: @green;
+	}
+	&.link {
+		color: @light-orange;
+	}
+	&.list {
+		&.ordered {
+			color: @pink;
+		}
 	}
 }
 .bracket-matcher .region {

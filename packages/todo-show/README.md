@@ -29,6 +29,7 @@ _sortAscending_       | `true`                                  | Sort table in 
 _openListInDirection_ | `'right'`                               | Defines where the todo list is shown
 _rememberViewSize_    | `true`                                  | Remember the todo list width or split in the middle
 _saveOutputAs_        | `'List'`                                | Choose which format to use for saved markdown
+_statusBarIndicator_  | `false`                                 | Show todo count in status bar (this is only shown and updated when the 'Todo Show' tab is open)
 
 ## Regular Expression Search
 
@@ -43,6 +44,8 @@ Default regex string: `'/\\b(${TODOS})[:;.,]?\\d*($|\\s.*$|\\(.*$)/g'`
 * Or `\s.*$` to match the todo text with a non-optional space in front
 * Or an immediate parentheses, `\(.*$`, to support [Google style guide IDs](https://google.github.io/styleguide/cppguide.html#TODO_Comments)
 * Because Atom config only accepts strings all `\` characters are also escaped
+
+Todos can be tagged using hashtag (e.g. `TODO: do this #object #profile`), which is presented in the tags column.
 
 To extend the default todo types and search regex, the existing config needs to be copied into your config.cson. See [show-todo.coffee](https://github.com/mrodalgaard/atom-todo-show/blob/master/lib/show-todo.coffee) for current defaults.
 

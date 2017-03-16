@@ -1,5 +1,198 @@
 # Change Log
 
+## [v3.5.0](https://github.com/AtomLinter/linter-stylelint/tree/v3.5.0) (2016-10-24)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v3.4.1...v3.5.0)
+
+**Implemented enhancements:**
+
+- Update stylelint-config-standard to version 14.0.0 🚀 [\#299](https://github.com/AtomLinter/linter-stylelint/pull/299) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update stylelint to version 7.5.0 🚀 [\#298](https://github.com/AtomLinter/linter-stylelint/pull/298) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
+## [v3.4.1](https://github.com/AtomLinter/linter-stylelint/tree/v3.4.1) (2016-10-18)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v3.4.0...v3.4.1)
+
+**Implemented enhancements:**
+
+- Update eslint-config-airbnb-base to version 9.0.0 🚀 [\#292](https://github.com/AtomLinter/linter-stylelint/pull/292) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
+**Fixed bugs:**
+
+- Remove table dependency [\#295](https://github.com/AtomLinter/linter-stylelint/pull/295) ([Arcanemagus](https://github.com/Arcanemagus))
+
+## [v3.4.0](https://github.com/AtomLinter/linter-stylelint/tree/v3.4.0) (2016-10-13)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v3.3.1...v3.4.0)
+
+**Implemented enhancements:**
+
+- Update stylelint to version 7.4.2 🚀 [\#285](https://github.com/AtomLinter/linter-stylelint/pull/285) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update eslint-config-airbnb-base to version 8.0.0 🚀 [\#278](https://github.com/AtomLinter/linter-stylelint/pull/278) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
+**Fixed bugs:**
+
+- .stylelintrc.yaml format not supported [\#288](https://github.com/AtomLinter/linter-stylelint/issues/288)
+- .stylelintignore is not respected [\#251](https://github.com/AtomLinter/linter-stylelint/issues/251)
+- Update stylelint to version 7.4.2 🚀 [\#285](https://github.com/AtomLinter/linter-stylelint/pull/285) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
+## [v3.3.1](https://github.com/AtomLinter/linter-stylelint/tree/v3.3.1) (2016-09-20)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v3.3.0...v3.3.1)
+
+**Fixed bugs:**
+
+- about configBasedir [\#263](https://github.com/AtomLinter/linter-stylelint/issues/263)
+- Fix configBaseDir [\#275](https://github.com/AtomLinter/linter-stylelint/pull/275) ([Arcanemagus](https://github.com/Arcanemagus))
+- End Lint measure properly [\#274](https://github.com/AtomLinter/linter-stylelint/pull/274) ([Arcanemagus](https://github.com/Arcanemagus))
+- Prevent race condition [\#273](https://github.com/AtomLinter/linter-stylelint/pull/273) ([Arcanemagus](https://github.com/Arcanemagus))
+
+**Closed issues:**
+
+- Doesn't work with some ignore options [\#252](https://github.com/AtomLinter/linter-stylelint/issues/252)
+
+## [v3.3.0](https://github.com/AtomLinter/linter-stylelint/tree/v3.3.0) (2016-09-20)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v3.2.2...v3.3.0)
+
+**Implemented enhancements:**
+
+- Update stylelint to version 7.3.1 🚀 [\#271](https://github.com/AtomLinter/linter-stylelint/pull/271) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
+## [v3.2.2](https://github.com/AtomLinter/linter-stylelint/tree/v3.2.2) (2016-09-19)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v3.2.1...v3.2.2)
+
+**Implemented enhancements:**
+
+- Update the CI configuration [\#268](https://github.com/AtomLinter/linter-stylelint/pull/268) ([Arcanemagus](https://github.com/Arcanemagus))
+- eslint-config-airbnb-base@7.1.0 breaks build 🚨 [\#267](https://github.com/AtomLinter/linter-stylelint/pull/267) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update eslint-config-airbnb-base to version 7.0.0 🚀 [\#262](https://github.com/AtomLinter/linter-stylelint/pull/262) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update eslint-config-airbnb-base to version 6.0.0 🚀 [\#261](https://github.com/AtomLinter/linter-stylelint/pull/261) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
+**Fixed bugs:**
+
+- Add table@3.7.9 dependency [\#270](https://github.com/AtomLinter/linter-stylelint/pull/270) ([Arcanemagus](https://github.com/Arcanemagus))
+
+## [v3.2.1](https://github.com/AtomLinter/linter-stylelint/tree/v3.2.1) (2016-08-30)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v3.2.0...v3.2.1)
+
+**Implemented enhancements:**
+
+- Add timing instrumentation [\#259](https://github.com/AtomLinter/linter-stylelint/pull/259) ([Arcanemagus](https://github.com/Arcanemagus))
+
+## [v3.2.0](https://github.com/AtomLinter/linter-stylelint/tree/v3.2.0) (2016-08-29)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v3.1.0...v3.2.0)
+
+**Implemented enhancements:**
+
+- Update stylelint-config-standard to version 13.0.0 🚀 [\#257](https://github.com/AtomLinter/linter-stylelint/pull/257) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update stylelint to version 7.2.0 🚀 [\#256](https://github.com/AtomLinter/linter-stylelint/pull/256) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update atom-linter to version 8.0.0 🚀 [\#253](https://github.com/AtomLinter/linter-stylelint/pull/253) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
+**Fixed bugs:**
+
+- Update the CI configuration [\#254](https://github.com/AtomLinter/linter-stylelint/pull/254) ([Arcanemagus](https://github.com/Arcanemagus))
+
+## [v3.1.0](https://github.com/AtomLinter/linter-stylelint/tree/v3.1.0) (2016-08-02)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v3.0.2...v3.1.0)
+
+**Implemented enhancements:**
+
+- Update stylelint-config-standard to version 12.0.0 🚀 [\#249](https://github.com/AtomLinter/linter-stylelint/pull/249) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update stylelint to version 7.1.0 🚀 [\#248](https://github.com/AtomLinter/linter-stylelint/pull/248) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update eslint-config-airbnb-base to version 5.0.1 🚀 [\#247](https://github.com/AtomLinter/linter-stylelint/pull/247) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update eslint to version 3.1.1 🚀 [\#242](https://github.com/AtomLinter/linter-stylelint/pull/242) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
+## [v3.0.2](https://github.com/AtomLinter/linter-stylelint/tree/v3.0.2) (2016-07-20)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v3.0.1...v3.0.2)
+
+**Implemented enhancements:**
+
+- Update atom-linter to version 7.0.0 🚀 [\#243](https://github.com/AtomLinter/linter-stylelint/pull/243) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update stylelint to version 7.0.3 🚀 [\#241](https://github.com/AtomLinter/linter-stylelint/pull/241) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update CI Configurations [\#240](https://github.com/AtomLinter/linter-stylelint/pull/240) ([Arcanemagus](https://github.com/Arcanemagus))
+
+**Fixed bugs:**
+
+- Add default config with rules object for SugarSS [\#245](https://github.com/AtomLinter/linter-stylelint/pull/245) ([7rulnik](https://github.com/7rulnik))
+
+## [v3.0.1](https://github.com/AtomLinter/linter-stylelint/tree/v3.0.1) (2016-07-14)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v3.0.0...v3.0.1)
+
+**Implemented enhancements:**
+
+- Update stylelint to version 7.0.2 🚀 [\#236](https://github.com/AtomLinter/linter-stylelint/pull/236) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
+## [v3.0.0](https://github.com/AtomLinter/linter-stylelint/tree/v3.0.0) (2016-07-14)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v2.17.0...v3.0.0)
+
+**Implemented enhancements:**
+
+- Update stylelint to version 7.0.1 🚀 [\#233](https://github.com/AtomLinter/linter-stylelint/pull/233) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
+## [v2.17.0](https://github.com/AtomLinter/linter-stylelint/tree/v2.17.0) (2016-07-07)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v2.16.0...v2.17.0)
+
+**Implemented enhancements:**
+
+- Update stylelint to version 6.9.0 🚀 [\#226](https://github.com/AtomLinter/linter-stylelint/pull/226) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
+**Fixed bugs:**
+
+- Only attempt extraction in embedded code [\#228](https://github.com/AtomLinter/linter-stylelint/pull/228) ([Arcanemagus](https://github.com/Arcanemagus))
+
+## [v2.16.0](https://github.com/AtomLinter/linter-stylelint/tree/v2.16.0) (2016-06-30)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v2.15.0...v2.16.0)
+
+**Implemented enhancements:**
+
+- Update stylelint-config-standard to version 10.0.0 🚀 [\#219](https://github.com/AtomLinter/linter-stylelint/pull/219) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update stylelint to version 6.8.0 🚀 [\#218](https://github.com/AtomLinter/linter-stylelint/pull/218) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
+## [v2.15.0](https://github.com/AtomLinter/linter-stylelint/tree/v2.15.0) (2016-06-27)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v2.14.0...v2.15.0)
+
+**Implemented enhancements:**
+
+- Parsing .sss files for lint [\#204](https://github.com/AtomLinter/linter-stylelint/issues/204)
+- SugarSS Support [\#215](https://github.com/AtomLinter/linter-stylelint/pull/215) ([Arcanemagus](https://github.com/Arcanemagus))
+
+**Fixed bugs:**
+
+- Fix rule name linking [\#216](https://github.com/AtomLinter/linter-stylelint/pull/216) ([Arcanemagus](https://github.com/Arcanemagus))
+
+## [v2.14.0](https://github.com/AtomLinter/linter-stylelint/tree/v2.14.0) (2016-06-23)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v2.13.0...v2.14.0)
+
+**Implemented enhancements:**
+
+- Update atom-linter to version 6.0.0 🚀 [\#214](https://github.com/AtomLinter/linter-stylelint/pull/214) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Show deprecation messages to the user [\#213](https://github.com/AtomLinter/linter-stylelint/pull/213) ([Arcanemagus](https://github.com/Arcanemagus))
+- Update stylelint to version 6.7.1 🚀 [\#212](https://github.com/AtomLinter/linter-stylelint/pull/212) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
+## [v2.13.0](https://github.com/AtomLinter/linter-stylelint/tree/v2.13.0) (2016-06-20)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v2.12.0...v2.13.0)
+
+**Implemented enhancements:**
+
+- Update stylelint to version 6.7.0 🚀 [\#211](https://github.com/AtomLinter/linter-stylelint/pull/211) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Move the configuration to a configSchema [\#210](https://github.com/AtomLinter/linter-stylelint/pull/210) ([Arcanemagus](https://github.com/Arcanemagus))
+
+## [v2.12.0](https://github.com/AtomLinter/linter-stylelint/tree/v2.12.0) (2016-06-16)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v2.11.0...v2.12.0)
+
+**Implemented enhancements:**
+
+- Consider display rule ID and uri [\#208](https://github.com/AtomLinter/linter-stylelint/issues/208)
+- Add a link to rule documentation [\#209](https://github.com/AtomLinter/linter-stylelint/pull/209) ([Arcanemagus](https://github.com/Arcanemagus))
+
+**Closed issues:**
+
+- length-zero-no-unit [\#207](https://github.com/AtomLinter/linter-stylelint/issues/207)
+
+## [v2.11.0](https://github.com/AtomLinter/linter-stylelint/tree/v2.11.0) (2016-06-13)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v2.10.0...v2.11.0)
+
+**Implemented enhancements:**
+
+- Update stylelint-config-standard to version 9.0.0 🚀 [\#206](https://github.com/AtomLinter/linter-stylelint/pull/206) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Update stylelint to version 6.6.0 🚀 [\#205](https://github.com/AtomLinter/linter-stylelint/pull/205) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+
 ## [v2.10.0](https://github.com/AtomLinter/linter-stylelint/tree/v2.10.0) (2016-05-23)
 [Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v2.9.0...v2.10.0)
 

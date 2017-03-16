@@ -11,14 +11,16 @@
 module.exports = {
     meta: {
         docs: {
-            description: "disallow calling some Object.prototype methods directly on objects",
+            description: "disallow calling some `Object.prototype` methods directly on objects",
             category: "Possible Errors",
             recommended: false
-        }
+        },
+
+        schema: []
     },
 
-    create: function(context) {
-        var DISALLOWED_PROPS = [
+    create(context) {
+        const DISALLOWED_PROPS = [
             "hasOwnProperty",
             "isPrototypeOf",
             "propertyIsEnumerable"
@@ -33,14 +35,14 @@ module.exports = {
             if (node.callee.type !== "MemberExpression" || node.callee.computed) {
                 return;
             }
-            var propName = node.callee.property.name;
+            const propName = node.callee.property.name;
 
             if (DISALLOWED_PROPS.indexOf(propName) > -1) {
                 context.report({
                     message: "Do not access Object.prototype method '{{prop}}' from target object.",
                     loc: node.callee.property.loc.start,
                     data: {prop: propName},
-                    node: node
+                    node
                 });
             }
         }

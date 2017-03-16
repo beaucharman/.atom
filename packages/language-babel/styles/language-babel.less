@@ -37,6 +37,14 @@
 
 atom-text-editor::shadow {
   .source.js.jsx {
+    .graphql {
+      .alias {
+        font-style: italic
+      }
+      .support.type.builtin {
+        -webkit-filter: brightness(80%);
+      }
+    }
     .jsx {
       .entity {
         &.other {
@@ -48,6 +56,11 @@ atom-text-editor::shadow {
       .constant.character.entity {
         font-style: italic
       }
+    }
+  }
+  .source.css.styled {
+    .support.type.property-name.unknown {
+      -webkit-filter: brightness(75%);
     }
   }
 }

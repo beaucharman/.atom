@@ -84,13 +84,16 @@ class ShowTodoView extends ScrollView
     @disposables.add pane.observeFlexScale (flexScale) =>
       @savePaneFlex(flexScale)
 
-    @disposables.add @collection.onDidChangeSearchScope @setScopeButtonState
     @disposables.add @collection.onDidStartSearch @startLoading
     @disposables.add @collection.onDidFinishSearch @stopLoading
     @disposables.add @collection.onDidFailSearch (err) =>
       @searchCount.text "Search Failed"
       console.error err if err
       @showError err if err
+
+    @disposables.add @collection.onDidChangeSearchScope (scope) =>
+      @setScopeButtonState(scope)
+      @collection.search()
 
     @disposables.add @collection.onDidSearchPaths (nPaths) =>
       @searchCount.text "#{nPaths} paths searched..."
@@ -136,6 +139,7 @@ class ShowTodoView extends ScrollView
   getProjectName: -> @collection.getActiveProjectName()
   getProjectPath: -> @collection.getActiveProject()
   getTodos: -> @collection.getTodos()
+  getTodosCount: -> @collection.getTodosCount()
   isSearching: -> @collection.getState()
 
   startLoading: =>
@@ -151,7 +155,7 @@ class ShowTodoView extends ScrollView
 
   getInfoText: ->
     return "Found ... results" if @isSearching()
-    switch count = @getTodos().length
+    switch count = @getTodosCount()
       when 1 then "Found #{count} result"
       else "Found #{count} results"
 

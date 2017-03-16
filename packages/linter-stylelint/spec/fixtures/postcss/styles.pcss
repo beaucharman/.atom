@@ -1,6 +1,4 @@
 .test {
-  @mixin test-mixin;
-
   color: red;
 }
 
@@ -19,9 +17,11 @@
     &::before {
       color: yellow;
     }
+
     .another-nested-element {
       color: green;
     }
+
     & > span {
       color: skyblue;
     }

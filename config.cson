@@ -1,26 +1,52 @@
 "*":
+  "atom-beautify":
+    _analyticsUserId: "d7ca8837-80e3-440b-b595-572c04923b81"
+    general:
+      _analyticsUserId: "0b9f6f39-5a8c-45c4-95eb-6d4285c4fa19"
+    html:
+      end_with_newline: true
+      indent_size: 2
+  "autocomplete-plus": {}
+  blame: {}
   core:
     disabledPackages: [
-      "linter-scss-lint"
-      "terminal-plus"
-      "linter-stylelint"
+      "jshint"
+      "react"
+      "sort-lines"
+      "linter-sass-lint"
     ]
+    telemetryConsent: "no"
     themes: [
       "nucleus-dark-ui"
-      "atom-panda-syntax"
+      "one-dark-syntax"
     ]
+  "duotone-dark-syntax":
+    color:
+      duo: "#ff6ef9"
+      uno: "#9b92c2"
   editor:
+    autoIndentOnPaste: false
     invisibles: {}
-    preferredLineLength: 100
+    lineHeight: 1.4
+    scrollPastEnd: true
+  emmet: {}
   "exception-reporting":
-    userId: "a634a639-3037-ef5d-5539-76580142b6eb"
+    userId: "e0d1e790-1db9-9b33-aa17-8a943263deaa"
+  "fuzzy-finder": {}
+  "git-plus": {}
   linter:
-    errorPanelHeight: 778
+    errorPanelHeight: 502
+  "linter-eslint": {}
   minimap:
     plugins:
       pigments: true
       pigmentsDecorationsZIndex: 0
   "one-dark-ui": {}
+  react: {}
+  tabs:
+    usePreviewTabs: true
   "tree-view": {}
   welcome:
     showOnStartup: false
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false

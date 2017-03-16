@@ -21,3 +21,17 @@
   'console.log':
     'prefix': 'cl'
     'body': 'console.log(\'${1:}\', ${1:})'
+
+'.source.styl, .source.css':
+  'clearfix':
+    'prefix': 'clearfix'
+    'body': """
+    .clearfix
+      *zoom 1
+      &:before,
+      &:after
+        content ""
+        display table
+      &:after
+        clear both
+    """
