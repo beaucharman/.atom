@@ -1,7 +1,7 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.default = tokenizeSymbol;
 
@@ -44,47 +44,49 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // we cannot reduce complexity beyond this level
 // eslint-disable-next-line complexity
 function tokenizeSymbol(state) {
-    switch (state.symbolCode) {
-        case _globals.newline:
-        case _globals.space:
-        case _globals.tab:
-        case _globals.carriageReturn:
-        case _globals.feed:
-            (0, _tokenizeWhitespace2.default)(state);
-            break;
+  switch (state.symbolCode) {
+    case _globals.newline:
+    case _globals.space:
+    case _globals.tab:
+    case _globals.carriageReturn:
+    case _globals.feed:
+      (0, _tokenizeWhitespace2.default)(state);
+      break;
 
-        case _globals.comma:
-            (0, _tokenizeComma2.default)(state);
-            break;
+    case _globals.comma:
+      (0, _tokenizeComma2.default)(state);
+      break;
 
-        case _globals.colon:
-        case _globals.semicolon:
-        case _globals.openedCurlyBracket:
-        case _globals.closedCurlyBracket:
-        case _globals.closedParenthesis:
-            (0, _tokenizeBasicSymbol2.default)(state);
-            break;
+    case _globals.colon:
+    case _globals.semicolon:
+    case _globals.openedCurlyBracket:
+    case _globals.closedCurlyBracket:
+    case _globals.closedParenthesis:
+    case _globals.openSquareBracket:
+    case _globals.closeSquareBracket:
+      (0, _tokenizeBasicSymbol2.default)(state);
+      break;
 
-        case _globals.openedParenthesis:
-            (0, _tokenizeOpenedParenthesis2.default)(state);
-            break;
+    case _globals.openedParenthesis:
+      (0, _tokenizeOpenedParenthesis2.default)(state);
+      break;
 
-        case _globals.singleQuote:
-        case _globals.doubleQuote:
-            (0, _tokenizeQuotes2.default)(state);
-            break;
+    case _globals.singleQuote:
+    case _globals.doubleQuote:
+      (0, _tokenizeQuotes2.default)(state);
+      break;
 
-        case _globals.atRule:
-            (0, _tokenizeAtRule2.default)(state);
-            break;
+    case _globals.atRule:
+      (0, _tokenizeAtRule2.default)(state);
+      break;
 
-        case _globals.backslash:
-            (0, _tokenizeBackslash2.default)(state);
-            break;
+    case _globals.backslash:
+      (0, _tokenizeBackslash2.default)(state);
+      break;
 
-        default:
-            (0, _tokenizeDefault2.default)(state);
-            break;
-    }
+    default:
+      (0, _tokenizeDefault2.default)(state);
+      break;
+  }
 }
 module.exports = exports['default'];

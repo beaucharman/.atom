@@ -1,6 +1,4 @@
-atom-text-editor,
-atom-text-editor::shadow,
-:host {
+atom-text-editor {
   .wrap-guide {
     background: @base-border-color;
   }
@@ -36,6 +34,7 @@ atom-text-editor::shadow,
   .line-number {
     .text(light);
     color: @text-color-subtle;
+
     &.cursor-line {
       .text(bold);
       color: @text-color-selected;

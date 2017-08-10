@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/p8/lcn9v_m14rq__0qb7fxz36500000gn/T/d-116108-92400-tbk655/package.tgz",
+        "raw": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48654-1r8r6ii.fi33rqkt9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/p8/lcn9v_m14rq__0qb7fxz36500000gn/T/d-116108-92400-tbk655/package.tgz",
-        "spec": "/private/var/folders/p8/lcn9v_m14rq__0qb7fxz36500000gn/T/d-116108-92400-tbk655/package.tgz",
+        "rawSpec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48654-1r8r6ii.fi33rqkt9/package.tgz",
+        "spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48654-1r8r6ii.fi33rqkt9/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/p8/lcn9v_m14rq__0qb7fxz36500000gn/T/apm-install-dir-116108-92400-180ss27"
+      "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/apm-install-dir-117615-48654-1o515aa.jy86nipb9"
     ]
   ],
-  "_from": "../d-116108-92400-tbk655/package.tgz",
-  "_id": "atom-panda-syntax@0.13.0",
+  "_from": "../d-117615-48654-1r8r6ii.fi33rqkt9/package.tgz",
+  "_id": "atom-panda-syntax@0.18.0",
   "_inCache": true,
-  "_installable": true,
   "_location": "/atom-panda-syntax",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/p8/lcn9v_m14rq__0qb7fxz36500000gn/T/d-116108-92400-tbk655/package.tgz",
+    "raw": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48654-1r8r6ii.fi33rqkt9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/p8/lcn9v_m14rq__0qb7fxz36500000gn/T/d-116108-92400-tbk655/package.tgz",
-    "spec": "/private/var/folders/p8/lcn9v_m14rq__0qb7fxz36500000gn/T/d-116108-92400-tbk655/package.tgz",
+    "rawSpec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48654-1r8r6ii.fi33rqkt9/package.tgz",
+    "spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48654-1r8r6ii.fi33rqkt9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116108-92400-tbk655/package.tgz",
-  "_shasum": "ef05983db013fe3cca8231639073830c432a18b3",
+  "_resolved": "file:../d-117615-48654-1r8r6ii.fi33rqkt9/package.tgz",
+  "_shasum": "80ef16977247f46846108a68cdb02093090139ef",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/p8/lcn9v_m14rq__0qb7fxz36500000gn/T/d-116108-92400-tbk655/package.tgz",
-  "_where": "/private/var/folders/p8/lcn9v_m14rq__0qb7fxz36500000gn/T/apm-install-dir-116108-92400-180ss27",
+  "_spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48654-1r8r6ii.fi33rqkt9/package.tgz",
+  "_where": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/apm-install-dir-117615-48654-1o515aa.jy86nipb9",
   "author": {
     "name": "Siamak Mokhtari",
     "email": "s.mokhtari75@gmail.com",
@@ -67,5 +66,15 @@
     "url": "git+https://github.com/siamak/atom-panda-syntax.git"
   },
   "theme": "syntax",
-  "version": "0.13.0"
+  "version": "0.18.0",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
 }

@@ -1,5 +1,6 @@
 # postcss-reporter
-[![Build Status](https://travis-ci.org/postcss/postcss-reporter.svg?branch=master)](https://travis-ci.org/postcss/postcss-reporter)[![AppVeyor Build Status](https://img.shields.io/appveyor/ci/davidtheclark/postcss-reporter/master.svg?label=windows%20build)](https://ci.appveyor.com/project/davidtheclark/postcss-reporter)
+[![Build Status](https://travis-ci.org/postcss/postcss-reporter.svg?branch=master)](https://travis-ci.org/postcss/postcss-reporter)
+[![AppVeyor Build Status](https://img.shields.io/appveyor/ci/davidtheclark/postcss-reporter/master.svg?label=windows%20build)](https://ci.appveyor.com/project/davidtheclark/postcss-reporter)
 
 A PostCSS plugin to `console.log()` the messages (warnings, etc.) registered by other PostCSS plugins.
 
@@ -11,6 +12,8 @@ Presumably, plugin authors want you to see those messages.
 So this plugin exists to read the accumulated messages (or messages from only the plugins you've specified), format them, and print them to the console.
 
 By default, the messages are formatted for human legibility and sorted according to the line/column positions attached to the messages. But another formatting function can be passed in with an option, and sorting can be turned of with an option.
+
+*By default, only warnings are logged*. If you would like to see more messages, you can change the `filter` function.
 
 ## Example Output
 
@@ -46,7 +49,7 @@ gulp.task('css', function() {
 
 ## Options
 
-**clearMessages** (boolean, default = `false`)
+**clearReportedMessages** (boolean, default = `false`)
 
 If true, the plugin will clear the result's messages after it logs them. This prevents other plugins, or the whatever runner you use, from logging the same information again and causing confusion.
 
@@ -84,7 +87,13 @@ There are 2 ways to limit output:
 
 Provide a filter function. It receives the message object and returns a truthy or falsy value, indicating whether that particular message should be reported or not.
 
-For example, `function(message) { return message.type === 'warning'; }` will only log `warning` messages, regardless of the plugin.
+By default, only messages with `type: "warning"` warnings are logged. (These are the messages produced when the plugin author uses PostCSS's `warn()` function.)
+
+For example, `function(message) { return true }` will only every message, regardless of the plugin or whether it's a warning or not.
+
+**clearAllMessages** (boolean, default = `false`)
+
+If `true`, not pass any messages into other plugins, or the whatever runner you use, for logging.
 
 **throwError** (boolean, default = `false`)
 

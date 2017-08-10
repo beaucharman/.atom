@@ -1,9 +1,8 @@
 .tab-bar {
-  background: @tab-bar-background-color;
-  width: 100%;
-  height: @tab-height;
-  display: table;
-  table-layout: fixed;
+   background: @tab-bar-background-color;
+   width: 100%;
+   height: @tab-height;
+  // -webkit-transform:scale(1);
 
   .tab {
     .transition();
@@ -12,21 +11,30 @@
     text-align: center;
     color: @text-color-subtle;
     background: @tab-background-color;
-    display: table-cell;
     width: 100%;
+    max-width: 100%;
     height: @tab-height;
     line-height: @tab-height;
     box-sizing: border-box;
     border: 0;
     padding-left: 20px;
     padding-right: 20px;
+    flex: 1;
+
+    // .title { TODO: Make a settings screen for this
+    //   .text(uppercase);
+    //   font-size: 0.85rem;
+    // }
 
     &:hover {
-      color: @text-color-highlight;
+      .text(highlight);
       background: @background-color-highlight;
 
       .close-icon {
         opacity: 1;
+        &:before {
+          transform: scale(1);
+        }
       }
     }
 
@@ -35,9 +43,11 @@
       color: @text-color-selected;
       background: @tab-background-color-active;
       width: 100%;
+      max-width: 100%;
+      flex: 1;
 
       .title {
-        color: @text-color-selected;
+        .text(selected);
         padding: 0;
       }
 
@@ -53,6 +63,7 @@
         color: @text-color-ignored;
       }
     }
+
     // Close Icon --------------------------------------------------------------
     .close-icon {
       .transition(background);
@@ -67,13 +78,14 @@
       border-radius: 2px;
 
       &::before {
-        .transition(color);
+        .transition();
+        transform: scale(0);
         color: @text-color-highlight;
         font-size: 12px;
         position: absolute;
         top: 2px;
         left: 2px;
-        width: 13px;
+        width: 12px;
         height: 12px;
       }
 
@@ -106,6 +118,28 @@
     }
   }
 }
+
+atom-dock {
+  .tab-bar {
+    .tab {
+      &.active,
+      &:hover.active {
+        color: @text-color-selected;
+        background: @tab-background-color;
+
+        &[data-type="TextEditor"],
+        &[data-type="SettingsView"],
+        &[data-type="AboutView"],
+        &[data-type="StyleguideView"],
+        &[data-type="TimecopView"],
+        &[data-type="MarkdownPreviewView"]{
+          background: @tab-background-color-active;
+        }
+      }
+    }
+  }
+}
+
 // MacOS -----------------------------------------------------------------------
 .platform-darwin {
   .tab-bar .tab {

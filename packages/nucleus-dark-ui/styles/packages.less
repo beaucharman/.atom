@@ -189,15 +189,57 @@
   }
 }
 // Linter ----------------------------------------------------------------------
+.linter-status-count span {
+  border-radius: 0;
+}
 
-linter-bottom-tab {
-  .button(@button-border-color);
+.linter-status-count span:first-child {
+  border-top-left-radius: @component-border-radius;
+  border-bottom-left-radius: @component-border-radius;
+}
 
-  &.active {
-    color: @base-background-color;
-    background: @button-background-color-selected;
+.linter-status-count span:last-child {
+  border-top-right-radius: @component-border-radius;
+  border-bottom-right-radius: @component-border-radius;
+}
+
+.sb-table.linter {
+  border: 0;
+  thead, tbody, tr, td, th {
+    border: 0;
+  }
+  tbody {
+    background: @base-background-color;
   }
 }
+
+#linter-tooltip {
+  linter-message,
+  linter-message.info,
+  linter-message.warning,
+  linter-message.error {
+    font-family: @font-family;
+    color: @base-background-color;
+
+    a {
+      color: @base-background-color;
+    }
+    .badge {
+      color: @text-color-highlight;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+  }
+}
+
+linter-message:first-child {
+  border-top-left-radius: @component-border-radius;
+  border-top-right-radius: @component-border-radius;
+}
+linter-message:last-child {
+  border-bottom-left-radius: @component-border-radius;
+  border-bottom-right-radius: @component-border-radius;
+}
+
 
 // Deprecation Cop -------------------------------------------------------------
 .deprecation-cop,
@@ -228,5 +270,20 @@ linter-bottom-tab {
   &:hover {
     color: @text-color-highlight;
     background: transparent;
+  }
+}
+
+// LaTeX tools -----------------------------------------------------------------
+.modal.overlay.from-top > .overlay.from-top {
+  position: relative;
+}
+
+// Atom Build ------------------------------------------------------------------
+.build-confirm {
+  padding: @component-padding * 2;
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: @component-padding * 2;
   }
 }

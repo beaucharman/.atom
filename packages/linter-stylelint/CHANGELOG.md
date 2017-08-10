@@ -1,5 +1,98 @@
 # Change Log
 
+## [v4.0.1](https://github.com/AtomLinter/linter-stylelint/tree/v4.0.1) (2017-07-24)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v4.0.0...v4.0.1)
+
+**Implemented enhancements:**
+
+- Update eslint to version 4.0.0 🚀 [\#343](https://github.com/AtomLinter/linter-stylelint/pull/343) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
+**Fixed bugs:**
+
+- Fix \#358 by updating buggy version of browserslist manually. [\#360](https://github.com/AtomLinter/linter-stylelint/pull/360) ([retrixe](https://github.com/retrixe))
+
+## [v4.0.0](https://github.com/AtomLinter/linter-stylelint/tree/v4.0.0) (2017-07-17)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v3.12.0...v4.0.0)
+
+**Implemented enhancements:**
+
+- Migrate to Linter v2 API [\#356](https://github.com/AtomLinter/linter-stylelint/pull/356) ([Arcanemagus](https://github.com/Arcanemagus))
+- Stop relying on useStandard in all the specs [\#355](https://github.com/AtomLinter/linter-stylelint/pull/355) ([Arcanemagus](https://github.com/Arcanemagus))
+- Update stylelint to version 8.0.0 🚀 [\#352](https://github.com/AtomLinter/linter-stylelint/pull/352) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
+**Fixed bugs:**
+
+- Stop merging stylelint-config-standard when enabled [\#354](https://github.com/AtomLinter/linter-stylelint/pull/354) ([Arcanemagus](https://github.com/Arcanemagus))
+
+## [v3.12.0](https://github.com/AtomLinter/linter-stylelint/tree/v3.12.0) (2017-07-12)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v3.11.0...v3.12.0)
+
+**Implemented enhancements:**
+
+- Update stylelint to version 7.13.0 🚀 [\#350](https://github.com/AtomLinter/linter-stylelint/pull/350) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
+## [v3.11.0](https://github.com/AtomLinter/linter-stylelint/tree/v3.11.0) (2017-07-10)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v3.10.0...v3.11.0)
+
+**Implemented enhancements:**
+
+- Update stylelint to version 7.12.0 🚀 [\#348](https://github.com/AtomLinter/linter-stylelint/pull/348) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- chore\(package\): update stylelint to version 7.11.1 [\#345](https://github.com/AtomLinter/linter-stylelint/pull/345) ([Arcanemagus](https://github.com/Arcanemagus))
+- General code refactor and cleanup [\#337](https://github.com/AtomLinter/linter-stylelint/pull/337) ([Arcanemagus](https://github.com/Arcanemagus))
+- Async-ify the specs [\#336](https://github.com/AtomLinter/linter-stylelint/pull/336) ([Arcanemagus](https://github.com/Arcanemagus))
+- Improve activation time [\#335](https://github.com/AtomLinter/linter-stylelint/pull/335) ([Arcanemagus](https://github.com/Arcanemagus))
+- Update atom-linter to version 10.0.0 🚀 [\#332](https://github.com/AtomLinter/linter-stylelint/pull/332) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
+**Fixed bugs:**
+
+- Fix Travis CI configuration [\#346](https://github.com/AtomLinter/linter-stylelint/pull/346) ([Arcanemagus](https://github.com/Arcanemagus))
+
+## [v3.10.0](https://github.com/AtomLinter/linter-stylelint/tree/v3.10.0) (2017-04-03)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v3.9.0...v3.10.0)
+
+**Implemented enhancements:**
+
+- Remove macOS testing [\#329](https://github.com/AtomLinter/linter-stylelint/pull/329) ([Arcanemagus](https://github.com/Arcanemagus))
+- fix\(package\): update stylelint to version 7.10.1 [\#328](https://github.com/AtomLinter/linter-stylelint/pull/328) ([Arcanemagus](https://github.com/Arcanemagus))
+- Update CHANGELOG [\#324](https://github.com/AtomLinter/linter-stylelint/pull/324) ([1000ch](https://github.com/1000ch))
+
+## [v3.9.0](https://github.com/AtomLinter/linter-stylelint/tree/v3.9.0) (2017-02-20)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v3.8.1...v3.9.0)
+
+**Implemented enhancements:**
+
+- Update stylelint to version 7.9.0 🚀 [\#323](https://github.com/AtomLinter/linter-stylelint/pull/323) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
+## [v3.8.1](https://github.com/AtomLinter/linter-stylelint/tree/v3.8.1) (2017-02-14)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v3.8.0...v3.8.1)
+
+**Implemented enhancements:**
+
+- Update atom-linter to version 9.0.0 🚀 [\#319](https://github.com/AtomLinter/linter-stylelint/pull/319) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
+## [v3.8.0](https://github.com/AtomLinter/linter-stylelint/tree/v3.8.0) (2017-02-07)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v3.7.0...v3.8.0)
+
+**Implemented enhancements:**
+
+- Updated stylelint and config-standard to latest [\#316](https://github.com/AtomLinter/linter-stylelint/pull/316) ([SpainTrain](https://github.com/SpainTrain))
+- Update lazy-req to version 2.0.0 🚀 [\#308](https://github.com/AtomLinter/linter-stylelint/pull/308) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
+## [v3.7.0](https://github.com/AtomLinter/linter-stylelint/tree/v3.7.0) (2017-01-07)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v3.6.0...v3.7.0)
+
+**Implemented enhancements:**
+
+- Update dependencies to enable Greenkeeper 🌴 [\#305](https://github.com/AtomLinter/linter-stylelint/pull/305) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
+## [v3.6.0](https://github.com/AtomLinter/linter-stylelint/tree/v3.6.0) (2016-11-21)
+[Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v3.5.0...v3.6.0)
+
+**Implemented enhancements:**
+
+- Bump `stylelint` to 7.6.0 [\#303](https://github.com/AtomLinter/linter-stylelint/issues/303)
+- Bumping stylelint to 7.6.0 and stylelint-config-standard to 15.0.0 [\#304](https://github.com/AtomLinter/linter-stylelint/pull/304) ([AntonNiklasson](https://github.com/AntonNiklasson))
+
 ## [v3.5.0](https://github.com/AtomLinter/linter-stylelint/tree/v3.5.0) (2016-10-24)
 [Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v3.4.1...v3.5.0)
 
@@ -226,10 +319,6 @@
 **Fixed bugs:**
 
 - Properly handle enabling and disabling embedded scopes [\#194](https://github.com/AtomLinter/linter-stylelint/pull/194) ([Arcanemagus](https://github.com/Arcanemagus))
-
-**Closed issues:**
-
-- Strange LESS file message [\#181](https://github.com/AtomLinter/linter-stylelint/issues/181)
 
 ## [v2.7.0](https://github.com/AtomLinter/linter-stylelint/tree/v2.7.0) (2016-04-26)
 [Full Changelog](https://github.com/AtomLinter/linter-stylelint/compare/v2.6.0...v2.7.0)

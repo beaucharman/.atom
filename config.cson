@@ -1,4 +1,5 @@
 "*":
+  Hydrogen: {}
   "atom-beautify":
     _analyticsUserId: "d7ca8837-80e3-440b-b595-572c04923b81"
     general:
@@ -6,42 +7,92 @@
     html:
       end_with_newline: true
       indent_size: 2
+  "atom-package-deps":
+    ignored: []
   "autocomplete-plus": {}
   blame: {}
   core:
+    closeDeletedFileTabs: true
+    closeEmptyWindows: false
+    destroyEmptyPanes: false
     disabledPackages: [
       "jshint"
       "react"
-      "sort-lines"
-      "linter-sass-lint"
     ]
-    telemetryConsent: "no"
+    projectHome: "/Users/beaucharman/Sites"
+    reopenProjectMenuCount: 10
+    telemetryConsent: "limited"
     themes: [
       "nucleus-dark-ui"
-      "one-dark-syntax"
+      "80s-pastel-syntax"
     ]
+    titleBar: "custom"
+    warnOnLargeFileLimit: 10
   "duotone-dark-syntax":
     color:
       duo: "#ff6ef9"
       uno: "#9b92c2"
   editor:
-    autoIndentOnPaste: false
+    fontFamily: "Monaco"
     invisibles: {}
     lineHeight: 1.4
     scrollPastEnd: true
+    showInvisibles: true
   emmet: {}
   "exception-reporting":
     userId: "e0d1e790-1db9-9b33-aa17-8a943263deaa"
   "fuzzy-finder": {}
+  "genesis-ui":
+    distractionFree:
+      hideBottom: false
+      hideFiles: false
   "git-plus": {}
-  linter:
-    errorPanelHeight: 502
+  linter: {}
   "linter-eslint": {}
+  "linter-pug":
+    onlyRunWhenConfig: true
+  "linter-sass-lint":
+    noConfigDisable: true
+  "linter-ui-default":
+    panelHeight: 108
+    showPanel: true
+  "markdown-writer":
+    fileExtension: ".md"
   minimap:
     plugins:
       pigments: true
       pigmentsDecorationsZIndex: 0
   "one-dark-ui": {}
+  "platformio-ide-terminal":
+    ansiColors:
+      normal:
+        blue: "#7c80cd"
+        cyan: "#7acdbf"
+        green: "#6dcd75"
+        magenta: "#c078cd"
+        red: "#cd615d"
+        yellow: "#cdc769"
+      zBright:
+        brightBlue: "#9089ff"
+        brightCyan: "#82fdff"
+        brightGreen: "#9fff96"
+        brightMagenta: "#fa9fff"
+        brightRed: "#ff8985"
+        brightYellow: "#f3ff92"
+    iconColors:
+      blue: "#a79fff"
+      cyan: "#70fffa"
+      green: "#50804c"
+      magenta: "#f4a6ff"
+      orange: "#ffe172"
+      pink: "#ffb6de"
+      purple: "#805080"
+      red: "#ff9ba1"
+      yellow: "#fff8c1"
+    style:
+      defaultPanelHeight: "200px"
+      theme: "one-dark"
+    toggles: {}
   react: {}
   tabs:
     usePreviewTabs: true

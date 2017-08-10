@@ -1,7 +1,7 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.default = tokenizeDefault;
 
@@ -30,37 +30,37 @@ var _unclosed2 = _interopRequireDefault(_unclosed);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function tokenizeDefault(state) {
-    var nextSymbolCode = state.css.charCodeAt(state.pos + 1);
+  var nextSymbolCode = state.css.charCodeAt(state.pos + 1);
 
-    if (state.symbolCode === _globals.slash && nextSymbolCode === _globals.asterisk) {
-        (0, _tokenizeMultilineComment2.default)(state);
-    } else if (state.symbolCode === _globals.slash && nextSymbolCode === _globals.slash) {
-        (0, _tokenizeInlineComment2.default)(state);
+  if (state.symbolCode === _globals.slash && nextSymbolCode === _globals.asterisk) {
+    (0, _tokenizeMultilineComment2.default)(state);
+  } else if (state.symbolCode === _globals.slash && nextSymbolCode === _globals.slash) {
+    (0, _tokenizeInlineComment2.default)(state);
+  } else {
+    if ((0, _isEscaping2.default)(state)) {
+      var pos = (0, _findEndOfEscaping2.default)(state);
+
+      if (pos < 0) {
+        (0, _unclosed2.default)(state, 'escaping');
+      } else {
+        state.nextPos = pos;
+      }
     } else {
-        if ((0, _isEscaping2.default)(state)) {
-            var pos = (0, _findEndOfEscaping2.default)(state);
+      _globals.wordEndPattern.lastIndex = state.pos + 1;
+      _globals.wordEndPattern.test(state.css);
 
-            if (pos < 0) {
-                (0, _unclosed2.default)(state, 'escaping');
-            } else {
-                state.nextPos = pos;
-            }
-        } else {
-            _globals.wordEndPattern.lastIndex = state.pos + 1;
-            _globals.wordEndPattern.test(state.css);
-
-            if (_globals.wordEndPattern.lastIndex === 0) {
-                state.nextPos = state.css.length - 1;
-            } else {
-                state.nextPos = _globals.wordEndPattern.lastIndex - 2;
-            }
-        }
-
-        state.cssPart = state.css.slice(state.pos, state.nextPos + 1);
-
-        state.tokens.push(['word', state.cssPart, state.line, state.pos - state.offset, state.line, state.nextPos - state.offset]);
-
-        state.pos = state.nextPos;
+      if (_globals.wordEndPattern.lastIndex === 0) {
+        state.nextPos = state.css.length - 1;
+      } else {
+        state.nextPos = _globals.wordEndPattern.lastIndex - 2;
+      }
     }
+
+    state.cssPart = state.css.slice(state.pos, state.nextPos + 1);
+
+    state.tokens.push(['word', state.cssPart, state.line, state.pos - state.offset, state.line, state.nextPos - state.offset]);
+
+    state.pos = state.nextPos;
+  }
 }
 module.exports = exports['default'];

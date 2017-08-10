@@ -29,7 +29,7 @@ module.exports = function(opts) {
     };
   }
 
-  var messageFilter = options.filter || function() { return true; };
+  var messageFilter = options.filter || function(message) { return (message.type === 'warning'); };
 
   return function(css, result) {
     var messagesToLog = result.messages
@@ -51,9 +51,15 @@ module.exports = function(opts) {
       });
     });
 
-    if (options.clearMessages) {
+    if (options.clearReportedMessages) {
       result.messages = _.difference(result.messages, messagesToLog);
     }
+
+    if (options.clearAllMessages) {
+      var messagesToClear = result.messages.filter(pluginFilter);
+      result.messages = _.difference(result.messages, messagesToClear);
+    }
+
 
     if (!report) return;
 

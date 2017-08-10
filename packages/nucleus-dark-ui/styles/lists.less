@@ -25,6 +25,7 @@
 .list-tree {
   li:not(.list-nested-item),
   li.list-nested-item > .list-item {
+    line-height: 2.25rem;
     .text(normal);
     .transition(color);
   }
@@ -49,18 +50,17 @@
   li:hover {
     .text(highlight);
   }
-  .no-icon {
-    //padding-left: calc(@ui-padding-icon ~"+" @component-icon-size);
-  }
 
   li.selected::before {
+    height: 2.25rem;
     background: @background-color-selected;
-
   }
 }
 
 .select-list ol.list-group,
 &.select-list ol.list-group {
+  margin: 0 !important; // TODO: remove !important
+
   li.two-lines {
     .secondary-line {
       .text(invert);

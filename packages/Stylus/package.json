@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/p8/lcn9v_m14rq__0qb7fxz36500000gn/T/d-116915-93961-1x93i8x/package.tgz",
+        "raw": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48775-uka6b1.2abnj98uxr/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/p8/lcn9v_m14rq__0qb7fxz36500000gn/T/d-116915-93961-1x93i8x/package.tgz",
-        "spec": "/private/var/folders/p8/lcn9v_m14rq__0qb7fxz36500000gn/T/d-116915-93961-1x93i8x/package.tgz",
+        "rawSpec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48775-uka6b1.2abnj98uxr/package.tgz",
+        "spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48775-uka6b1.2abnj98uxr/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/p8/lcn9v_m14rq__0qb7fxz36500000gn/T/apm-install-dir-116915-93961-15d0v4g"
+      "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/apm-install-dir-117615-48775-1s4o3a8.12x6hqto6r"
     ]
   ],
-  "_from": "../d-116915-93961-1x93i8x/package.tgz",
-  "_id": "Stylus@3.1.0",
+  "_from": "../d-117615-48775-uka6b1.2abnj98uxr/package.tgz",
+  "_id": "Stylus@3.1.1",
   "_inCache": true,
-  "_installable": true,
   "_location": "/Stylus",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/p8/lcn9v_m14rq__0qb7fxz36500000gn/T/d-116915-93961-1x93i8x/package.tgz",
+    "raw": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48775-uka6b1.2abnj98uxr/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/p8/lcn9v_m14rq__0qb7fxz36500000gn/T/d-116915-93961-1x93i8x/package.tgz",
-    "spec": "/private/var/folders/p8/lcn9v_m14rq__0qb7fxz36500000gn/T/d-116915-93961-1x93i8x/package.tgz",
+    "rawSpec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48775-uka6b1.2abnj98uxr/package.tgz",
+    "spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48775-uka6b1.2abnj98uxr/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116915-93961-1x93i8x/package.tgz",
-  "_shasum": "67f598ef65cf92066ce8ce99c53357e5ffc51861",
+  "_resolved": "file:../d-117615-48775-uka6b1.2abnj98uxr/package.tgz",
+  "_shasum": "08580adb70f9c6a66fd57da49551dec030494d67",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/p8/lcn9v_m14rq__0qb7fxz36500000gn/T/d-116915-93961-1x93i8x/package.tgz",
-  "_where": "/private/var/folders/p8/lcn9v_m14rq__0qb7fxz36500000gn/T/apm-install-dir-116915-93961-15d0v4g",
+  "_spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48775-uka6b1.2abnj98uxr/package.tgz",
+  "_where": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/apm-install-dir-117615-48775-1s4o3a8.12x6hqto6r",
   "author": {
     "name": "Matthew Harrison-Jones"
   },
@@ -63,5 +62,15 @@
     "type": "git",
     "url": "git+https://github.com/matthojo/language-stylus.git"
   },
-  "version": "3.1.0"
+  "version": "3.1.1",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
 }

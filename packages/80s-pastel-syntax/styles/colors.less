@@ -1,0 +1,106 @@
+/* Pallete to test new combinations with
+	rgb(147,223,184)
+	rgb(235,220,200)
+	rgb(238,237,219)
+	rgb(227,170,214)
+	rgb(181,216,235)
+	rgb(238,242,230)
+	rgb(255,237,201)
+	rgb(255,200,186)
+	rgb(37,41,42)
+	rgb(161,219,178)
+	rgb(230,230,220)
+	rgb(218,221,251)
+	rgb(248,218,251)
+	rgb(255,171,171)
+	rgb(15,219,159)
+	rgb(218,251,248)
+	rgb(221,229,254)
+	rgb(226,255,230)
+*/
+
+/////////////// COLORS ////////////////
+@blue: rgb(85,181,219);
+@green: rgb(55,159,122);
+@yellow: rgb(230,205,105);
+@red: rgb(255,0,0);
+@purple: rgb(122,167,214);
+
+///// LANGUAGE CATEGORICAL COLORS /////
+@variable-definitions: rgb(221,254,254);//rgb(255,237,201);
+@variable-call: rgb(255,171,171);
+@variable-function: rgb(227,170,214);
+@language-comments: rgb(171,228,255);
+@language-keywords: rgb(218,221,251);
+@language-enitity: rgb(147,223,184);
+@language-misc: rgb(255,140,148);
+
+/////////////// GUTTER ///////////////
+@gutter-text: rgb(104,115,123);
+@gutter-text-highlight: rgb(255,237,201);
+@gutter-background: lighten(@code-background, 5%);
+@gutter-background-highlight: rgb(181,216,235);
+
+///////////// CODE VIEW //////////////
+@code-background: rgb(55,59,68); // editor background
+@code-font: Source Code Pro;
+@code-font-color: rgb(255,240,211); // default editor text
+@css-code-font-color: rgb(218,221,251); // special case for css
+
+//////////// SYNTAX COLORS ////////////
+
+// commnets ---------------
+@comment: @language-comments;
+@comment-bg: none;
+@comment-punc: @language-comments;
+// ------------------------
+
+// Data -------------------
+@string:   @variable-call;
+@constant: @variable-call;       // includes literals
+@variable: @variable-function;   // doesnt include class variables
+@keyword:  @language-keywords;   // language keywords 'include' 'import'
+@storage:  @language-enitity;    // data types
+@support:  @variable-function;   // function calls
+@entity:   @language-enitity;    // function definitions
+@function-param: @language-misc;
+// ------------------------
+
+@meta: rgb(181,216,235);
+@error: @red;
+@regex: @string;
+@numeric: @string;
+@quotes: @code-font-color;
+@markup: @variable-call;
+@unknown: @variable-call;
+
+//////////// MISC COLORS ///////////
+@invisible: rgba(255,255,255,0.1);
+@guides: rgba(245,250,255,0.04);
+@cursor-color: @code-font-color;
+@cursor-width: 2px;
+@selected: rgba(85,181,219,0.6);
+@selected-border: rgba(85,181,219,0.9);
+@selected-line: rgba(0,0,0,0.2);
+
+/////////////// HTML ///////////////
+@tag: @blue;
+@tag-entity: @blue;
+@element-attr: @variable-definitions;
+@class: @variable-definitions;
+@id: @variable-definitions;
+@block: @blue;
+@inline: lighten(@blue, 25%);
+
+@entity-function: @blue;
+@brackets: rgb(181,216,235);
+@punctuation: rgb(181,216,235);
+
+@search-bg: transparent;
+@search-border: solid 1px @blue;
+
+@search-active-bg: @blue;
+@search-active-border: solid 1px @blue;
+
+@search-item-border: @blue;
+@search-item-bg: @red;

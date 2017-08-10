@@ -1,0 +1,79 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117710-59368-ykc1p2.pmiqvholxr/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117710-59368-ykc1p2.pmiqvholxr/package.tgz",
+        "spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117710-59368-ykc1p2.pmiqvholxr/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/apm-install-dir-117710-59368-1y6tpfi.b6e8zrggb9"
+    ]
+  ],
+  "_from": "../d-117710-59368-ykc1p2.pmiqvholxr/package.tgz",
+  "_id": "80s-pastel-syntax@1.2.0",
+  "_inCache": true,
+  "_location": "/80s-pastel-syntax",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117710-59368-ykc1p2.pmiqvholxr/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117710-59368-ykc1p2.pmiqvholxr/package.tgz",
+    "spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117710-59368-ykc1p2.pmiqvholxr/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-117710-59368-ykc1p2.pmiqvholxr/package.tgz",
+  "_shasum": "9a3943e3637aa9c58b92880c5a1c46e79661f264",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117710-59368-ykc1p2.pmiqvholxr/package.tgz",
+  "_where": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/apm-install-dir-117710-59368-1y6tpfi.b6e8zrggb9",
+  "bugs": {
+    "url": "https://github.com/Kelvinrr/80s-pastel-syntax/issues"
+  },
+  "dependencies": {},
+  "description": "A colorful trubute to the 80's",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/Kelvinrr/80s-pastel-syntax#readme",
+  "keywords": [
+    "syntax",
+    "theme",
+    "80s",
+    "80's",
+    "colorful",
+    "dark",
+    "seti",
+    "pastel"
+  ],
+  "license": "MIT",
+  "name": "80s-pastel-syntax",
+  "optionalDependencies": {},
+  "readme": "# 80s-pastel-syntax\nA colorful tribute to the 80's :blue_heart:\n\n![palette](https://raw.githubusercontent.com/Kelvinrr/80s-pastel-syntax/master/80s%20pattern.png)\n\n# Install\n\n```console\napm install 80s-pastel-syntax\n```\n\n#Images\n![palette](https://raw.githubusercontent.com/Kelvinrr/80s-pastel-syntax/master/screenshot_1.png)\n![palette](https://raw.githubusercontent.com/Kelvinrr/80s-pastel-syntax/master/screenshot_2.png)\n![palette](https://raw.githubusercontent.com/Kelvinrr/80s-pastel-syntax/master/screenshot_3.png)\n![palette](https://raw.githubusercontent.com/Kelvinrr/80s-pastel-syntax/master/screenshot_4.png)\n![fasion](https://raw.githubusercontent.com/Kelvinrr/80s-pastel-syntax/master/80s-fashion-pastels.png)\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kelvinrr/80s-pastel-syntax.git"
+  },
+  "theme": "syntax",
+  "version": "1.2.0",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

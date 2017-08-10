@@ -1,9 +1,10 @@
-* {
-  box-sizing: border-box;
+:root {
+  font-size: @font-size;
 }
 
-html {
-  font-size: @font-size;
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased; // EDIT
 }
 
 atom-workspace {
@@ -13,14 +14,10 @@ atom-workspace {
 status-bar {
   .text(highlight);
   background: @base-border-color;
-  height: @tab-height;
+  height: 2.25rem;
   line-height: @component-line-height;
   font-size: 0.8rem;
   z-index: +1000;
-
-  & > .flexbox-repaint-hack {
-    padding-top: 3px;
-  }
 
   span {
     font-size: 0.8rem;
@@ -31,9 +28,10 @@ status-bar {
   background: @app-background-color;
   border-color: transparent;
 }
-
 // Keyboard Shortcuts ----------------------------------------------------------
-kbd, .keystroke {
+
+.keystroke,
+kbd {
   .text(invert);
   font-size: @font-size;
   font-family: @font-family;
@@ -43,15 +41,15 @@ kbd, .keystroke {
   border: 0;
   border-radius: 2px;
 }
-
 // Close icons -----------------------------------------------------------------
+
 .close-icon::before,
 .icon-x::before,
 .icon.x::before {
   content: '✕' !important;
 }
-
 // Scrollbars ------------------------------------------------------------------
+
 .scrollbars-visible-always {
   /deep/::-webkit-scrollbar {
     width: 10px;
@@ -78,9 +76,9 @@ kbd, .keystroke {
     }
   }
 
-  atom-text-editor,
-  atom-pane-container,
-  atom-panel-container.bottom {
+
+  atom-panel-container.bottom,
+  atom-text-editor {
     /deep/::-webkit-scrollbar-track {
       background: @base-background-color;
     }
@@ -93,5 +91,35 @@ kbd, .keystroke {
       border-color: @base-background-color;
       background: @scrollbar-color;
     }
+  }
+}
+
+// docks
+atom-dock {
+  .atom-dock-toggle-button {
+    .atom-dock-toggle-button-inner {
+      border: 0;
+
+      &.left,
+      &.right {
+        .icon {
+          margin-top: 1px;
+        }
+      }
+    }
+  }
+}
+
+// github
+.github {
+  &-DialogInputs,
+  &-DialogButtons,
+  &-DialogLabel {
+    padding: 0;
+    margin: 0;
+  }
+
+  &-Panel:not(.is-empty):not(.no-repository) {
+    background: @tool-panel-background-color;
   }
 }
