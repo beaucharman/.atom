@@ -14,7 +14,6 @@
   core:
     closeDeletedFileTabs: true
     closeEmptyWindows: false
-    destroyEmptyPanes: false
     disabledPackages: [
       "jshint"
       "react"
