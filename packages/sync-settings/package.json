@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117710-65111-s7llmx.mmpe2sxlxr/package.tgz",
+        "raw": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-11799-26135-15g8s4g.hlac3di/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117710-65111-s7llmx.mmpe2sxlxr/package.tgz",
-        "spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117710-65111-s7llmx.mmpe2sxlxr/package.tgz",
+        "rawSpec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-11799-26135-15g8s4g.hlac3di/package.tgz",
+        "spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-11799-26135-15g8s4g.hlac3di/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/apm-install-dir-117710-65111-1dbqb4z.8gp7sexw29"
+      "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/apm-install-dir-11799-26135-1qess26.qvjoov42t9"
     ]
   ],
-  "_from": "../d-117710-65111-s7llmx.mmpe2sxlxr/package.tgz",
-  "_id": "sync-settings@0.8.2",
+  "_from": "../d-11799-26135-15g8s4g.hlac3di/package.tgz",
+  "_id": "sync-settings@0.8.3",
   "_inCache": true,
   "_location": "/sync-settings",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117710-65111-s7llmx.mmpe2sxlxr/package.tgz",
+    "raw": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-11799-26135-15g8s4g.hlac3di/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117710-65111-s7llmx.mmpe2sxlxr/package.tgz",
-    "spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117710-65111-s7llmx.mmpe2sxlxr/package.tgz",
+    "rawSpec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-11799-26135-15g8s4g.hlac3di/package.tgz",
+    "spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-11799-26135-15g8s4g.hlac3di/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117710-65111-s7llmx.mmpe2sxlxr/package.tgz",
-  "_shasum": "276016dcb9f53f218899cc24ca6eb614c51a9f4a",
+  "_resolved": "file:../d-11799-26135-15g8s4g.hlac3di/package.tgz",
+  "_shasum": "1af7ed389a0d4de6e10d4e2a74c83a2284ed28ba",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117710-65111-s7llmx.mmpe2sxlxr/package.tgz",
-  "_where": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/apm-install-dir-117710-65111-1dbqb4z.8gp7sexw29",
+  "_spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-11799-26135-15g8s4g.hlac3di/package.tgz",
+  "_where": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/apm-install-dir-11799-26135-1qess26.qvjoov42t9",
   "bugs": {
     "url": "https://github.com/atom-community/sync-settings/issues"
   },
@@ -69,13 +69,13 @@
   "main": "./lib/sync-settings",
   "name": "sync-settings",
   "optionalDependencies": {},
-  "readme": "# Sync Settings for Atom\n\n[![Join the chat at https://gitter.im/atom-community/sync-settings](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/atom-community/sync-settings?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)\n[![Build Status](https://travis-ci.org/atom-community/sync-settings.svg?branch=master)](https://travis-ci.org/atom-community/sync-settings)\n\nSynchronize settings, keymaps, user styles, init script, snippets and installed packages across [Atom](http://atom.io) instances.\n\n## Features\n* Sync Atom's and package settings\n* Sync installed packages\n* Sync user keymaps\n* Sync user styles\n* Sync user init script\n* Sync snippets\n* Sync user defined text files\n* Manual backup/restore to a gist\n\n## Installation\n\n`$ apm install sync-settings` or using the Install packages pane from [Atom Settings](atom://config).\n\n## Setup\n\n1. Open **Sync Settings** configuration in [Atom Settings](atom://config).\n2. Create a [new personal access token](https://github.com/settings/tokens/new) which has the `gist` scope and be sure to **activate permissions**: Gist -> create gists.\n3. Copy the access token to **Sync Settings** configuration or set it as an environmental variable **GITHUB_TOKEN**.\n4. Create a [new gist](https://gist.github.com/):\n\n  - The description can be left empty. It will be set when invoking the `backup` command the first time.\n  - Use `packages.json` as the filename.\n  - Put some arbitrary non-empty content into the file. It will be overwritten by the first invocation of the `backup` command\n  - Save the gist.\n\n5. Copy the gist id (last part of url after the username) to **Sync Settings** configuration.\n\nDisclaimer: GitHub Gists are by default **public**. If you don't want other people to easily find your gist (i.e. if you use certain packages, storing auth-tokens, a malicious party could abuse them), you should make sure to **create a secret gist**.\n\n### Alternative **Sync Settings** configuration using Atom's config.cson\n\n1. Click on Menu \"Open Your Config\" to edit Atom's config.cson\n2. Use these keys:\n\n```js\n  \"sync-settings\":\n    gistId: \"b3025...88c41c\"\n    personalAccessToken: \"6a10cc207b....7a67e871\"\n```\n\n## Usage\n\nOpen the Atom [Command Palette](https://github.com/atom/command-palette) where you can search for the following list of commands.\n\nBackup or restore all settings from the <kbd>Packages</kbd> menu or use one of the following **commands**:\n* `sync-settings:backup`\n* `sync-settings:restore`\n\nView your online backup using the following command:\n* `sync-settings:view-backup`\n\nCheck the latest backup is applied:\n* `sync-settings:check-backup`\n\nYou can also fork existing settings from a different GitHub user using the following command:\n* `sync-settings:fork`\n* In the following input field enter the Gist ID to fork\n\n## Running the tests\n\n1. Create a new [personal access token](https://github.com/settings/tokens/new) which has the `gist` scope and will be used for testing purposes.\n2. Export it with `export GITHUB_TOKEN=YOUR_TOKEN`\n3. Run `apm test`\n\n## Contributing\n\nIf you're going to submit a pull request, please try to follow\n[the official contribution guidelines of Atom](https://atom.io/docs/latest/contributing).\n\n1. [Fork it](https://github.com/atom-community/sync-settings/).\n2. Create your feature branch (`git checkout -b my-new-feature`).\n3. Ensure tests are passing. See [running-the-tests](https://github.com/atom-community/sync-settings#running-the-tests).\n4. Commit your changes (`git commit -am 'Add some feature'`).\n5. Push to the branch (`git push origin my-new-feature`).\n6. Create new Pull Request.\n\n[See all contributors](https://github.com/atom-community/sync-settings/graphs/contributors).\n",
+  "readme": "# Sync Settings for Atom\n\n[![Join the chat at https://gitter.im/atom-community/sync-settings](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/atom-community/sync-settings?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)\n[![Build Status](https://travis-ci.org/atom-community/sync-settings.svg?branch=master)](https://travis-ci.org/atom-community/sync-settings)\n\nSynchronize settings, keymaps, user styles, init script, snippets and installed packages across [Atom](http://atom.io) instances.\n\n## Features\n* Sync Atom's and package settings\n* Sync installed packages\n* Sync user keymaps\n* Sync user styles\n* Sync user init script\n* Sync snippets\n* Sync user defined text files\n\n### Note\n\nIt currently [does **not** support](https://github.com/atom-community/sync-settings/issues/317) automatic backup - it must be done manually. Only the restore is being triggered automatically.\n\n## Installation\n\n`$ apm install sync-settings` or using the Install packages pane from [Atom Settings](atom://config).\n\n## Setup\n\n1. Open **Sync Settings** configuration in [Atom Settings](atom://config).\n2. Create a [new personal access token](https://github.com/settings/tokens/new) which has the `gist` scope and be sure to **activate permissions**: Gist -> create gists.\n3. Copy the access token to **Sync Settings** configuration or set it as an environmental variable **GITHUB_TOKEN**.\n4. Create a [new gist](https://gist.github.com/):\n\n  - The description can be left empty. It will be set when invoking the `backup` command the first time.\n  - Use `packages.json` as the filename.\n  - Put some arbitrary non-empty content into the file. It will be overwritten by the first invocation of the `backup` command\n  - Save the gist.\n\n5. Copy the gist id (last part of url after the username) to **Sync Settings** configuration.\n\nDisclaimer: GitHub Gists are by default **public**. If you don't want other people to easily find your gist (i.e. if you use certain packages, storing auth-tokens, a malicious party could abuse them), you should make sure to **create a secret gist**.\n\n### Alternative **Sync Settings** configuration using Atom's config.cson\n\n1. Click on Menu \"Open Your Config\" to edit Atom's config.cson\n2. Use these keys:\n\n```js\n  \"sync-settings\":\n    gistId: \"b3025...88c41c\"\n    personalAccessToken: \"6a10cc207b....7a67e871\"\n```\n\n## Usage\n\nOpen the Atom [Command Palette](https://github.com/atom/command-palette) where you can search for the following list of commands.\n\nBackup or restore all settings from the <kbd>Packages</kbd> menu or use one of the following **commands**:\n* `sync-settings:backup`\n* `sync-settings:restore`\n\nView your online backup using the following command:\n* `sync-settings:view-backup`\n\nCheck the latest backup is applied:\n* `sync-settings:check-backup`\n\nYou can also fork existing settings from a different GitHub user using the following command:\n* `sync-settings:fork`\n* In the following input field enter the Gist ID to fork\n\n## Running the tests\n\n1. Create a new [personal access token](https://github.com/settings/tokens/new) which has the `gist` scope and will be used for testing purposes.\n2. Export it with `export GITHUB_TOKEN=YOUR_TOKEN`\n3. Run `apm test`\n\n## Contributing\n\nIf you're going to submit a pull request, please try to follow\n[the official contribution guidelines of Atom](https://atom.io/docs/latest/contributing).\n\n1. [Fork it](https://github.com/atom-community/sync-settings/).\n2. Create your feature branch (`git checkout -b my-new-feature`).\n3. Ensure tests are passing. See [running-the-tests](https://github.com/atom-community/sync-settings#running-the-tests).\n4. Commit your changes (`git commit -am 'Add some feature'`).\n5. Push to the branch (`git push origin my-new-feature`).\n6. Create new Pull Request.\n\n[See all contributors](https://github.com/atom-community/sync-settings/graphs/contributors).\n",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/atom-community/sync-settings.git"
   },
-  "version": "0.8.2",
+  "version": "0.8.3",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -101,7 +101,7 @@
       },
       {
         "name": "debug",
-        "version": "2.6.8",
+        "version": "2.6.9",
         "path": "node_modules/debug/src/index.js"
       },
       {
@@ -111,7 +111,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.26",
+        "version": "0.10.30",
         "path": "node_modules/es5-ext/index.js"
       },
       {
@@ -181,7 +181,7 @@
       },
       {
         "name": "mime",
-        "version": "1.3.6",
+        "version": "1.4.1",
         "path": "node_modules/mime/mime.js"
       },
       {
@@ -294,6 +294,7 @@
         "node_modules/debug/src/browser.js",
         "node_modules/debug/src/debug.js",
         "node_modules/debug/src/index.js",
+        "node_modules/debug/src/inspector-log.js",
         "node_modules/debug/src/node.js",
         "node_modules/emissary/lib/behavior.js",
         "node_modules/emissary/lib/emissary.js",
@@ -352,6 +353,7 @@
         "node_modules/es5-ext/array/#/indexes-of.js",
         "node_modules/es5-ext/array/#/intersection.js",
         "node_modules/es5-ext/array/#/is-copy.js",
+        "node_modules/es5-ext/array/#/is-empty.js",
         "node_modules/es5-ext/array/#/is-uniq.js",
         "node_modules/es5-ext/array/#/keys/implement.js",
         "node_modules/es5-ext/array/#/keys/index.js",
@@ -575,6 +577,8 @@
         "node_modules/es5-ext/object/copy.js",
         "node_modules/es5-ext/object/count.js",
         "node_modules/es5-ext/object/create.js",
+        "node_modules/es5-ext/object/ensure-array.js",
+        "node_modules/es5-ext/object/ensure-finite-number.js",
         "node_modules/es5-ext/object/ensure-natural-number-value.js",
         "node_modules/es5-ext/object/ensure-natural-number.js",
         "node_modules/es5-ext/object/ensure-promise.js",
@@ -593,6 +597,7 @@
         "node_modules/es5-ext/object/is-copy-deep.js",
         "node_modules/es5-ext/object/is-copy.js",
         "node_modules/es5-ext/object/is-empty.js",
+        "node_modules/es5-ext/object/is-finite-number.js",
         "node_modules/es5-ext/object/is-number-value.js",
         "node_modules/es5-ext/object/is-object.js",
         "node_modules/es5-ext/object/is-plain-object.js",
@@ -709,6 +714,7 @@
         "node_modules/es5-ext/string/raw/index.js",
         "node_modules/es5-ext/string/raw/is-implemented.js",
         "node_modules/es5-ext/string/raw/shim.js",
+        "node_modules/es5-ext/to-short-string-representation.js",
         "node_modules/es6-iterator/#/chain.js",
         "node_modules/es6-iterator/array.js",
         "node_modules/es6-iterator/for-of.js",

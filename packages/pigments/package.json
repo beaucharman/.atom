@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48776-j3mc2g.3qeauoko6r/package.tgz",
+        "raw": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117714-56855-1rrotct.s1qryynwmi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48776-j3mc2g.3qeauoko6r/package.tgz",
-        "spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48776-j3mc2g.3qeauoko6r/package.tgz",
+        "rawSpec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117714-56855-1rrotct.s1qryynwmi/package.tgz",
+        "spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117714-56855-1rrotct.s1qryynwmi/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/apm-install-dir-117615-48776-14if64o.ytu0rizfr"
+      "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/apm-install-dir-117714-56855-l42b7r.8v4c2fbt9"
     ]
   ],
-  "_from": "../d-117615-48776-j3mc2g.3qeauoko6r/package.tgz",
-  "_id": "pigments@0.39.1",
+  "_from": "../d-117714-56855-1rrotct.s1qryynwmi/package.tgz",
+  "_id": "pigments@0.40.2",
   "_inCache": true,
   "_location": "/pigments",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48776-j3mc2g.3qeauoko6r/package.tgz",
+    "raw": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117714-56855-1rrotct.s1qryynwmi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48776-j3mc2g.3qeauoko6r/package.tgz",
-    "spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48776-j3mc2g.3qeauoko6r/package.tgz",
+    "rawSpec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117714-56855-1rrotct.s1qryynwmi/package.tgz",
+    "spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117714-56855-1rrotct.s1qryynwmi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117615-48776-j3mc2g.3qeauoko6r/package.tgz",
-  "_shasum": "23f890a2510ca1e31a276e9139c1fd1772cffb4f",
+  "_resolved": "file:../d-117714-56855-1rrotct.s1qryynwmi/package.tgz",
+  "_shasum": "0afb452bf2adf0955cf43b985b2f2a490b8a7d2f",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48776-j3mc2g.3qeauoko6r/package.tgz",
-  "_where": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/apm-install-dir-117615-48776-14if64o.ytu0rizfr",
+  "_spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117714-56855-1rrotct.s1qryynwmi/package.tgz",
+  "_where": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/apm-install-dir-117714-56855-l42b7r.8v4c2fbt9",
   "bugs": {
     "url": "https://github.com/abe33/atom-pigments/issues"
   },
@@ -158,11 +158,6 @@
         "native-outline",
         "native-dot",
         "native-square-dot",
-        "background",
-        "outline",
-        "underline",
-        "dot",
-        "square-dot",
         "gutter"
       ]
     },
@@ -256,7 +251,7 @@
     "temp": "~0.8.1"
   },
   "engines": {
-    "atom": ">=1.13.0 <2.0.0"
+    "atom": ">=1.19.0 <2.0.0"
   },
   "homepage": "https://github.com/abe33/atom-pigments#readme",
   "keywords": [
@@ -290,7 +285,7 @@
     "type": "git",
     "url": "git+https://github.com/abe33/atom-pigments.git"
   },
-  "version": "0.39.1",
+  "version": "0.40.2",
   "viewProviders": [
     "pigmentsViewProvider"
   ],
@@ -379,7 +374,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.24",
+        "version": "0.10.27",
         "path": "node_modules/es5-ext/index.js"
       },
       {
@@ -591,7 +586,6 @@
         "lib/color-conversions.coffee",
         "lib/color-expression.coffee",
         "lib/color-expressions.coffee",
-        "lib/color-marker-element.coffee",
         "lib/color-marker.coffee",
         "lib/color-parser.coffee",
         "lib/color-project-element.coffee",
@@ -610,12 +604,6 @@
         "lib/pigments-provider.coffee",
         "lib/pigments.coffee",
         "lib/regexes.coffee",
-        "lib/renderers/background.coffee",
-        "lib/renderers/dot.coffee",
-        "lib/renderers/outline.coffee",
-        "lib/renderers/region-renderer.coffee",
-        "lib/renderers/square-dot.coffee",
-        "lib/renderers/underline.coffee",
         "lib/scope-from-file-name.coffee",
         "lib/sticky-title.coffee",
         "lib/svg-colors.coffee",
@@ -957,6 +945,7 @@
         "node_modules/es5-ext/object/copy.js",
         "node_modules/es5-ext/object/count.js",
         "node_modules/es5-ext/object/create.js",
+        "node_modules/es5-ext/object/ensure-finite-number.js",
         "node_modules/es5-ext/object/ensure-natural-number-value.js",
         "node_modules/es5-ext/object/ensure-natural-number.js",
         "node_modules/es5-ext/object/ensure-promise.js",
@@ -975,6 +964,7 @@
         "node_modules/es5-ext/object/is-copy-deep.js",
         "node_modules/es5-ext/object/is-copy.js",
         "node_modules/es5-ext/object/is-empty.js",
+        "node_modules/es5-ext/object/is-finite-number.js",
         "node_modules/es5-ext/object/is-number-value.js",
         "node_modules/es5-ext/object/is-object.js",
         "node_modules/es5-ext/object/is-plain-object.js",
@@ -1008,6 +998,7 @@
         "node_modules/es5-ext/object/validate-array-like.js",
         "node_modules/es5-ext/object/validate-stringifiable-value.js",
         "node_modules/es5-ext/object/validate-stringifiable.js",
+        "node_modules/es5-ext/optional-chaining.js",
         "node_modules/es5-ext/reg-exp/#/index.js",
         "node_modules/es5-ext/reg-exp/#/is-sticky.js",
         "node_modules/es5-ext/reg-exp/#/is-unicode.js",
@@ -1158,7 +1149,6 @@
         "paths": [
           "",
           "lib",
-          "lib/renderers",
           "lib/tasks",
           "spec",
           "spec/fixtures",

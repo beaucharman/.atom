@@ -1,0 +1,245 @@
+@import url("//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"); // sass-lint:disable-line no-url-domains
+
+$base-font-size: 16;
+$font-family-primary: "Open Sans", sans-serif;
+
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+
+// # Body copy
+// Default text styling, Sidenav text, Body text in cards, Text and dropdowns,
+// Tab navigation links, General paragraphs, sentences, links.
+// - size: 14pt / 1.166em 
+// - leading / line height: 24pt / 2em 
+// - paragraph / margin: 12pt / 1em 
+// - font weight: 400
+%body-copy {
+  font-size: 14px;
+  font-weight: $font-weight-normal;
+  line-height: 1.75;
+}
+
+body {
+  @extend %body-copy;
+  font-family: $font-family-primary;
+  color: $color-text-primary;
+  background-color: $color-primary-background;
+}
+
+p,
+ul,
+ol {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+// # Section header
+// Form section header.
+// - size: 14pt / 1.166em 
+// - leading / line height: 24pt / 2em 
+// - paragraph / margin: 12pt / 1em 
+// - font weight: 600
+:global {
+  .sectionHeader {
+    font-size: 14px;
+    font-weight: $font-weight-semi-bold;
+    line-height: 1.75;
+  }
+}
+
+// # Tags and labels
+// Text inside tags and labels,
+// chart and data visualization info,
+// helper text and hint text on forms.
+//  - size: 12pt
+// - leading / line height: 18pt
+// - paragraph / margin: 9pt
+// - font weight: 400
+:global {
+  .label {
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    line-height: 1.5;
+  }
+}
+
+// # Heading 1
+// Large display numbers (charts/data visualisation)
+// - size: 64pt / 5.333em
+// -  leading / line height: 84pt / 7em
+//  - paragraph / margin: 42pt / 3.5em 
+// - font weight: 300
+h1 {
+  margin-top: 42px;
+  margin-bottom: 42px;
+  font-size: 64px;
+  font-weight: $font-weight-light;
+  line-height: 1.31;
+}
+
+// # Heading 2
+// Large display numbers (charts/data visualisation)
+// - size: 52pt / 4.333em 
+// - leading / line height: 72pt / 6em 
+// - paragraph / margin: 36pt / 3em
+// - font weight: 300
+h2 {
+  margin-top: 36px;
+  margin-bottom: 36px;
+  font-size: 52px;
+  font-weight: $font-weight-light;
+  line-height: 1.38;
+}
+
+// # Heading 3
+// Large display numbers (charts/data visualisation)
+// - size: 44pt / 3.666em
+// - leading / line height: 60pt / 5em 
+// - paragraph / margin: 30pt / 2.5em 
+// - font weight: 400
+h3 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 44px;
+  font-weight: $font-weight-normal;
+  line-height: 1.36;
+}
+
+// # Heading 4
+// Homepage screen welcome greeting, Main page title, Modal header
+// - size: 34pt / 2.833em 
+// - leading / line height: 54pt / 4.5em
+// - paragraph / margin: 27pt / 2.25em
+// -  font weight: 400
+h4 {
+  margin-top: 27px;
+  margin-bottom: 27px;
+  font-size: 34px;
+  font-weight: $font-weight-normal;
+  line-height: 1.59;
+}
+
+// # Heading 5
+// Secondary page title
+// - size: 28pt / 2.333em
+// - leading / line height: 42pt / 3.5em 
+// - paragraph / margin: 21pt / 1.75em 
+// - font weight: 400
+h5 {
+  margin-top: 21px;
+  margin-bottom: 21px;
+  font-size: 28px;
+  font-weight: $font-weight-normal;
+  line-height: 1.5;
+}
+
+// # Heading 6
+// Main content title, Card header/title
+// - size: 22pt / 1.833em 
+// - leading / line height: 36pt / 3em 
+// - paragraph / margin: 18pt / 1.5em
+// - font weight: 400
+h6 {
+  margin-top: 18px;
+  margin-bottom: 18px;
+  font-size: 22px;
+  font-weight: $font-weight-normal;
+  line-height: 1.64;
+}
+
+// # Heading 7
+// Product name title in a card
+// - size: 18pt / 1.5em 
+// - leading / line height: 30pt / 2.5em P
+// - paragraph / margin: 15pt / 1.25em 
+// - font weight: 600
+:global {
+  .heading7 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: $font-weight-semi-bold;
+    line-height: 1.67;
+  }
+}
+
+// # Heading 8
+// Secondary content title, Section header
+// - size: 18pt / 1.5em 
+// - leading / line height: 30pt / 2.5em 
+// - paragraph / margin: 15pt / 1.25em 
+// - font weight: 400
+:global {
+  .heading8 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: $font-weight-normal;
+    line-height: 1.67;
+  }
+}
+
+// # Button
+// - size: 14pt / 1.2em 
+// - leading / line height: 24pt / 2em 
+// - font weight: 600
+%text-button {
+  border: 0;
+  font-size: 14px;
+  font-weight: $font-weight-semi-bold;
+  line-height: 1.75;
+  text-transform: uppercase;
+  appearance: none;
+  cursor: pointer;
+}
+
+button {
+  @extend %text-button;
+
+  padding: 0;
+  background-color: transparent;
+
+  &:active,
+  &:focus,
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
+// # Inline text links
+// @TODO move to a link component?
+a {
+  &,
+  &:link,
+  &:visited {
+    color: $color-text-link;
+    text-decoration: none;
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &[disabled] {
+    cursor: default;
+
+    &,
+    &:link,
+    &:visited {
+      color: $color-grey-70;
+      text-decoration: none;
+    }
+
+    &:active,
+    &:focus,
+    &:hover {
+      color: $color-grey-70;
+      text-decoration: none;
+    }
+  }
+}

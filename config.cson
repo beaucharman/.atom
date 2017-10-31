@@ -17,6 +17,7 @@
     disabledPackages: [
       "jshint"
       "react"
+      "sync-settings"
     ]
     projectHome: "/Users/beaucharman/Sites"
     reopenProjectMenuCount: 10
@@ -35,6 +36,7 @@
     fontFamily: "Monaco"
     invisibles: {}
     lineHeight: 1.4
+    preferredLineLength: 200
     scrollPastEnd: true
     showInvisibles: true
   emmet: {}
@@ -46,15 +48,15 @@
       hideBottom: false
       hideFiles: false
   "git-plus": {}
-  linter: {}
+  linter:
+    lintOnChangeInterval: 1000
   "linter-eslint": {}
   "linter-pug":
     onlyRunWhenConfig: true
   "linter-sass-lint":
     noConfigDisable: true
   "linter-ui-default":
-    panelHeight: 108
-    showPanel: true
+    panelHeight: 341.75
   "markdown-writer":
     fileExtension: ".md"
   minimap:

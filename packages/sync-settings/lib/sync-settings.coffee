@@ -50,7 +50,7 @@ SyncSettings =
     return gistId
 
   getPersonalAccessToken: ->
-    token = process.env.GITHUB_TOKEN or atom.config.get 'sync-settings.personalAccessToken'
+    token = atom.config.get('sync-settings.personalAccessToken') or process.env.GITHUB_TOKEN
     if token
       token = token.trim()
     return token
@@ -234,7 +234,7 @@ SyncSettings =
             if atom.config.get('sync-settings.syncPackages')
               callbackAsync = true
               @installMissingPackages JSON.parse(file.content), cb
-              if atom.config.get('sync-settings.removeObsoletePackage')
+              if atom.config.get('sync-settings.removeObsoletePackages')
                 @removeObsoletePackages JSON.parse(file.content), cb
 
           when 'keymap.cson'

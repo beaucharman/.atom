@@ -2,49 +2,129 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48777-l5vhki.8xf512a9k9/package.tgz",
+        "raw": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-11799-26144-1ybu0c0.7b54n53ik9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48777-l5vhki.8xf512a9k9/package.tgz",
-        "spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48777-l5vhki.8xf512a9k9/package.tgz",
+        "rawSpec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-11799-26144-1ybu0c0.7b54n53ik9/package.tgz",
+        "spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-11799-26144-1ybu0c0.7b54n53ik9/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/apm-install-dir-117615-48777-e368ef.7lqeiv0a4i"
+      "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/apm-install-dir-11799-26144-km0ze.1odqntgldi"
     ]
   ],
-  "_from": "../d-117615-48777-l5vhki.8xf512a9k9/package.tgz",
-  "_id": "todo-show@1.11.0",
+  "_from": "../d-11799-26144-1ybu0c0.7b54n53ik9/package.tgz",
+  "_id": "todo-show@2.1.0",
   "_inCache": true,
   "_location": "/todo-show",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48777-l5vhki.8xf512a9k9/package.tgz",
+    "raw": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-11799-26144-1ybu0c0.7b54n53ik9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48777-l5vhki.8xf512a9k9/package.tgz",
-    "spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48777-l5vhki.8xf512a9k9/package.tgz",
+    "rawSpec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-11799-26144-1ybu0c0.7b54n53ik9/package.tgz",
+    "spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-11799-26144-1ybu0c0.7b54n53ik9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117615-48777-l5vhki.8xf512a9k9/package.tgz",
-  "_shasum": "9ceb7b497401a7612c59ede2b768ffd218675bbd",
+  "_resolved": "file:../d-11799-26144-1ybu0c0.7b54n53ik9/package.tgz",
+  "_shasum": "098bb52dd7d284b8e7696df13c47709c5ba3c73d",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48777-l5vhki.8xf512a9k9/package.tgz",
-  "_where": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/apm-install-dir-117615-48777-e368ef.7lqeiv0a4i",
-  "activationCommands": {
-    "atom-workspace": [
-      "todo-show:find-in-workspace",
-      "todo-show:find-in-project",
-      "todo-show:find-in-open-files",
-      "todo-show:find-in-active-file"
-    ]
-  },
+  "_spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-11799-26144-1ybu0c0.7b54n53ik9/package.tgz",
+  "_where": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/apm-install-dir-11799-26144-km0ze.1odqntgldi",
   "bugs": {
     "url": "https://github.com/mrodalgaard/atom-todo-show/issues"
+  },
+  "configSchema": {
+    "autoRefresh": {
+      "type": "boolean",
+      "default": true
+    },
+    "findTheseTodos": {
+      "description": "An array of todo types used by the search regex.",
+      "type": "array",
+      "default": [
+        "TODO",
+        "FIXME",
+        "CHANGED",
+        "XXX",
+        "IDEA",
+        "HACK",
+        "NOTE",
+        "REVIEW",
+        "NB",
+        "BUG",
+        "QUESTION",
+        "COMBAK",
+        "TEMP"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "findUsingRegex": {
+      "description": "Regex string used to find all your todos. `${TODOS}` is replaced with `FindTheseTodos` from above.",
+      "type": "string",
+      "default": "/\\b(${TODOS})[:;.,]?\\d*($|\\s.*$|[\\{\\[\\(].+$)/g"
+    },
+    "ignoreThesePaths": {
+      "description": "Similar to `.gitignore` (remember to use `/` on Mac/Linux and `\\` on Windows for subdirectories).",
+      "type": "array",
+      "default": [
+        "node_modules",
+        "vendor",
+        "bower_components",
+        "*.pdf"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "showInTable": {
+      "description": "An array of properties to show for each todo in table.",
+      "type": "array",
+      "default": [
+        "Text",
+        "Type",
+        "Path"
+      ]
+    },
+    "sortBy": {
+      "type": "string",
+      "default": "Text",
+      "enum": [
+        "All",
+        "Text",
+        "Type",
+        "Range",
+        "Line",
+        "Regex",
+        "Path",
+        "File",
+        "Tags",
+        "Id",
+        "Project"
+      ]
+    },
+    "sortAscending": {
+      "type": "boolean",
+      "default": true
+    },
+    "saveOutputAs": {
+      "type": "string",
+      "default": "List",
+      "enum": [
+        "List",
+        "Table"
+      ]
+    },
+    "statusBarIndicator": {
+      "type": "boolean",
+      "default": false
+    }
   },
   "consumedServices": {
     "status-bar": {
@@ -55,28 +135,32 @@
   },
   "dependencies": {
     "atom-space-pen-views": "^2.0.3",
+    "event-kit": "^2.3.0",
     "fs-plus": "2.x",
     "sortablejs": "^1.4.2",
     "temp": "^0.8.3",
     "underscore-plus": "^1.6.6"
   },
   "description": "Finds all the TODOs, FIXMEs, CHANGEDs, etc. in your project.",
+  "deserializers": {
+    "todo-show/todo-view": "deserializeTodoView"
+  },
   "devDependencies": {},
   "engines": {
-    "atom": ">0.50.0"
+    "atom": ">1.17.0"
   },
   "homepage": "https://github.com/mrodalgaard/atom-todo-show#readme",
   "license": "MIT",
-  "main": "./lib/show-todo",
+  "main": "./lib/main",
   "name": "todo-show",
   "optionalDependencies": {},
-  "readme": "# Todo Show Package [![Build Status](https://travis-ci.org/mrodalgaard/atom-todo-show.svg)](https://travis-ci.org/mrodalgaard/atom-todo-show)\n\nFinds all TODO, FIXME, CHANGED, XXX, IDEA, HACK, NOTE, REVIEW, NB, BUG, QUESTION, COMBAK, TEMP comments in your project and shows them in a nice overview list.\n\nOpen todo list using command palette `Todo Show: Find In Workspace`, `Todo Show: Find In Project` or `Todo Show: Find In Open Files`. Keyboard shortcuts <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>T</kbd> on Mac OSX or <kbd>ALT</kbd> + <kbd>SHIFT</kbd> + <kbd>T</kbd> on Windows and Linux.\n\nInstall with `apm install todo-show` or use *Install Packages* from *Atom Settings*.\n\n![todo-show-package](https://raw.githubusercontent.com/mrodalgaard/atom-todo-show/master/screenshots/preview.png)\n\n## Search Scopes\n\nFour different scopes are available to narrow down your search for todos. Change scope using the button at the top of the todo tab or use the corresponding command.\n* __Workspace__: Searches all open projects.\n* __Project__: Searches active project (a project is marked as active when you open a file it contains).\n* __Open Files__: Searches currently open files.\n* __Active File__: Searches last active file only.\n\n## Configuration\n\nName                  | Default                                 | Description\n----------------------|-----------------------------------------|------------\n_findTheseTodos_      | `['FIXME', 'TODO', 'CHANGED', 'XXX', 'IDEA', 'HACK', 'NOTE', 'REVIEW', 'NB', 'BUG', 'QUESTION', 'COMBAK', 'TEMP']` | An array of todo types used by the search regex\n_findUsingRegex_      | See 'Regular Expression Search' section | Regex string used to find all your todos. `${TODOS}` is replaced with `FindTheseTodos` from above\n_ignoreThesePaths_    | `['node_modules', 'vendor', 'bower_components']` | An array of files / folders to exclude (syntax according to [scandal](https://github.com/atom/scandal) used internally by Atom). <br> ⚬ _globally_: `Ignored Names` from atom core settings. <br> ⚬ _locally_: Ignores anything in your `.gitignore` file, if the current project is a valid git repository and atom core setting `Exclude VCS Ignored Paths` is checked.\n_showInTable_         | `['Text', 'Type', 'Path']`              | An array of properties to show for each todo in table\n_sortBy_              | `'Text'`                                | Sort table by this todo property\n_sortAscending_       | `true`                                  | Sort table in ascending or descending order\n_openListInDirection_ | `'right'`                               | Defines where the todo list is shown when opened\n_rememberViewSize_    | `true`                                  | Remember the todo list width or split in the middle\n_saveOutputAs_        | `'List'`                                | Choose which format to use for saved markdown\n_statusBarIndicator_  | `false`                                 | Show todo count in status bar (this is only shown and updated when the 'Todo Show' tab is open)\n\n## Regular Expression Search\n\nThe regexes in `findTheseRegexes` are used for searching the workspace for todo matches. They are configurable to match the users specific needs.\n\nDefault regex string: `'/\\\\b(${TODOS})[:;.,]?\\\\d*($|\\\\s.*$|\\\\(.*$)/g'`\n* `\\b` start at word boundary\n* `${TODOS}` todo type match (is replaced with `findTheseTodos`)\n* `[:;.,]?` optional separator after type\n* `\\d*` optional digits for supporting [imdone](http://imdone.io/) sorting\n* `$` to end todos without additional text (newline)\n* Or `\\s.*$` to match the todo text with a non-optional space in front\n* Or an immediate parentheses, `\\(.*$`, to support [Google style guide IDs](https://google.github.io/styleguide/cppguide.html#TODO_Comments)\n* Because Atom config only accepts strings all `\\` characters are also escaped\n\nTodos can be tagged using hashtag (e.g. `TODO: do this #object #profile`), which is presented in the tags column.\n\nTo extend the default todo types and search regex, the existing config needs to be copied into your config.cson.\n\n## Credits\nOriginally created by [Jamis Charles](https://github.com/jamischarles)\n\nNow maintained by [Martin Rodalgaard](https://github.com/mrodalgaard)\n",
+  "readme": "# Todo Show Package [![Build Status](https://travis-ci.org/mrodalgaard/atom-todo-show.svg)](https://travis-ci.org/mrodalgaard/atom-todo-show)\n\nFinds all TODO, FIXME, CHANGED, XXX, IDEA, HACK, NOTE, REVIEW, NB, BUG, QUESTION, COMBAK, TEMP comments in your project and shows them in a nice overview list.\n\nAttention: This package searches for todos. For todo word highlighting see [language-todo](https://github.com/atom/language-todo).\n\nOpen todo list using command palette `Todo Show: Find In Workspace`, `Todo Show: Find In Project` or `Todo Show: Find In Open Files`. Keyboard shortcuts <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>T</kbd> on Mac OSX or <kbd>ALT</kbd> + <kbd>SHIFT</kbd> + <kbd>T</kbd> on Windows and Linux.\n\nInstall with `apm install todo-show` or use *Install Packages* from *Atom Settings*.\n\n![todo-show-package](https://raw.githubusercontent.com/mrodalgaard/atom-todo-show/master/screenshots/preview.png)\n\n## Search Scopes\n\nFive different scopes are available to narrow down your search for todos. Change scope using the button at the top of the todo view or use the corresponding command.\n* __Workspace__: Searches all open projects.\n* __Project__: Searches active project (a project is marked as active when you open a file it contains).\n* __Open Files__: Searches currently open files.\n* __Active File__: Searches last active file only.\n* __Custom__: Tree view has a context menu to search for todos in the selected folder or file.\n\n## Configuration\n\nName                  | Default                                 | Description\n----------------------|-----------------------------------------|------------\n_autoRefresh_         | `true`                                  | Automatic refresh of todo list after saving\n_findTheseTodos_      | `['FIXME', 'TODO', 'CHANGED', 'XXX', 'IDEA', 'HACK', 'NOTE', 'REVIEW', 'NB', 'BUG', 'QUESTION', 'COMBAK', 'TEMP']` | An array of todo types used by the search regex\n_findUsingRegex_      | See 'Regular Expression Search' section | Regex string used to find all your todos. `${TODOS}` is replaced with `FindTheseTodos` from above\n_ignoreThesePaths_    | `['node_modules', 'vendor', 'bower_components', '*.pdf']` | An array of files / folders to exclude (syntax according to [scandal](https://github.com/atom/scandal) used internally by Atom). <br> ⚬ _globally_: `Ignored Names` from atom core settings. <br> ⚬ _locally_: Ignores anything in your `.gitignore` file, if the current project is a valid git repository and atom core setting `Exclude VCS Ignored Paths` is checked.\n_showInTable_         | `['Text', 'Type', 'Path']`              | An array of properties to show for each todo in table\n_sortBy_              | `'Text'`                                | Sort table by this todo property\n_sortAscending_       | `true`                                  | Sort table in ascending or descending order\n_saveOutputAs_        | `'List'`                                | Choose which format to use for saved markdown\n_statusBarIndicator_  | `false`                                 | Show todo count in status bar (this is only shown and updated when the 'Todo Show' tab is open)\n\n## Regular Expression Search\n\nThe regexes in `findTheseRegexes` are used for searching the workspace for todo matches. They are configurable to match the users specific needs.\n\nDefault regex string: `'/\\\\b(${TODOS})[:;.,]?\\\\d*($|\\\\s.*$|\\\\(.*$)/g'`\n* `\\b` start at word boundary\n* `${TODOS}` todo type match (is replaced with `findTheseTodos`)\n* `[:;.,]?` optional separator after type\n* `\\d*` optional digits for supporting [imdone](http://imdone.io/) sorting\n* `$` to end todos without additional text (newline)\n* Or `\\s.*$` to match the todo text with a non-optional space in front\n* Or an immediate parentheses, `\\(.*$`, to support [Google style guide IDs](https://google.github.io/styleguide/cppguide.html#TODO_Comments)\n* Because Atom config only accepts strings all `\\` characters are also escaped\n\nTodos can be tagged using hashtag (e.g. `TODO: do this #object #profile`), which is presented in the tags column.\n\nTo extend the default todo types and search regex, the existing config needs to be copied into your config.cson.\n\n## Credits\nOriginally created by [Jamis Charles](https://github.com/jamischarles)\n\nNow maintained by [Martin Rodalgaard](https://github.com/mrodalgaard)\n",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mrodalgaard/atom-todo-show.git"
   },
-  "version": "1.11.0",
+  "version": "2.1.0",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -117,7 +201,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.24",
+        "version": "0.10.30",
         "path": "node_modules/es5-ext/index.js"
       },
       {
@@ -149,6 +233,11 @@
         "name": "es6-weak-map",
         "version": "0.1.4",
         "path": "node_modules/es6-weak-map/index.js"
+      },
+      {
+        "name": "event-kit",
+        "version": "2.4.0",
+        "path": "node_modules/event-kit/lib/event-kit.js"
       },
       {
         "name": "fs-plus",
@@ -232,12 +321,12 @@
       },
       {
         "name": "rimraf",
-        "version": "2.6.1",
+        "version": "2.6.2",
         "path": "node_modules/rimraf/rimraf.js"
       },
       {
         "name": "sortablejs",
-        "version": "1.6.0",
+        "version": "1.6.1",
         "path": "node_modules/sortablejs/Sortable.js"
       },
       {
@@ -272,19 +361,9 @@
       }
     ],
     "extensions": {
-      ".coffee": [
-        "lib/show-todo.coffee",
-        "lib/todo-collection.coffee",
-        "lib/todo-indicator-view.coffee",
-        "lib/todo-item-view.coffee",
-        "lib/todo-markdown.coffee",
-        "lib/todo-model.coffee",
-        "lib/todo-options-view.coffee",
-        "lib/todo-regex.coffee",
-        "lib/todo-table-view.coffee",
-        "lib/todo-view.coffee"
-      ],
       ".js": [
+        "lib/main.js",
+        "lib/todo-show.js",
         "node_modules/async/dist/async.js",
         "node_modules/async/dist/async.min.js",
         "node_modules/async/lib/async.js",
@@ -356,6 +435,7 @@
         "node_modules/es5-ext/array/#/indexes-of.js",
         "node_modules/es5-ext/array/#/intersection.js",
         "node_modules/es5-ext/array/#/is-copy.js",
+        "node_modules/es5-ext/array/#/is-empty.js",
         "node_modules/es5-ext/array/#/is-uniq.js",
         "node_modules/es5-ext/array/#/keys/implement.js",
         "node_modules/es5-ext/array/#/keys/index.js",
@@ -579,6 +659,8 @@
         "node_modules/es5-ext/object/copy.js",
         "node_modules/es5-ext/object/count.js",
         "node_modules/es5-ext/object/create.js",
+        "node_modules/es5-ext/object/ensure-array.js",
+        "node_modules/es5-ext/object/ensure-finite-number.js",
         "node_modules/es5-ext/object/ensure-natural-number-value.js",
         "node_modules/es5-ext/object/ensure-natural-number.js",
         "node_modules/es5-ext/object/ensure-promise.js",
@@ -597,6 +679,7 @@
         "node_modules/es5-ext/object/is-copy-deep.js",
         "node_modules/es5-ext/object/is-copy.js",
         "node_modules/es5-ext/object/is-empty.js",
+        "node_modules/es5-ext/object/is-finite-number.js",
         "node_modules/es5-ext/object/is-number-value.js",
         "node_modules/es5-ext/object/is-object.js",
         "node_modules/es5-ext/object/is-plain-object.js",
@@ -630,6 +713,7 @@
         "node_modules/es5-ext/object/validate-array-like.js",
         "node_modules/es5-ext/object/validate-stringifiable-value.js",
         "node_modules/es5-ext/object/validate-stringifiable.js",
+        "node_modules/es5-ext/optional-chaining.js",
         "node_modules/es5-ext/reg-exp/#/index.js",
         "node_modules/es5-ext/reg-exp/#/is-sticky.js",
         "node_modules/es5-ext/reg-exp/#/is-unicode.js",
@@ -712,6 +796,7 @@
         "node_modules/es5-ext/string/raw/index.js",
         "node_modules/es5-ext/string/raw/is-implemented.js",
         "node_modules/es5-ext/string/raw/shim.js",
+        "node_modules/es5-ext/to-short-string-representation.js",
         "node_modules/es6-iterator/#/chain.js",
         "node_modules/es6-iterator/array.js",
         "node_modules/es6-iterator/for-of.js",
@@ -734,6 +819,10 @@
         "node_modules/es6-weak-map/is-weak-map.js",
         "node_modules/es6-weak-map/polyfill.js",
         "node_modules/es6-weak-map/valid-weak-map.js",
+        "node_modules/event-kit/lib/composite-disposable.js",
+        "node_modules/event-kit/lib/disposable.js",
+        "node_modules/event-kit/lib/emitter.js",
+        "node_modules/event-kit/lib/event-kit.js",
         "node_modules/fs-plus/lib/fs-plus.js",
         "node_modules/fs.realpath/index.js",
         "node_modules/fs.realpath/old.js",
@@ -863,6 +952,17 @@
         "node_modules/underscore-plus/lib/underscore-plus.js",
         "node_modules/wrappy/wrappy.js"
       ],
+      ".coffee": [
+        "lib/todo-collection.coffee",
+        "lib/todo-indicator-view.coffee",
+        "lib/todo-item-view.coffee",
+        "lib/todo-markdown.coffee",
+        "lib/todo-model.coffee",
+        "lib/todo-options-view.coffee",
+        "lib/todo-regex.coffee",
+        "lib/todo-table-view.coffee",
+        "lib/todo-view.coffee"
+      ],
       ".json": [
         "node_modules/async/package.json",
         "node_modules/atom-space-pen-views/package.json",
@@ -878,6 +978,8 @@
         "node_modules/es6-iterator/package.json",
         "node_modules/es6-symbol/package.json",
         "node_modules/es6-weak-map/package.json",
+        "node_modules/event-kit/api.json",
+        "node_modules/event-kit/package.json",
         "node_modules/fs-plus/package.json",
         "node_modules/fs.realpath/package.json",
         "node_modules/fuzzaldrin/package.json",
@@ -917,6 +1019,7 @@
         ],
         "dependencies": {
           "atom-space-pen-views": "^2.0.3",
+          "event-kit": "^2.3.0",
           "fs-plus": "2.x",
           "sortablejs": "^1.4.2",
           "temp": "^0.8.3",
