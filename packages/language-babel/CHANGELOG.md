@@ -1,3 +1,23 @@
+### 2.76.4
+  - Fix flowtype parsing issues #438, #439, #440
+
+### 2.76.3
+  - Constant var regex not failing on lowercase chars; allow intervening $ chars. Issue #437
+
+### 2.76.2
+  - Fix some issues with flowtype declare statements. Issue #435
+  - Handle async arrow functions earlier to allow for multiline arguments. Issue #434
+
+### 2.76.1
+  - Fix lack of support with JSX fragment as outer wrapper!!
+
+### 2.76.0
+  - Add support for JSX fragments.
+
+### 2.75.2
+  - Allow Babel V7 to use .babelrc.js files. Thanks to Robert Rossmann for [PR](https://github.com/gandm/language-babel/pull/427)
+  - Fix duplicates appearing in auto-complete for JSX. [Issue 430](https://github.com/gandm/language-babel/issues/430)
+
 ### 2.75.1
   - Change styled.attrs parsing to allow for no template string.[Issue 424](https://github.com/gandm/language-babel/issues/424)
 
