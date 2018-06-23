@@ -9,6 +9,8 @@
       indent_size: 2
   "atom-package-deps":
     ignored: []
+  "autocomplete-paths":
+    projectRelativePath: false
   "autocomplete-plus": {}
   blame: {}
   core:
@@ -94,6 +96,9 @@
       defaultPanelHeight: "200px"
       theme: "one-dark"
     toggles: {}
+  "prettier-atom":
+    formatOnSaveOptions:
+      enabled: true
   react: {}
   tabs:
     usePreviewTabs: true
