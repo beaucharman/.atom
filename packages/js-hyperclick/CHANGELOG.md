@@ -1,5 +1,25 @@
 ## `master`
 
+## 1.15.x
+
+* Custom Resolvers. See [#105](https://github.com/AsaAyers/js-hyperclick/pull/105)
+
+## 1.14.x
+
+* Upgrade to Babel 7
+  * This brings React's fragment syntax
+* add new scope `source.flow`
+* Add debugging - run `localStorage.debug="js-hyperclick*"` in the console to turn it on
+
+## 1.13.x
+
+* Trying to js-hyperclick into the `atom` module will open the documentation
+* add new scope: `javascript`
+
+## 1.12.0
+
+* Add support for `import()`
+
 ## 1.10.0
 
 * New feature: Jump through intermediate links. See [#45](https://github.com/AsaAyers/js-hyperclick/issues/45)

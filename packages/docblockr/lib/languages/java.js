@@ -1,5 +1,5 @@
 var DocsParser = require('../docsparser');
-var xregexp = require('../xregexp').XRegExp;
+var xregexp = require('xregexp');
 var escape = require('../utils').escape;
 var util = require('util');
 
@@ -31,7 +31,7 @@ JavaParser.prototype.parse_function = function(line) {
         // Modifiers
         '(?:(public|protected|private|static|abstract|final|transient|synchronized|native|strictfp)\\s+)*' +
         // Return value
-        '(?P<retval>[a-zA-Z_$][\\<\\>\\., a-zA-Z_$0-9\\[\\]]+)\\s+' +
+        '(?:(?P<retval>[a-zA-Z_$][\\<\\>\\., a-zA-Z_$0-9\\[\\]]+)\\s+)?' +
         // Method name
         '(?P<name>' + this.settings.fnIdentifier + ')\\s*' +
         // Params
@@ -62,6 +62,15 @@ JavaParser.prototype.parse_function = function(line) {
     }
 
     return [name, args, retval, arg_throws];
+};
+
+JavaParser.prototype.get_arg_name = function(arg) {
+    if (typeof arg === 'string') {
+        arg = arg.trim();
+        var splited = arg.split(/\s/);
+        return splited[splited.length - 1];
+    }
+    return arg;
 };
 
 JavaParser.prototype.parse_var = function(line) {

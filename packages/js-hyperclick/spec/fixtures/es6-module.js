@@ -4,8 +4,13 @@ import type { Range } from "./types"
 
 import symlink from "./symlink"
 
+const importSymlink = import("./symlink")
+const requireSymlink = require("./symlink")
+
 // Manual testing should show this opens all-imports.js instead of symlink.js
 console.log(symlink)
+console.log(importSymlink)
+console.log(requireSymlink)
 
 const range: Range /* Range */ = {
   start: 1,
@@ -22,7 +27,7 @@ console.log({
   testConst /* log_testConst */,
 })
 
-function functionDeclaration /* functionDeclaration */(param1 /* param1 */) {
+function functionDeclaration(/* functionDeclaration */ param1 /* param1 */) {
   console.log({
     param1 /* log_param1 */,
     functionDeclaration /* log_functionDeclaration */,
@@ -36,7 +41,10 @@ function testDestructuring({
   dstrP1 /* dstrP1 */,
   dBar: [dstrP2 /* dstrP2 */],
 }) {
-  const { dstrC1 /* dstrC1 */, arr: [dstrC2 /* dstrC2 */] } = {}
+  const {
+    dstrC1 /* dstrC1 */,
+    arr: [dstrC2 /* dstrC2 */],
+  } = {}
 
   console.log({
     dstrP1 /* log_dstrP1 */,
@@ -68,5 +76,16 @@ if (/* if */ true) {
 
 export const exportConst /* exportConst */ = null
 export function exportFunction /* exportFunction */() {}
-export const { name1 /* name1 */, x: { name2 /* name2 */ } } = {}
+export const {
+  name1 /* name1 */,
+  x: { name2 /* name2 */ },
+} = {}
 export const [name3 /* name3 */, [name4 /* name4 */]] = {}
+
+function FragmentComponent() {
+  return (
+    <>
+      <span>Foo</span>
+    </>
+  )
+}

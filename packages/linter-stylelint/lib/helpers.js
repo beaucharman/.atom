@@ -1,12 +1,17 @@
 'use babel';
 
-import stylelint from 'stylelint';
+import path from 'path';
 import assignDeep from 'assign-deep';
 import { generateRange } from 'atom-linter';
 import presetConfig from 'stylelint-config-standard';
+import requireResolve from 'resolve';
 
 // Internal variables
 let packagePath;
+let lastModulesPath;
+let originalNodePath;
+const resolvedPathsCache = new Map();
+const stylelintLocalPath = require.resolve('stylelint');
 
 export function startMeasure(baseName) {
   const markName = `${baseName}-start`;
@@ -31,8 +36,8 @@ export function endMeasure(baseName) {
 }
 
 export function createRange(editor, data) {
-  if (!data ||
-    (!Object.hasOwnProperty.call(data, 'line') && !Object.hasOwnProperty.call(data, 'column'))
+  if (!data
+    || (!Object.hasOwnProperty.call(data, 'line') && !Object.hasOwnProperty.call(data, 'column'))
   ) {
     // data.line & data.column might be undefined for non-fatal invalid rules,
     // e.g.: "block-no-empty": "foo"
@@ -127,13 +132,94 @@ const parseResults = (editor, results, filePath, showIgnored) => {
   return toReturn;
 };
 
+function resolveAsync(request, options) {
+  return new Promise((resolve, reject) => {
+    requireResolve(request, options, (err, result) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(result);
+      }
+    });
+  });
+}
+
+export async function getStylelintPath(projectDir) {
+  if (resolvedPathsCache.has(projectDir)) {
+    return resolvedPathsCache.get(projectDir);
+  }
+  let stylelintPath;
+  try {
+    stylelintPath = await resolveAsync('stylelint', { basedir: projectDir });
+  } catch (e) {
+    stylelintPath = stylelintLocalPath;
+  }
+  resolvedPathsCache.set(projectDir, stylelintPath);
+  return stylelintPath;
+}
+
+export function refreshModulesPath(modulesDir) {
+  if (lastModulesPath !== modulesDir) {
+    lastModulesPath = modulesDir;
+    process.env.NODE_PATH = modulesDir || '';
+    // eslint-disable-next-line no-underscore-dangle
+    require('module').Module._initPaths();
+  }
+}
+
+function getProjectDir(filePath) {
+  const projectDir = atom.project.relativizePath(filePath)[0];
+  return projectDir !== null ? projectDir : path.dirname(filePath);
+}
+
+export async function getStylelintInstance(filePath) {
+  const stylelintPath = await getStylelintPath(getProjectDir(filePath));
+  // stylelintPath ends with 'node_modules/stylelint/lib/index.js' and we need
+  // just the 'node_modules' path
+  const modulesDir = path.dirname(path.dirname(path.dirname(stylelintPath)));
+  refreshModulesPath(modulesDir);
+  // eslint-disable-next-line import/no-dynamic-require
+  return require(stylelintPath);
+}
+
+export const applyFixedStyles = async (editor, results) => {
+  // eslint-disable-next-line no-underscore-dangle
+  const result = results._postcssResult;
+  const newText = result.root.toString(result.opts.syntax);
+  // Only set new text if it's changed
+  if (newText !== editor.getText()) {
+    // Save the cursor positions so that we can restore them after the `setText`,
+    // which consolodates all cursors together into one at the end of the file.
+    const bufferPositions = editor.getCursorBufferPositions();
+    editor.setText(newText);
+    bufferPositions.forEach((position, index) => {
+      // Buffer positions are returned in order they were created, so we
+      // want to restore them in order as well.
+      if (index === 0) {
+        // We'll have one cursor in the editor after the `setText`, so the first
+        // one can just be a move
+        editor.setCursorBufferPosition(position, { autoscroll: false });
+      } else {
+        // After that, we need to create new cursors
+        editor.addCursorAtBufferPosition(position);
+      }
+    });
+  }
+};
+
 export const runStylelint = async (editor, stylelintOptions, filePath, settings) => {
   startMeasure('linter-stylelint: Stylelint');
   let data;
+  // Store current NODE_PATH so it can be restored when linting completes.
+  originalNodePath = process.env.NODE_PATH;
+  const instance = await getStylelintInstance(filePath);
   try {
-    data = await stylelint.lint(stylelintOptions);
+    data = await instance.lint(stylelintOptions);
   } catch (error) {
     endMeasure('linter-stylelint: Stylelint');
+    // Restore original NODE_PATH
+    refreshModulesPath(originalNodePath);
+
     // Was it a code parsing error?
     if (error.line) {
       endMeasure('linter-stylelint: Lint');
@@ -158,6 +244,8 @@ export const runStylelint = async (editor, stylelintOptions, filePath, settings)
     return [];
   }
   endMeasure('linter-stylelint: Stylelint');
+  // Restore original NODE_PATH
+  refreshModulesPath(originalNodePath);
 
   const results = data.results.shift();
 
@@ -167,6 +255,11 @@ export const runStylelint = async (editor, stylelintOptions, filePath, settings)
     endMeasure('linter-stylelint: Lint');
     return null;
   }
+
+  if (stylelintOptions.fix) {
+    applyFixedStyles(editor, results);
+  }
+
   return parseResults(editor, results, filePath, settings.showIgnored);
 };
 

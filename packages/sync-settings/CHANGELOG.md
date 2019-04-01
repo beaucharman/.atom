@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.8.6 (2018-03-26)
+* Fix handling of property names with a dot. Closes [#358](https://github.com/atom-community/sync-settings/pull/424)
+* Ensure fetched files contain valid JSON before using them to restore config. Closes [#315, #362, #368, #384, #413, #416, #417](https://github.com/atom-community/sync-settings/pull/422)
+
+## v0.8.5 (2018-02-22)
+* Fix reading property 'substr' of undefined. Closes [#409](https://github.com/atom-community/sync-settings/pull/410)
+
+## v0.8.4 (2018-02-21)
+* Support Atom 1.25 and newer. Closes [#403](https://github.com/atom-community/sync-settings/pull/403) and [#405](https://github.com/atom-community/sync-settings/pull/405)
+* Redact parts of the personal access token from debug message. Closes [#395](https://github.com/atom-community/sync-settings/pull/395)
+* Fallback to GIST_ID environment variable. Closes [#367](https://github.com/atom-community/sync-settings/pull/407)
+
 ## v0.8.3 (2017-08-28)
 * Fix configu option to remove obsolete packages. Closes [#379](https://github.com/atom-community/sync-settings/pull/379)
 * Prioritize package settings over GITHUB_TOKEN env variable. Closes [#366](https://github.com/atom-community/sync-settings/pull/374)

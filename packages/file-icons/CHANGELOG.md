@@ -3,7 +3,274 @@ Change Log
 All notable changes to the project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-[Unpublished]: https://github.com/file-icons/atom/compare/v2.1.12...HEAD
+[Unpublished]: https://github.com/file-icons/atom/compare/v2.1.31...HEAD
+
+
+[v2.1.31] - 2019-03-16
+----------------------
+### Added
+- **New icons:** ElementaryOS, Gravit Designer (`.gvdesign`), Manjaro, OpenIndiana, QT (`.qml`, `.qbs`, `.qmlproject`), Xubuntu, ZorinOS
+- **Directory support:** Cabal (`.cabal`), CPAN (`.cpan`), Deno (`.deno`), Vagrant (`.vagrant.d`)
+- **File support:** Sass (`.sassrc`, `.sassrc.js`)
+
+[v2.1.31]: https://github.com/file-icons/atom/releases/tag/v2.1.31
+
+
+
+[v2.1.30] - 2019-02-19
+----------------------
+### Added
+- **New icons:** AmigaOS, Anime Studio/Moho (`.anme`, `.{anime,moho}{action,brush,export,proj,style}`), Chocolatey (`chocolatey{*}.ps1`), Deno, DOSBox, DragonflyBSD, Flutter (`.flutter-plugins`), FreeDOS, illumos, Keybase (`keybase.txt`), Meson (updated logo), Modelica (`.mo`), MS-DOS, OpenBSD, OpenSolaris, OpenVPN (`.ovpn`), OS/2, pkgsrc, ReactOS, Red (updated logo), SmartOS, TempleOS
+- **Support:** Cabal (`cabal.*`, `cabal-ghcjs.project`), Go (`go.mod`, `go.sum`), Hack (`.hack`, `.hhi`), Images (`.pbm`, `.pgm`, `.ppm`, `.pnm`), JavaScript (`.cjs`), Manpage (`.3p`, `.3perl`, `.3pm`), Microsoft Excel (`.xla`, `.xlam`, `.xltm`, `.xltx`), Package (`.packages`, `pubspec.{lock,yaml}`), Separated-value file (`.prn`), Vim (`.vmb`), VirtualBox (`.ova`, `.ovf`, `.vhd`, `.vhdx`, `.vbox_version`), z/VM Assembly (`.PLX`, `.PLXCOPY`)
+- New colour swatch for greyscale icons
+
+# Changed
+- `.vhd` files now use VirtualBox icon instead of VHDL
+- Mercurial icons now use greyscale swatches
+
+[v2.1.30]: https://github.com/file-icons/atom/releases/tag/v2.1.30
+
+
+
+[v2.1.29] - 2019-01-26
+----------------------
+- **New icons:** Gatsby (`gatsby-*.{js,ts}`), Imba (new branding), Microsoft Project (`.mpp`, `.mpt`), Tailwind (`tailwind.{js,ts,coffee}`, `tailwind.config.{js,ts,coffee}`)
+- **Support:** 3D model (`.fnc`), Binary/Assembly (`.cnc`, `.dnc`, `.gc`, `.knc`), Bitbucket (`bitbucket-pipelines.yml`), GraphQL (`.graphqls`)
+
+[v2.1.29]: https://github.com/file-icons/atom/releases/tag/v2.1.29
+
+
+[v2.1.28] - 2019-01-15
+----------------------
+- **New icons:** Asymptote (`.asy`), Gridsome (`gridsome.config.{js,ts}`), San (`.san`), Yandex (`.yaspellerrc.*`, `.yaspeller.json`), Zig (`.zig`)
+- **Support:** Mocha (`.mocharc.{js,json,yml}`), TeX (`.pgf`, `.tikz`), Vue (`vue.config.js`), Xcode (`.xccheckout`, `.xcscheme`, `.xcscmblueprint`, `.xcsettings`, `.xcuserstate`, `.xcworkspacedata`)
+
+[v2.1.28]: https://github.com/file-icons/atom/releases/tag/v2.1.28
+
+
+
+[v2.1.27] - 2018-12-17
+----------------------
+### Added
+- **New icons:** Caddy (new logo), Falcon (`.fal`, `.falcon`), Fountain (`.fountain`), Scilla (`.scilla`)
+- **Support:** Heroku (`.slugignore`)
+- Recognition of several `*ignore`-type files without leading dots (`dockerignore` instead of `.dockerignore`, etc)
+
+### Fixed
+- `linguist-language` attributes not affecting files on Windows
+- Signature matches missed unmarked HTML files with lengthy `<!DOCTYPE` headers
+
+[v2.1.27]: https://github.com/file-icons/atom/releases/tag/v2.1.27
+
+
+
+[v2.1.26] - 2018-10-25
+----------------------
+### Added
+- **New icons:** AnyScript, AsciiDoctor, Ballerina, Bazaar, CloudFoundry, Conan, Coveralls, Crowdin, CVS, DocPad, Ensime, Floobits, FOSSA, Fossil, FuseBox, Galen, Glide, Helix, HJSON, Husky, Ink, Istanbul, JSON, JSON5, kOS, LOLCODE, Microsoft Lync, Microsoft Outlook, Microsoft Publisher, Monotone, Netlify, NestJS, Nuxt, OpenVMS, Point cloud data, PhraseApp, Pre-commit, Prisma, Progress, Pyret, QlikView, RStudio, Quasar, Rubocop, SGI, Snort, Solidarity, Storybook, Stylable, TFS, TOML, TTCN-3, Unibeautify, Velocity, VSTS, Wallaby, Walt, WurstScript
+- **Support:** Affinity (`*.afphoto`, `*.afpub`), Bazel (`.bazelrc`, `bazel.rc`), Darcs (`.boringignore`), Generic code (`*.tera`), Microsoft Word (`*.wll`), HCP (`*.workflow`), MarkdownLint (`.markdownlint`, `.markdownlintrc.*`), PostgreSQL (`*.pgsql`)
+
+### Changed
+- AsciiDoc icon to use AsciiDoctor logo
+- OpenEdge ABL icon replaced with Progress logo
+
+[v2.1.26]: https://github.com/file-icons/atom/releases/tag/v2.1.26
+
+
+[v2.1.25] - 2018-09-21
+----------------------
+### Added
+- **Support:** Ansible (`*/roles/*/{defaults,vars,tests,meta}/*.yml`), Data (`.yasnippet`, `.yas`, `figmagic`), ESDoc (`esdoc.js`), INI (`.flc`), PostScript (`.gsf`), Readmes (`FAQ`, `*.faq`)
+
+### Changed
+- Increased minimum required Atom version to v1.25.0
+- Upgraded dependencies to [`atom-fs@0.1.6`][] and [`mapped-disposable@1.0.2`][]
+
+### Fixed
+- [[`#721`][]]: Exception thrown when registering symbolic links
+- [[`#754`][]]: Exception thrown from nulled service disposable
+
+[v2.1.25]: https://github.com/file-icons/atom/releases/tag/v2.1.25
+[`#721`]: https://github.com/file-icons/atom/issues/721
+[`#754`]: https://github.com/file-icons/atom/issues/754
+[`atom-fs@0.1.6`]: https://github.com/file-icons/Atom-FS/releases/tag/v0.1.6
+[`mapped-disposable@1.0.2`]: https://github.com/file-icons/MappedDisposable/releases/tag/v1.0.2
+
+
+
+[v2.1.24] - 2018-08-14
+----------------------
+### Fixed
+- [[`#753`][]]: Startup breakage for users running Atom 1.23.3
+
+[v2.1.24]: https://github.com/file-icons/atom/releases/tag/v2.1.24
+[`#753`]: https://github.com/file-icons/atom/issues/753#issuecomment-412749410
+
+
+
+[v2.1.23] - 2018-08-13
+----------------------
+### Added
+- **New icons:** Affinity Designer (`.afdesign`), Lektor (`.lr`, `.lektorproject`), Modula-3/Quake (`.i3`, `.ig`, `.m3`, `.mg`, `m3makefile`, `m3overrides`), PICO-8 (`.p8`), Serverless (`serverless.yml`)
+- **Support:** Ansible (`*/roles/*/{tasks,handlers}/*.yml`, `/{group,host}_vars/*.yml`), Junos (`*.slax`), Images (`.jpeg`, `.pxm`, `.pxb`, `.pxg`, `.pxls`, `.pxs`)
+- [[`#748`][]]: Significantly better support for [Webpack configs][], which no longer require `config` or `conf` to be part of the filename.
+
+[v2.1.23]: https://github.com/file-icons/atom/releases/tag/v2.1.23
+[Webpack configs]: https://webpack.js.org/guides/production/
+[`#748`]: https://github.com/file-icons/atom/issues/748
+
+
+
+[v2.1.22] - 2018-07-03
+----------------------
+### Added
+- **New icons:** FASTA (`.fasta`, `.fa`, `.fastq`, `.fq`, `.fna`, `.faa`, `.ffn`, `.sam`), MDX (`.mdx`)
+- **Support:** Bitmap font (`.flf`, `.tlf`), HTML (`*.isml`), Inkscape (`.inx`), KitchenCI (`.kitchen.*.yml`), Manpages (`troffrc`, `eqnrc`), MJML (`.mjmlslim`), Styled Components (`.sc.js`, `.sc.jsx`, `.sc.ts`, `.sc.tsx`)
+- [[`#39`][]]: Support for [Styled Components][]
+- Signature-support for version 1 PS Screen Fonts
+- Troubleshooting docs to explain [`#739`][].
+
+### Changed
+- `.inx` extension now associated with Inkscape, not InDesign
+
+[v2.1.22]: https://github.com/file-icons/atom/releases/tag/v2.1.22
+[Styled Components]: https://github.com/styled-components
+[`#39`]:  https://github.com/file-icons/source/issues/39
+[`#739`]: https://github.com/file-icons/atom/issues/739
+
+
+
+[v2.1.21] - 2018-05-18
+----------------------
+### Added
+- **Support** C (`.xbm`, `.xpm`), Configs (`fontforge/hotkeys/*`), JavaScript (`.htc`, `.jscript`, `.jse`, `.jslib`, `.jspre`, `.pac`, `.pjs`, `.snap`), Maps (`.cidmap`)
+- [[`#734`][]]: Test-icons to test-files that end with `.test` or `.spec` before the file extension. Previously, this effect was limited to `.test.js` files located inside a `specs` or `tests` directory.
+
+### Fixed
+- [[`#661`][]]: Serialised storage state growing without bound
+
+[v2.1.21]: https://github.com/file-icons/atom/releases/tag/v2.1.21
+[`#661`]: https://github.com/file-icons/atom/issues/661
+[`#734`]: https://github.com/file-icons/atom/issues/734
+
+
+
+[v2.1.20] - 2018-05-09
+----------------------
+### Added
+- **New icons:** Caffe2 (`.caffe2model`, `{init,predict}_net.pb`, `{deploy,solver,train_val}.prototxt`), Dia (`.dia`), Go (rebranded), HoundCI (`.hound.yml`), NDepend (`.ndproj`, `.nproj`), Neo4J (`.cyp`, `.cypher`), PROS (`project.pros`), PullApprove (`.pullapprove.yml`), TLA+ (`.tla`), WDL (`.wdl`), WiX (`.wixproj`, `.wixobj`, `.wxs`, `.wxi`, `.wxl`)
+- **Support:** Data (`.prototxt`, `.pbtxt`), Debian (`.control`, `.dsc`) Electron (`.compilerc`, `.compilerc.json`), Firebase (`firestore.rules`), Readmes (`.changes`), RPM (`.rpmmacros`), Rust (`rust-toolchain`), Tests (`.test`, `.test.js`), VSCode (`.vcxproj.filters`), XML (`.admx`, `.cscfg`, `.natvis`, `.proj`, `.rdg`)
+
+### Changed
+- [[`#728`][]]: Replaced Go's gopher with [newly branded logo][gologo].
+
+[v2.1.20]: https://github.com/file-icons/atom/releases/tag/v2.1.20
+[gologo]: https://blog.golang.org/go-brand
+[`#728`]: https://github.com/file-icons/atom/issues/728
+
+
+
+[v2.1.19] - 2018-04-25
+----------------------
+### Added
+- **New icons:** Bitmap font (`.bdf`, `.fnt`, `.fon`, `.pcf`, `.psf`, `.psftx`, `.snf`), Vector font (replaces existing font-icon), V8 Turbofan
+- **Support:** JavaScript (`.es5`, `.es7`), Mocha (`mocha.min.js`), Normalize (`normalize.min.css`), PowerShell (`pwsh` executables), Prettier (`.prettierignore`), Snakefile (`.smk`)
+
+[v2.1.19]: https://github.com/file-icons/atom/releases/tag/v2.1.19
+
+
+[v2.1.18] - 2018-03-22
+----------------------
+### Added
+- **New icons:** Tipe (`.tipe`), Workbox (`workbox-config.js`)
+- **Support:** App Store (`.app` folders), Archive (`.sit`), Atom (`.atomproject.{json, cson}`), Binary (`.rnd`), Config (`mimeapps.list`, `terminalrc`), Data (`fstab`, `magic.mgc`, `.irb-history`, `.lesshst`, `.wget-hsts`), Download (`.crdownload`), Dylibs (`.appex` and `.ideplugin` folders), Finder (`.DS_Store`, `._*`), GNOME (`.gtkrc`), Lisp (`.sbclrc`), Octave (`.octave_hist`, `.octaverc`), R (`.Rhistory`), Swagger (`swagger.yaml`, `swagger.yml`), Tcl (`.tkcvs`, `.tkdiffrc`), V8 (`.v8flags*`), Vim (`.viminfo`), X11 (`.xinput`)
+
+### Fixed
+- [[`#716`][]]: Exception thrown from null filesystem reference
+
+[v2.1.18]: https://github.com/file-icons/atom/releases/tag/v2.1.18
+[`#716`]: https://github.com/file-icons/atom/issues/716
+
+
+
+[v2.1.17] - 2018-02-23
+----------------------
+### Added
+- **New icons:** Avro (`.avcs`, `.avdl`, `.avcs`), Brotli (updated), CoNLL (`.conll`, `.conllu`), glTF (`.gltf`), Nextflow (`.nf`, `nextflow.config`), Spacemacs (`.spacemacs`)
+- **Support:** Android (`.webarchivexml`), Archive file (`.maff`), Babel (`.babelrc.js`), Firefox OS (`.webapp`), HTML (`.mht`, `.mhtml`), Karma (`karma.conf.ts`), Ruby (`Appfile`), Safari Webarchives (`.webarchive`), Scala (`.kojo`), SSH-related (`.ssh/*`), TypoScript (`.typoscript`, `.tsconfig`)
+
+### Fixed
+- Broken auto-compilation when updating `config.cson`
+- [[`#698`][]]: Sporadic breakage on Linux
+- [[`#704`][]]: Icons changing incorrectly when opening certain filetypes (see below).
+
+### Removed <sub><br>(for [Atom 1.24.0][] and [Atom 1.25.0-beta0][] users only)</sub>
+Disabled support for updating icons when changing a file's grammar.
+A [regression][atom#16747] introduced in Atom 1.24.0 broke the feature and caused it to [change certain icons][`#704`] uncontrollably.
+Other versions of Atom are affected — installing the next release will restore the broken feature automatically.
+**If you disabled the grammar-strategy as a workaround for this issue, you can now re-enable it.**
+
+[v2.1.17]:           https://github.com/file-icons/atom/releases/tag/v2.1.17
+[atom#16747]:        https://github.com/atom/atom/issues/16747
+[Atom 1.24.0]:       https://github.com/atom/atom/releases/tag/v1.24.0
+[Atom 1.25.0-beta0]: https://github.com/atom/atom/releases/tag/v1.25.0-beta0
+[`#698`]:            https://github.com/file-icons/atom/issues/698
+[`#704`]:            https://github.com/file-icons/atom/issues/704#issuecomment-366134001
+
+
+
+[v2.1.16] - 2018-01-19
+----------------------
+### Fixed
+- [[`#490`][]]: Background resource deletion not updating icon cache
+- Subtle path-handling errors in Nuclide (see [`Atom-FS#1`](https://github.com/Alhadis/Atom-FS/pull/1))
+
+[v2.1.16]: https://github.com/file-icons/atom/releases/tag/v2.1.16
+[`#490`]: https://github.com/file-icons/atom/issues/490
+
+
+[v2.1.15] - 2017-12-15
+----------------------
+### Added
+- **New icons:** Robots (`robots.txt`)
+- **Support:** AppVeyor (`.appveyor.yml`), Bundler (`.gemfile`), Data (`.hson`)
+
+### Fixed
+- [[`#685`][]]: Error thrown when displaying MRU list with a blank tab open
+
+[v2.1.15]: https://github.com/file-icons/atom/releases/tag/v2.1.15
+[`#685`]: https://github.com/file-icons/atom/issues/685
+
+
+
+[v2.1.14] - 2017-11-20
+----------------------
+### Added
+- **New icons:** Browsersync (`bs-config.js`, `browser-sync.js`), Caffe (`.caffemodel`, `.solverstate`), CWL (`.cwl`), Imba (`.imba`), Prettier (`.prettierrc.{js,json,yaml,yml}`), Reek (`.reek`), YAML (`.yml`, `.yaml`), YARA (`.yar`, `.yara`)
+- **Support:** 3D Asset (`.rviz`, `.vcg`), Bazel (`BUILD.bazel`), Checklist (`.todo`, `.taskpaper`), Dashboard (`.cloc`), Data (`.webmanifest`), Doxygen (`.Doxygen`)
+
+### Fixed
+- [[`#657`][]]: Strange clipping of circular icons on High Sierra
+
+[v2.1.14]: https://github.com/file-icons/atom/releases/tag/v2.1.14
+[`#657`]: https://github.com/file-icons/atom/issues/657
+
+
+
+[v2.1.13] - 2017-10-11
+----------------------
+### Added
+- **New icons:** Backup (`.bak`, `.old`, `.orig`), IcoMoon (`icomoon{.*}.json`), Q/Kdb+ (`.k`, `.q`)
+- **Support:** Heroku (`Aptfile`), Ionic (`ionic.config.json`)
+
+### Fixed
+- `tree-view` icons not updating if project is opened by adding a folder to a blank workspace window.
+
+### Changed
+- `file-icons-coloured` class added to `body` element when coloured icons are enabled
+
+[v2.1.13]: https://github.com/file-icons/atom/releases/tag/v2.1.13
+
 
 
 [v2.1.12] - 2017-09-19

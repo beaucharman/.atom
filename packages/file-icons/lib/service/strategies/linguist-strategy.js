@@ -1,10 +1,7 @@
 "use strict";
 
 const path = require("path");
-const Micromatch = require("micromatch");
-const {CompositeDisposable, Disposable} = require("atom");
-const {MappedDisposable, PatternMap, PatternSet} = require("alhadis.utils");
-const {FileSystem} = require("atom-fs");
+const {Disposable} = require("atom");
 const IconTables = require("../../icons/icon-tables.js");
 const Strategy = require("../strategy.js");
 
@@ -30,7 +27,7 @@ class LinguistStrategy extends Strategy {
 	enable(){
 		if(!this.enabled){
 			this.hasRules      = false;
-			this.rules         = new PatternMap();
+			this.rules         = new Map();
 			this.sources       = new Map();
 			this.languageIcons = new Map();
 		}
@@ -71,14 +68,14 @@ class LinguistStrategy extends Strategy {
 		const isNew = super.registerResource(file);
 		
 		if(isNew && !file.unreadable && /^\.gitattributes$/.test(file.name)){
-			this.sources.set(file, new PatternMap());
+			this.sources.set(file, new Map());
 			
 			const disposables = this.resourceEvents.get(file);
 			disposables.add(
-				new Disposable(_=> file.unwatchSystem()),
-				file.onDidMove(_=> this.updateSource(file)),
-				file.onDidChangeData(_=> this.updateSource(file)),
-				file.onDidChangeOnDisk(_=> {
+				new Disposable(() => file.unwatchSystem()),
+				file.onDidMove(() => this.updateSource(file)),
+				file.onDidChangeData(() => this.updateSource(file)),
+				file.onDidChangeOnDisk(() => {
 					try{ file.loadData(true); }
 					catch(e){ disposables.dispose(); }
 				})
@@ -95,8 +92,8 @@ class LinguistStrategy extends Strategy {
 	
 	updateSource(file){
 		const sourceRules = this.sources.get(file);
-		const parsedRules = new PatternMap(this.parseSource(file.data, file.path));
-		const updatePaths = new PatternSet();
+		const parsedRules = new Map(this.parseSource(file.data, file.path));
+		const updatePaths = new Set();
 		
 		// Deleted rules
 		for(const [pattern] of sourceRules)
@@ -152,10 +149,22 @@ class LinguistStrategy extends Strategy {
 				// Only acknowledge languages with icons
 				if(!languageIcon)
 					return null;
+
+				// Lazily require the micromatch dependency due to its weight.
+				const Micromatch = require("micromatch");
 				
 				pattern = path.dirname(filePath) + "/" + (/^\//.test(pattern) ? "" : "**") + "/" + pattern;
 				pattern = path.resolve(pattern);
-				pattern = Micromatch.makeRe(pattern, {nonegate: true, dot: true});
+				
+				// Normalise path separators on Windows
+				if("win32" === process.platform)
+					pattern = pattern.replace(/\\/g, "/");
+				
+				pattern = Micromatch.makeRe(pattern, {
+					unixify: false,
+					nonegate: true,
+					dot: true,
+				});
 				return pattern
 					? [pattern, languageIcon]
 					: null;

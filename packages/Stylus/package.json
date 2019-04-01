@@ -1,49 +1,35 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48775-uka6b1.2abnj98uxr/package.tgz",
-        "scope": null,
-        "escapedName": null,
-        "name": null,
-        "rawSpec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48775-uka6b1.2abnj98uxr/package.tgz",
-        "spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48775-uka6b1.2abnj98uxr/package.tgz",
-        "type": "local"
-      },
-      "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/apm-install-dir-117615-48775-1s4o3a8.12x6hqto6r"
-    ]
-  ],
-  "_from": "../d-117615-48775-uka6b1.2abnj98uxr/package.tgz",
-  "_id": "Stylus@3.1.1",
-  "_inCache": true,
+  "_from": "https://www.atom.io/api/packages/stylus/versions/3.2.0/tarball",
+  "_id": "Stylus@3.2.0",
+  "_inBundle": false,
+  "_integrity": "sha512-QIV1FscDnPApXDUQnxBE/KQddPFDzf0F/Ewm2qRhcakDkddcnoIDlK2dc6zyhQ1DQNPElOxLcxDF4zwKUf88Rw==",
   "_location": "/Stylus",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48775-uka6b1.2abnj98uxr/package.tgz",
-    "scope": null,
-    "escapedName": null,
-    "name": null,
-    "rawSpec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48775-uka6b1.2abnj98uxr/package.tgz",
-    "spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48775-uka6b1.2abnj98uxr/package.tgz",
-    "type": "local"
+    "type": "remote",
+    "raw": "https://www.atom.io/api/packages/stylus/versions/3.2.0/tarball",
+    "rawSpec": "https://www.atom.io/api/packages/stylus/versions/3.2.0/tarball",
+    "saveSpec": "https://www.atom.io/api/packages/stylus/versions/3.2.0/tarball",
+    "fetchSpec": "https://www.atom.io/api/packages/stylus/versions/3.2.0/tarball"
   },
   "_requiredBy": [
-    "#USER"
+    "#USER",
+    "/"
   ],
-  "_resolved": "file:../d-117615-48775-uka6b1.2abnj98uxr/package.tgz",
-  "_shasum": "08580adb70f9c6a66fd57da49551dec030494d67",
-  "_shrinkwrap": null,
-  "_spec": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/d-117615-48775-uka6b1.2abnj98uxr/package.tgz",
-  "_where": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/apm-install-dir-117615-48775-1s4o3a8.12x6hqto6r",
+  "_resolved": "https://www.atom.io/api/packages/stylus/versions/3.2.0/tarball",
+  "_shasum": "c9952186040c2e1d5ca674e30ccb16ae6d8cb2c8",
+  "_spec": "https://www.atom.io/api/packages/stylus/versions/3.2.0/tarball",
+  "_where": "/private/var/folders/3q/5kdypz513_1fkz22lh5wrzm40000gn/T/apm-install-dir-11931-28880-t0tdqt.ux0r",
   "author": {
     "name": "Matthew Harrison-Jones"
   },
   "bugs": {
     "url": "https://github.com/matthojo/language-stylus/issues"
   },
+  "bundleDependencies": false,
   "dependencies": {},
+  "deprecated": false,
   "description": "Adds syntax highlighting and snippets to Stylus files in Atom.",
-  "devDependencies": {},
   "engines": {
     "atom": ">0.50.0"
   },
@@ -55,22 +41,9 @@
   ],
   "license": "MIT",
   "name": "Stylus",
-  "optionalDependencies": {},
-  "readme": "# Stylus language support in Atom (with extra snippets)\n\nAdds syntax highlighting and snippets to Stylus files in Atom.\n\nOriginally [converted](http://atom.io/docs/latest/converting-a-text-mate-bundle) from the [Stylus TextMate bundle](https://github.com/vgrichina/Stylus.tmbundle) and [Stylus Plus bundle](https://github.com/jackbrewer/stylus-plus.tmbundle).\n\nMassive hat-tip to https://github.com/billymoon/Stylus for a lot of the regex values.\n\nContributions are greatly appreciated. Please fork this repository and open a pull request to add snippets, make grammar tweaks, etc.\n",
-  "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/matthojo/language-stylus.git"
   },
-  "version": "3.1.1",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [],
-    "extensions": {
-      ".json": [
-        "package.json"
-      ]
-    },
-    "folders": []
-  }
+  "version": "3.2.0"
 }

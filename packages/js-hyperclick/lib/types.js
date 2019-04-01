@@ -67,11 +67,13 @@ type BabelScope = {|
 |}
 
 type ParseError = {|
+  type: "parse-error",
   parseError: Error,
 |}
 export type Info =
   | ParseError
   | {
+      type: "info",
       parseError?: typeof undefined,
       exports: {
         [string]: Range,

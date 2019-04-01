@@ -10,7 +10,7 @@ b {}  /* ↑ */
  * This line */
 ```
 
-If the rule is the very first node in a stylesheet then it is ignored.
+This rule ignores rules that are the very first node in a source.
 
 The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule. We recommend to enable [`indentation`](../indentation/README.md) rule for better autofixing results with this rule.
 
@@ -120,7 +120,7 @@ b {
 
 ## Optional secondary options
 
-### `except: ["after-rule", "after-single-line-comment", "inside-block-and-after-rule", "first-nested"]`
+### `except: ["after-rule", "after-single-line-comment", "inside-block-and-after-rule", "inside-block", "first-nested"]`
 
 #### `"after-rule"`
 
@@ -190,6 +190,36 @@ The following patterns are *not* considered violations:
 }
 ```
 
+#### `"inside-block"`
+
+Reverse the primary option if the rule is inside a block.
+
+For example, with `"always"`:
+
+The following patterns are considered violations:
+
+```scss
+a {
+  color: red;
+
+  b {
+    color: blue;
+  }
+}
+
+```
+
+The following patterns are *not* considered violations:
+
+```scss
+a {
+  color: red;
+  b {
+    color: blue;
+  }
+}
+```
+
 #### `"first-nested"`
 
 Reverse the primary option if the rule is the first in a block.
@@ -217,7 +247,7 @@ The following patterns are *not* considered violations:
 }
 ```
 
-### `ignore: ["after-comment", "inside-block"]`
+### `ignore: ["after-comment", "first-nested", "inside-block"]`
 
 #### `"after-comment"`
 
@@ -230,6 +260,22 @@ The following patterns are *not* considered violations:
 ```css
 /* comment */
 a {}
+```
+
+#### `"first-nested"`
+
+Ignore rules that are nested and the first child of their parent node.
+
+For example, with `"always"`:
+
+The following patterns are *not* considered violations:
+
+```css
+@media {
+  a {}
+
+  b {}
+}
 ```
 
 #### `"inside-block"`

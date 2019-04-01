@@ -13,15 +13,12 @@ describe('ToggleQuotes', () => {
 
     beforeEach(() => {
       waitsForPromise(() => {
-        return atom.packages.activatePackage('language-javascript')
-      })
-
-      waitsForPromise(() => {
-        return atom.packages.activatePackage('language-json')
-      })
-
-      waitsForPromise(() => {
-        return atom.workspace.open()
+        return Promise.all([
+          atom.packages.activatePackage('language-javascript'),
+          atom.packages.activatePackage('language-json'),
+          atom.packages.activatePackage('language-python'),
+          atom.workspace.open()
+        ])
       })
 
       runs(() => {
@@ -31,7 +28,9 @@ describe('ToggleQuotes', () => {
           console.log('Hello World')
           console.log("Hello 'World'")
           console.log('Hello "World"')
-          console.log('')`
+          console.log('')
+          console.log("boom")
+          console.log(\`backticks\`)`
         )
         editor.setGrammar(atom.grammars.selectGrammar('test.js'))
       })
@@ -63,6 +62,17 @@ describe('ToggleQuotes', () => {
       })
     })
 
+    describe('when the cursor is barely inside a double quoted string', () => {
+      describe('when using default config', () => {
+        it('switches the double quotes to single quotes', () => {
+          editor.setCursorBufferPosition([5, 13])
+          toggleQuotes(editor)
+          expect(editor.lineTextForBufferRow(5)).toBe(`console.log('boom')`)
+          expect(editor.getCursorBufferPosition()).toEqual([5, 13])
+        })
+      })
+    })
+
     describe('when using custom config of backticks', () => {
       it('switches the double quotes to backticks', () => {
         atom.config.set('toggle-quotes.quoteCharacters', '\'"`')
@@ -70,6 +80,35 @@ describe('ToggleQuotes', () => {
         toggleQuotes(editor)
         expect(editor.lineTextForBufferRow(0)).toBe('console.log(`Hello World`)')
         expect(editor.getCursorBufferPosition()).toEqual([0, 16])
+      })
+
+      it('switches backticks to single quotes', () => {
+        atom.config.set('toggle-quotes.quoteCharacters', '\'"`')
+        editor.setCursorBufferPosition([6, 18])
+        toggleQuotes(editor)
+        expect(editor.lineTextForBufferRow(6)).toBe('console.log(\'backticks\')')
+        expect(editor.getCursorBufferPosition()).toEqual([6, 18])
+      })
+    })
+
+    describe('when using a scope-specific config override', () => {
+      it('prefers the scope-specific setting', () => {
+        atom.config.set('toggle-quotes.quoteCharacters', '\'"~', { scopeSelector: '.source.js' })
+        editor.setCursorBufferPosition([0, 16])
+        toggleQuotes(editor)
+        expect(editor.lineTextForBufferRow(0)).toBe('console.log(~Hello World~)')
+        expect(editor.getCursorBufferPosition()).toEqual([0, 16])
+        atom.config.unset('toggle-quotes.quoteCharacters', { scope: '.source.js' })
+      })
+
+      it('does not bleed into the wrong scope', () => {
+        atom.config.set('toggle-quotes.quoteCharacters', '\'"~', { scopeSelector: '.source.js' })
+        editor.setGrammar(atom.grammars.selectGrammar('test.py'))
+        editor.setCursorBufferPosition([0, 16])
+        toggleQuotes(editor)
+        expect(editor.lineTextForBufferRow(0)).toBe('console.log(\'Hello World\')')
+        expect(editor.getCursorBufferPosition()).toEqual([0, 16])
+        atom.config.unset('toggle-quotes.quoteCharacters', { scope: '.source.js' })
       })
     })
 

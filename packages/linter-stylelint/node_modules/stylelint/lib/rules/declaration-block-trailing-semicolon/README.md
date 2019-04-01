@@ -10,7 +10,13 @@ a { background: orange; color: pink; }
 
 The trailing semicolon is the *last* semicolon in a declaration block and it is optional.
 
-This rule will ignore Less mixins, trailing `//` comments, and declaration blocks containing nested (at-)rules.
+This rule ignores:
+
+-   Less mixins
+-   trailing `//` comments
+-   declaration blocks containing nested (at-)rules
+
+The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
 
 ## Options
 

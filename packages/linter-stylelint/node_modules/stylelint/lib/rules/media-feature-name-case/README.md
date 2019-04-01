@@ -8,7 +8,9 @@ Specify lowercase or uppercase for media feature names.
  * These media feature names */
 ```
 
-**Caveat:** Media feature names within a range context are currently ignored.
+This rule ignores media feature names within a range context.
+
+The `--fix` option on the [command line](../../../docs/user-guide/cli.md#autofixing-errors) can automatically fix all of the problems reported by this rule.
 
 ## Options
 

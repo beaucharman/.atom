@@ -1,15 +1,5 @@
 // @flow
-
 const path = require('path');
-
-const {
-  getCssScopes,
-  getTypescriptScopes,
-  getJsonScopes,
-  getGraphQlScopes,
-  getMarkdownScopes,
-  getVueScopes,
-} = require('../atomInterface');
 
 let flow;
 const lazyFlow = () => {
@@ -19,47 +9,36 @@ const lazyFlow = () => {
   return flow;
 };
 
-const EMBEDDED_SCOPES = ['text.html.basic'];
+const STYLELINT_SCOPES = [
+  'source.css',
+  'source.less',
+  'source.css.less',
+  'source.scss',
+  'source.css.scss',
+  'source.css.postcss',
+];
 
 const getBufferRange = (editor: TextEditor) => editor.getBuffer().getRange();
 
 const getCurrentScope = (editor: TextEditor) => editor.getGrammar().scopeName;
 
-const isCurrentScopeEmbeddedScope = (editor: TextEditor) => EMBEDDED_SCOPES.includes(getCurrentScope(editor));
+const isCurrentScopeStyleLintScope = (editor: TextEditor) =>
+  STYLELINT_SCOPES.includes(getCurrentScope(editor));
 
-const isCurrentScopeCssScope = (editor: TextEditor) => getCssScopes().includes(getCurrentScope(editor));
-
-const isCurrentScopeTypescriptScope = (editor: TextEditor) =>
-  getTypescriptScopes().includes(getCurrentScope(editor));
-
-const isCurrentScopeJsonScope = (editor: TextEditor) => getJsonScopes().includes(getCurrentScope(editor));
-
-const isCurrentScopeGraphQlScope = (editor: TextEditor) =>
-  getGraphQlScopes().includes(getCurrentScope(editor));
-
-const isCurrentScopeMarkdownScope = (editor: TextEditor) =>
-  getMarkdownScopes().includes(getCurrentScope(editor));
-
-const isCurrentScopeVueScope = (editor: TextEditor) => getVueScopes().includes(getCurrentScope(editor));
-
-const getCurrentFilePath: (editor: TextEditor) => ?FilePath = editor =>
+const getCurrentFilePath = (editor: TextEditor): ?FilePath =>
   editor.buffer.file ? editor.buffer.file.getPath() : undefined;
 
+const isCurrentFilePathDefined = (editor: ?TextEditor) => editor && !!getCurrentFilePath(editor);
+
 const getCurrentDir: (editor: TextEditor) => ?string = editor =>
-  lazyFlow()(
-    getCurrentFilePath,
-    (maybeFilePath: ?string) => (typeof maybeFilePath === 'string' ? path.dirname(maybeFilePath) : undefined),
+  lazyFlow()(getCurrentFilePath, (maybeFilePath: ?string) =>
+    typeof maybeFilePath === 'string' ? path.dirname(maybeFilePath) : undefined,
   )(editor);
 
 module.exports = {
   getBufferRange,
-  isCurrentScopeEmbeddedScope,
-  isCurrentScopeCssScope,
-  isCurrentScopeTypescriptScope,
-  isCurrentScopeJsonScope,
-  isCurrentScopeGraphQlScope,
-  isCurrentScopeMarkdownScope,
-  isCurrentScopeVueScope,
+  isCurrentFilePathDefined,
+  isCurrentScopeStyleLintScope,
   getCurrentScope,
   getCurrentFilePath,
   getCurrentDir,

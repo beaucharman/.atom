@@ -44,7 +44,7 @@ SyncSettings =
   serialize: ->
 
   getGistId: ->
-    gistId = atom.config.get 'sync-settings.gistId'
+    gistId = atom.config.get('sync-settings.gistId') or process.env.GIST_ID
     if gistId
       gistId = gistId.trim()
     return gistId
@@ -152,7 +152,7 @@ SyncSettings =
       path = require('path')
       files[path.basename(initPath)] = content: (@fileContent initPath) ? "# initialization file (not found)"
     if atom.config.get('sync-settings.syncSnippets')
-      files["snippets.cson"] = content: (@fileContent atom.config.configDirPath + "/snippets.cson") ? "# snippets file (not found)"
+      files["snippets.cson"] = content: (@fileContent atom.getConfigDirPath() + "/snippets.cson") ? "# snippets file (not found)"
 
     for file in atom.config.get('sync-settings.extraFiles') ? []
       ext = file.slice(file.lastIndexOf(".")).toLowerCase()
@@ -162,7 +162,7 @@ SyncSettings =
       cmtend = ""
       cmtend = "*/" if ext in [".css"]
       files[file] =
-        content: (@fileContent atom.config.configDirPath + "/#{file}") ? "#{cmtstart} #{file} (not found) #{cmtend}"
+        content: (@fileContent atom.getConfigDirPath() + "/#{file}") ? "#{cmtstart} #{file} (not found) #{cmtend}"
 
     @createClient().gists.edit
       id: @getGistId()
@@ -223,6 +223,16 @@ SyncSettings =
         atom.notifications.addError "sync-settings: Error retrieving your settings. ("+message+")"
         return
 
+      # check if the JSON files are parsable
+      for own filename, file of res.files
+        if filename is 'settings.json' or filename is 'packages.json'
+          try
+            JSON.parse(file.content)
+          catch e
+            atom.notifications.addError "sync-settings: Error parsing the fetched JSON file '"+filename+"'. ("+e+")"
+            cb?()
+            return
+
       callbackAsync = false
 
       for own filename, file of res.files
@@ -244,15 +254,15 @@ SyncSettings =
             fs.writeFileSync atom.styles.getUserStyleSheetPath(), file.content if atom.config.get('sync-settings.syncStyles')
 
           when 'init.coffee'
-            fs.writeFileSync atom.config.configDirPath + "/init.coffee", file.content if atom.config.get('sync-settings.syncInit')
+            fs.writeFileSync atom.getConfigDirPath() + "/init.coffee", file.content if atom.config.get('sync-settings.syncInit')
 
           when 'init.js'
-            fs.writeFileSync atom.config.configDirPath + "/init.js", file.content if atom.config.get('sync-settings.syncInit')
+            fs.writeFileSync atom.getConfigDirPath() + "/init.js", file.content if atom.config.get('sync-settings.syncInit')
 
           when 'snippets.cson'
-            fs.writeFileSync atom.config.configDirPath + "/snippets.cson", file.content if atom.config.get('sync-settings.syncSnippets')
+            fs.writeFileSync atom.getConfigDirPath() + "/snippets.cson", file.content if atom.config.get('sync-settings.syncSnippets')
 
-          else fs.writeFileSync "#{atom.config.configDirPath}/#{filename}", file.content
+          else fs.writeFileSync "#{atom.getConfigDirPath()}/#{filename}", file.content
 
       atom.config.set('sync-settings._lastBackupHash', res.history[0].version)
 
@@ -262,7 +272,12 @@ SyncSettings =
 
   createClient: ->
     token = @getPersonalAccessToken()
-    console.debug "Creating GitHubApi client with token = #{token}"
+
+    if token
+      console.debug "Creating GitHubApi client with token = #{token.substr(0, 4)}...#{token.substr(-4, 4)}"
+    else
+      console.debug "Creating GitHubApi client without token"
+
     github = new GitHubApi
       version: '3.0.0'
       # debug: true
@@ -295,6 +310,7 @@ SyncSettings =
 
   applySettings: (pref, settings) ->
     for key, value of settings
+      key = key.replace /\./g, "\\."
       keyPath = "#{pref}.#{key}"
       isColor = false
       if _.isObject(value)

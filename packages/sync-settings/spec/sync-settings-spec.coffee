@@ -145,7 +145,7 @@ describe "SyncSettings", ->
           , (err, res) ->
             expect(res.files['styles.less']).not.toBeDefined()
 
-      it "back up the user init.coffee file", ->
+      it "back up the user init script file", ->
         atom.config.set('sync-settings.syncInit', true)
         run (cb) ->
           SyncSettings.backup cb
@@ -153,9 +153,9 @@ describe "SyncSettings", ->
           run (cb) =>
             SyncSettings.createClient().gists.get({id: @gistId}, cb)
           , (err, res) ->
-            expect(res.files['init.coffee']).toBeDefined()
+            expect(res.files[path.basename(atom.getUserInitScriptPath())]).toBeDefined()
 
-      it "don't back up the user init.coffee file", ->
+      it "don't back up the user init script file", ->
         atom.config.set('sync-settings.syncInit', false)
         run (cb) ->
           SyncSettings.backup cb
@@ -163,7 +163,7 @@ describe "SyncSettings", ->
           run (cb) =>
             SyncSettings.createClient().gists.get({id: @gistId}, cb)
           , (err, res) ->
-            expect(res.files['init.coffee']).not.toBeDefined()
+            expect(res.files[path.basename(atom.getUserInitScriptPath())]).not.toBeDefined()
 
       it "back up the user snippets", ->
         atom.config.set('sync-settings.syncSnippets', true)
@@ -252,9 +252,43 @@ describe "SyncSettings", ->
             SyncSettings.restore cb
           , ->
             for file in atom.config.get 'sync-settings.extraFiles'
-              expect(fs.existsSync("#{atom.config.configDirPath}/#{file}")).toBe(true)
-              expect(SyncSettings.fileContent("#{atom.config.configDirPath}/#{file}")).toBe("# #{file} (not found) ")
-              fs.unlink "#{atom.config.configDirPath}/#{file}"
+              expect(fs.existsSync("#{atom.getConfigDirPath()}/#{file}")).toBe(true)
+              expect(SyncSettings.fileContent("#{atom.getConfigDirPath()}/#{file}")).toBe("# #{file} (not found) ")
+              fs.unlink "#{atom.getConfigDirPath()}/#{file}"
+
+      it "skips the restore due to invalid json", ->
+        atom.config.set('sync-settings.syncSettings', true)
+        atom.config.set 'sync-settings.extraFiles', ['packages.json']
+        atom.config.set "some-dummy", false
+        run (cb) ->
+          SyncSettings.backup cb
+        , ->
+          atom.config.set "some-dummy", true
+          atom.notifications.clear()
+
+          run (cb) ->
+            SyncSettings.restore cb
+          , ->
+            expect(atom.notifications.getNotifications().length).toEqual 1
+            expect(atom.notifications.getNotifications()[0].getType()).toBe('error')
+            # the value should not be restored
+            # since the restore valid to parse the input as valid json
+            expect(atom.config.get "some-dummy").toBeTruthy()
+
+      it "restores keys with dots", ->
+        atom.config.set('sync-settings.syncSettings', true)
+        atom.config.set 'some\\.key', ['one', 'two']
+        run (cb) ->
+          SyncSettings.backup cb
+        , ->
+          atom.config.set "some\\.key", ['two']
+
+          run (cb) ->
+            SyncSettings.restore cb
+          , ->
+            expect(atom.config.get("some\\.key").length).toBe(2)
+            expect(atom.config.get("some\\.key")[0]).toBe('one')
+            expect(atom.config.get("some\\.key")[1]).toBe('two')
 
     describe "::check for update", ->
 

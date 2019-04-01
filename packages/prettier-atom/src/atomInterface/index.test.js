@@ -2,12 +2,44 @@ const {
   runLinter,
   shouldUseEslint,
   shouldUseStylelint,
-  getPrettierOptions,
   getPrettierEslintOptions,
   isLinterEslintAutofixEnabled,
+  relativizePathFromAtomProject,
   toggleFormatOnSave,
 } = require('./index');
 const textEditor = require('../../tests/mocks/textEditor');
+
+describe('relativizePathFromAtomProject()', () => {
+  it('runs `atom.project.relativizePath` if the filepath and project are present', () => {
+    const absoluteFilePath = '/Users/johndoe/src/main.js';
+    const relativeFilePath = 'main.js';
+    atom = { project: { relativizePath: jest.fn(() => [null, relativeFilePath]) } };
+
+    const actual = relativizePathFromAtomProject(absoluteFilePath);
+
+    expect(actual).toEqual(relativeFilePath);
+    expect(atom.project.relativizePath).toHaveBeenCalledWith(absoluteFilePath);
+  });
+
+  it('relativizes the path to the parent dir if the filepath is present but project is missing', () => {
+    const absoluteFilePath = '/Users/johndoe/src/main.js';
+    const relativeFilePath = 'main.js';
+    atom = { project: { relativizePath: jest.fn(() => [null, absoluteFilePath]) } };
+
+    const actual = relativizePathFromAtomProject(absoluteFilePath);
+
+    expect(actual).toEqual(relativeFilePath);
+    expect(atom.project.relativizePath).toHaveBeenCalledWith(absoluteFilePath);
+  });
+
+  it('returns null if no filepath is present', () => {
+    const filePath = null;
+
+    const actual = relativizePathFromAtomProject(filePath);
+
+    expect(actual).toEqual(null);
+  });
+});
 
 describe('runLinter()', () => {
   it('runs `linter:lint` command', () => {
@@ -92,7 +124,7 @@ describe('getPrettierEslintOptions()', () => {
 
     const actual = getPrettierEslintOptions();
 
-    expect(mockGet).lastCalledWith('prettier-atom.prettierEslintOptions');
+    expect(mockGet).toHaveBeenLastCalledWith('prettier-atom.prettierEslintOptions');
     expect(actual).toBe(true);
   });
 });
@@ -120,31 +152,6 @@ describe('isLinterEslintAutofixEnabled()', () => {
     const actual = isLinterEslintAutofixEnabled();
 
     expect(actual).toBe(false);
-  });
-});
-
-describe('getPrettierOptions()', () => {
-  it('returns all prettier options', () => {
-    const mockGet = option =>
-      ({
-        'prettier-atom.prettierOptions': {
-          printWidth: 80,
-          tabWidth: 2,
-          parser: 'flow',
-          singleQuote: true,
-          trailingComma: true,
-          bracketSpacing: true,
-          semi: true,
-          useTabs: true,
-          jsxBracketSameLine: true,
-          arrowParens: 'avoid',
-        },
-      }[option]);
-    atom = { config: { get: mockGet } };
-
-    const actual = getPrettierOptions();
-
-    expect(actual).toMatchSnapshot();
   });
 });
 

@@ -1,4 +1,6 @@
 // @flow
+const path = require('path');
+const _ = require('lodash/fp');
 
 // constants
 const LINTER_LINT_COMMAND = 'linter:lint';
@@ -21,8 +23,6 @@ const shouldUseEslint = () => getConfigOption('useEslint');
 
 const shouldUseStylelint = () => getConfigOption('useStylelint');
 
-const shouldUseEditorConfig = () => getConfigOption('useEditorConfig');
-
 const isFormatOnSaveEnabled = () => getConfigOption('formatOnSaveOptions.enabled');
 
 const isDisabledIfNotInPackageJson = () =>
@@ -32,47 +32,17 @@ const isDisabledIfNoConfigFile = () => getConfigOption('formatOnSaveOptions.isDi
 
 const shouldRespectEslintignore = () => getConfigOption('formatOnSaveOptions.respectEslintignore');
 
-const getJavascriptScopes = () => getConfigOption('scopes.javascript');
-
-const getTypescriptScopes = () => getConfigOption('scopes.typescript');
-
-const getCssScopes = () => getConfigOption('scopes.css');
-
-const getJsonScopes = () => getConfigOption('scopes.json');
-
-const getGraphQlScopes = () => getConfigOption('scopes.graphQl');
-
-const getMarkdownScopes = () => getConfigOption('scopes.markdown');
-
-const getVueScopes = () => getConfigOption('scopes.vue');
-
-const getAllScopes = () =>
-  [
-    getJavascriptScopes(),
-    getTypescriptScopes(),
-    getCssScopes(),
-    getJsonScopes(),
-    getGraphQlScopes(),
-    getMarkdownScopes(),
-    getVueScopes(),
-  ].reduce((acc, els) => acc.concat(els));
-
-const getWhitelistedGlobs = () => getConfigOption('formatOnSaveOptions.whitelistedGlobs');
-
-const getExcludedGlobs = () => getConfigOption('formatOnSaveOptions.excludedGlobs');
-
 const toggleFormatOnSave = () => setConfigOption('formatOnSaveOptions.enabled', !isFormatOnSaveEnabled());
-
-const getAtomTabLength = (editor: TextEditor) =>
-  atom.config.get('editor.tabLength', { scope: editor.getLastCursor().getScopeDescriptor() });
-
-const getPrettierOptions = () => getConfigOption('prettierOptions');
 
 const getPrettierEslintOptions = () => getConfigOption('prettierEslintOptions');
 
 const getAtomVersion = () => atom.getVersion();
 
 const getPrettierAtomConfig = () => atom.config.get('prettier-atom');
+
+const getWhitelistedGlobs = () => getConfigOption('formatOnSaveOptions.whitelistedGlobs');
+
+const getExcludedGlobs = () => getConfigOption('formatOnSaveOptions.excludedGlobs');
 
 const addTooltip = (element: HTMLElement, options: Atom$Tooltips$Options) =>
   atom.tooltips.add(element, options);
@@ -99,33 +69,42 @@ const runLinter = (editor: TextEditor) =>
   isLinterLintCommandDefined(editor) &&
   atom.commands.dispatch(atom.views.getView(editor), LINTER_LINT_COMMAND);
 
+const invokeAtomRelativizePath = _.flow(
+  filePath => atom.project.relativizePath(filePath), // NOTE: fat arrow necessary for `this`
+  _.get('[1]'),
+);
+
+const relativizePathToDirname = (filePath: string) => path.relative(path.dirname(filePath), filePath);
+
+const relativizePathFromAtomProject: (filePath: ?string) => ?string = _.cond([
+  [_.isNil, _.constant(null)],
+  [
+    _.flow(
+      invokeAtomRelativizePath,
+      path.isAbsolute,
+    ),
+    relativizePathToDirname,
+  ],
+  [_.stubTrue, invokeAtomRelativizePath],
+]);
+
 module.exports = {
   addErrorNotification,
   addInfoNotification,
   addTooltip,
   addWarningNotification,
-  getAtomTabLength,
   getAtomVersion,
-  getExcludedGlobs,
   getPrettierAtomConfig,
   getPrettierEslintOptions,
-  getPrettierOptions,
-  getJavascriptScopes,
-  getTypescriptScopes,
-  getCssScopes,
-  getJsonScopes,
-  getGraphQlScopes,
-  getMarkdownScopes,
-  getVueScopes,
-  getAllScopes,
   getWhitelistedGlobs,
+  getExcludedGlobs,
   isDisabledIfNotInPackageJson,
   isDisabledIfNoConfigFile,
   isFormatOnSaveEnabled,
   isLinterEslintAutofixEnabled,
+  relativizePathFromAtomProject,
   runLinter,
   shouldRespectEslintignore,
-  shouldUseEditorConfig,
   shouldUseEslint,
   shouldUseStylelint,
   toggleFormatOnSave,

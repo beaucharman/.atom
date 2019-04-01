@@ -2,7 +2,8 @@
 /*global atom */
 // @flow
 import type { TextEditor } from "atom"
-import type { Range } from "./types"
+import type { Range, Resolved } from "./types"
+import createDebug from "debug"
 
 import { CompositeDisposable } from "atom"
 import { Range as AtomRange } from "atom"
@@ -10,11 +11,20 @@ import shell from "shell"
 import makeCache from "./make-cache"
 import { buildSuggestion, findDestination, resolveModule } from "./core"
 import fs from "fs"
+import makeRequire from "./require-if-trusted"
+import type { Require } from "./require-if-trusted"
 
+const debug = createDebug("js-hyperclick")
+
+const scopes = ["source.js", "source.js.jsx", "javascript", "source.flow"]
 const isJavascript = (textEditor: TextEditor) => {
   const { scopeName } = textEditor.getGrammar()
 
-  return scopeName === "source.js" || scopeName === "source.js.jsx"
+  if (scopes.indexOf(scopeName) >= 0) {
+    return true
+  }
+  debug("Not Javascript", scopeName)
+  return false
 }
 
 function makeProvider(subscriptions) {
@@ -35,6 +45,7 @@ function makeProvider(subscriptions) {
     const buffer = textEditor.getBuffer()
     const nextInfo = cache.get(textEditor)
     const range = new AtomRange(
+      // I know this works, but flow claims the type is wrong - $FlowFixMe
       buffer.positionForCharacterIndex(start).toArray(),
       buffer.positionForCharacterIndex(end).toArray(),
     )
@@ -79,12 +90,27 @@ function makeProvider(subscriptions) {
   }
 
   const followSuggestionPath = (fromFile, suggestion) => {
+    let blockNotFoundWarning = false
+    const requireIfTrusted: Require<() => ?Resolved> = makeRequire(
+      isTrusted => {
+        if (isTrusted) {
+          followSuggestionPath(fromFile, suggestion)
+        }
+
+        blockNotFoundWarning = true
+        return () => undefined
+      },
+    )
     const resolveOptions = {
       extensions: atom.config.get("js-hyperclick.extensions"),
+      requireIfTrusted,
     }
+    debug("resolveOptions", resolveOptions)
     const resolved = resolveModule(fromFile, suggestion, resolveOptions)
 
-    if (resolved.type === "url") {
+    if (blockNotFoundWarning) {
+      // Do nothing
+    } else if (resolved.type === "url") {
       if (atom.packages.isPackageLoaded("web-browser")) {
         atom.workspace.open(resolved.url)
       } else {
@@ -124,6 +150,7 @@ function makeProvider(subscriptions) {
       const buffer = textEditor.getBuffer()
 
       range = new AtomRange(
+        // I know this works, but flow claims the type s wrong - $FlowFixMe
         buffer.positionForCharacterIndex(suggestion.range.start).toArray(),
         buffer.positionForCharacterIndex(suggestion.range.end).toArray(),
       )
@@ -165,6 +192,7 @@ function makeProvider(subscriptions) {
           jumpToImport: atom.config.get("js-hyperclick.jumpToImport"),
         }
         const suggestion = buildSuggestion(info, text, { start, end }, options)
+        debug(text, suggestion)
         if (suggestion) {
           return buildResult(textEditor, range, suggestion, false)
         }
@@ -173,10 +201,20 @@ function makeProvider(subscriptions) {
   }
 }
 
+function migrateTrustedResolvers() {
+  const key = `js-hyperclick.trustedResolvers`
+  const trustedResolvers = atom.config.get(key)
+  if (trustedResolvers != null) {
+    atom.config.set("js-hyperclick.trustedFiles", trustedResolvers)
+    atom.config.set(key, undefined)
+  }
+}
+
 module.exports = {
   config: {
     extensions: {
-      description: "Comma separated list of extensions to check for when a file isn't found",
+      description:
+        "Comma separated list of extensions to check for when a file isn't found",
       type: "array",
       // Default comes from Node's `require.extensions`
       default: [".js", ".json", ".node"],
@@ -190,33 +228,51 @@ module.exports = {
       type: "boolean",
       default: false,
       description: `
-            Jump to the import statement instead of leaving the current file.
-            You can still click the import to switch files.
-            `.trim(), // if the description starts with whitespace it doesn't display
+        Jump to the import statement instead of leaving the current file.
+        You can still click the import to switch files.
+        `.trim(), // if the description starts with whitespace it doesn't display
     },
     skipIntermediate: {
       type: "boolean",
       default: true,
       title: `Jump through intermediate links`,
       description: `
-            When you land at your destination, js-hyperclick checks to see if
-            that is a link and then follows it. This is mostly useful to skip
-            over files that \`export ... from './otherfile'\`. You will land in
-            \`./otherfile\` instead of at that export.
-            `.trim(),
+        When you land at your destination, js-hyperclick checks to see if
+        that is a link and then follows it. This is mostly useful to skip
+        over files that \`export ... from './otherfile'\`. You will land in
+        \`./otherfile\` instead of at that export.
+        `.trim(),
     },
+    // This doesn't show up in the settings. Use Edit > Config if you need to
+    // change this.
+    // trustedFiles: {
+    //   type: "array",
+    //   items: {
+    //     type: "object",
+    //     properties: {
+    //       hash: { type: "string" },
+    //       trusted: { type: "boolean" },
+    //     },
+    //   },
+    //   default: [],
+    // },
   },
   activate() {
     // hyperclick is bundled into nuclide
-    if (!atom.packages.isPackageLoaded("nuclide")) {
+    if (!atom.packages.isPackageLoaded("hyperclick")) {
       require("atom-package-deps").install("js-hyperclick")
     }
+    migrateTrustedResolvers()
+    debug("activate")
     this.subscriptions = new CompositeDisposable()
   },
   getProvider() {
     return makeProvider(this.subscriptions)
   },
   deactivate() {
+    debug("deactivate")
     this.subscriptions.dispose()
   },
 }
+
+global.jsHyperclick = module.exports

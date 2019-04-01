@@ -4,11 +4,14 @@ import path from "path"
 import fs from "fs"
 import { sync as resolve } from "resolve"
 import type { Resolved } from "../types"
+import makeDebug from "debug"
+const debug = makeDebug("js-hyperclick:resolve-module")
 
 // Default comes from Node's `require.extensions`
 const defaultExtensions = [".js", ".json", ".node"]
 type ResolveOptions = {
   extensions?: typeof defaultExtensions,
+  requireIfTrusted: (moduleName: string) => any,
 }
 
 function findPackageJson(basedir) {
@@ -43,8 +46,8 @@ function loadModuleRoots(basedir) {
   }
 }
 
-function resolveWithCustomRoots(basedir, absoluteModule, options) {
-  const { extensions = defaultExtensions } = options
+function resolveWithCustomRoots(basedir, absoluteModule, options): Resolved {
+  const { extensions = defaultExtensions, requireIfTrusted } = options
   const moduleName = `./${absoluteModule}`
 
   const roots = loadModuleRoots(basedir)
@@ -52,21 +55,63 @@ function resolveWithCustomRoots(basedir, absoluteModule, options) {
   if (roots) {
     const resolveOptions = { basedir, extensions }
     for (let i = 0; i < roots.length; i++) {
+      let stats
+      try {
+        stats = fs.statSync(roots[i])
+      } catch (e) {
+        // Ignore invalid moduleRoots instead of throwing an error.
+        continue
+      }
+
+      if (stats.isFile()) {
+        const resolver = roots[i]
+        try {
+          // $FlowExpectError
+          const customResolver = requireIfTrusted(resolver)
+          const filename = customResolver({
+            basedir,
+            moduleName: absoluteModule,
+          })
+          debug("filename", filename)
+          // it's ok for a custom resolver to jut pass on a module
+          if (filename == null) {
+            continue
+          } else if (typeof filename === "string") {
+            if (filename.match(/^http/)) {
+              return { type: "url", url: filename }
+            }
+
+            resolveOptions.basedir = basedir
+            return {
+              type: "file",
+              filename: resolve(filename, resolveOptions),
+            }
+          }
+          throw new Error(
+            `Custom resolvers must return a string or null/undefined.\nRecieved: ${filename}`,
+          )
+        } catch (e) {
+          e.message = `Error in custom resolver: ${resolver}\n\n${e.message}`
+          throw e
+        }
+      }
       resolveOptions.basedir = roots[i]
 
       try {
-        return resolve(moduleName, resolveOptions)
+        const filename = resolve(moduleName, resolveOptions)
+        return { type: "file", filename }
       } catch (e) {
         /* do nothing */
       }
     }
   }
+  return { type: "file", filename: undefined }
 }
 
 export default function resolveModule(
   filePath: string,
   suggestion: { moduleName: string },
-  options: ResolveOptions = {},
+  options: ResolveOptions,
 ): Resolved {
   const { extensions = defaultExtensions } = options
   let { moduleName } = suggestion
@@ -85,7 +130,12 @@ export default function resolveModule(
       }
     }
   } catch (e) {
-    /* do nothing */
+    if (moduleName === "atom") {
+      return {
+        type: "url",
+        url: `https://atom.io/docs/api/latest/`,
+      }
+    }
   }
 
   // Allow linking to relative files that don't exist yet.
@@ -95,8 +145,17 @@ export default function resolveModule(
     }
 
     filename = path.join(basedir, moduleName)
+    debug("opening new file", filename)
   } else if (!filename) {
-    filename = resolveWithCustomRoots(basedir, moduleName, options)
+    const customResolution = resolveWithCustomRoots(
+      basedir,
+      moduleName,
+      options,
+    )
+    debug("Custom Resolution", customResolution)
+    return customResolution
+  } else {
+    debug("resolved", filename)
   }
 
   return { type: "file", filename }

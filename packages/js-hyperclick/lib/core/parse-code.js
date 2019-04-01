@@ -1,6 +1,8 @@
 "use babel"
 // @flow
 import type { Info } from "../types"
+import makeDebug from "debug"
+const debug = makeDebug("js-hyperclick:parse-code")
 
 // TimeCop was reporting that it took over 600ms for js-hyperclick to start.
 // Converting this `import` to a `require` reduced it to under 250ms Moving it
@@ -8,7 +10,7 @@ import type { Info } from "../types"
 // list (under 5ms)
 
 /*
-import { parse, traverse, types as t } from 'babel-core'
+import { parse, traverse, types as t } from '@babel/core'
 */
 
 const parseErrorTag = Symbol()
@@ -18,7 +20,7 @@ const identifierReducer = (tmp, node) => {
   if (node.value) {
     value = node.value
   }
-  const { types: t } = require("babel-core")
+  const { types: t } = require("@babel/core")
   let newIdentifiers
   if (t.isIdentifier(value)) {
     newIdentifiers = [value]
@@ -37,7 +39,7 @@ const identifierReducer = (tmp, node) => {
   return [...tmp, ...newIdentifiers]
 }
 function findIdentifiers(node, identifiers = []) {
-  const { types: t } = require("babel-core")
+  const { types: t } = require("@babel/core")
 
   if (t.isObjectPattern(node)) {
     return node.properties.reduce(identifierReducer, identifiers)
@@ -50,31 +52,56 @@ function findIdentifiers(node, identifiers = []) {
   throw new Error("Unknown node type")
 }
 
-export default function parseCode(code: string): Info {
-  const { traverse, types: t } = require("babel-core")
-  const { Hub, NodePath } = traverse
-  const { parse } = require("babylon")
+const makeDefaultConfig = () => ({
+  sourceType: "module",
+  // Enable as many plugins as I can so that people don't need to configure
+  // anything.
+  plugins: [
+    require("@babel/plugin-syntax-async-generators"),
+    require("@babel/plugin-syntax-bigint"),
+    require("@babel/plugin-syntax-class-properties"),
+    [
+      require("@babel/plugin-syntax-decorators"),
+      { decoratorsBeforeExport: false },
+    ],
+    require("@babel/plugin-syntax-do-expressions"),
+    require("@babel/plugin-syntax-dynamic-import"),
+    require("@babel/plugin-syntax-export-default-from"),
+    require("@babel/plugin-syntax-export-namespace-from"),
+    require("@babel/plugin-syntax-flow"),
+    require("@babel/plugin-syntax-function-bind"),
+    require("@babel/plugin-syntax-function-sent"),
+    require("@babel/plugin-syntax-import-meta"),
+    require("@babel/plugin-syntax-json-strings"),
+    require("@babel/plugin-syntax-jsx"),
+    require("@babel/plugin-syntax-logical-assignment-operators"),
+    require("@babel/plugin-syntax-nullish-coalescing-operator"),
+    require("@babel/plugin-syntax-numeric-separator"),
+    require("@babel/plugin-syntax-object-rest-spread"),
+    require("@babel/plugin-syntax-optional-catch-binding"),
+    require("@babel/plugin-syntax-optional-chaining"),
+    [
+      require("@babel/plugin-syntax-pipeline-operator"),
+      { proposal: "minimal" },
+    ],
+    require("@babel/plugin-syntax-throw-expressions"),
+    // Even though Babel can parse typescript, I can't have it and flow
+    // enabled at the same time.
+    // "@babel/plugin-syntax-typescript",
+  ],
+})
+
+export default function parseCode(code: string, babelConfig: ?Object): Info {
+  const { traverse, types: t } = require("@babel/core")
+  const { parseSync } = require("@babel/core")
   let ast = undefined
 
   try {
-    ast = parse(code, {
-      sourceType: "module",
-      plugins: [
-        "jsx",
-        "flow",
-        "doExpressions",
-        "objectRestSpread",
-        "decorators",
-        "classProperties",
-        "exportExtensions",
-        "asyncGenerators",
-        "functionBind",
-        "functionSent",
-      ],
-    })
+    ast = parseSync(code, babelConfig || makeDefaultConfig())
   } catch (parseError) {
+    debug("parseError", parseError)
     /* istanbul ignore next */
-    return { parseError }
+    return { type: "parse-error", parseError }
   }
 
   // console.log(JSON.stringify(ast, null, 4))
@@ -118,6 +145,11 @@ export default function parseCode(code: string): Info {
       scopes.push(scope)
     },
     CallExpression({ node, parent }) {
+      // `import()` is an operator, not a function.
+      // `isIdentifier` doesn't work here.
+      // http://2ality.com/2017/01/import-operator.html
+      const isImport = node.callee.type === "Import"
+
       const isRequire = t.isIdentifier(node.callee, { name: "require" })
 
       const isRequireResolve =
@@ -125,7 +157,7 @@ export default function parseCode(code: string): Info {
         t.isIdentifier(node.callee.object, { name: "require" }) &&
         t.isIdentifier(node.callee.property, { name: "resolve" })
 
-      if (isRequire || isRequireResolve) {
+      if (isImport || isRequire || isRequireResolve) {
         if (t.isLiteral(node.arguments[0])) {
           let moduleName
           const arg = node.arguments[0]
@@ -305,42 +337,12 @@ export default function parseCode(code: string): Info {
   }
 
   try {
-    const hub = new Hub({
-      buildCodeFrameError(node, message, Error) {
-        const loc = node && (node.loc || node._loc)
-
-        /* istanbul ignore else */
-        if (loc) {
-          const err = new Error(
-            `${message} (${loc.start.line}:${loc.start.column})`,
-          )
-          err[parseErrorTag] = true
-          return err
-        } else {
-          // Assume if we don't have a location, then it isn't a problem
-          // in the user's code and shouldn't be displayed as a parse
-          // error.
-          return new Error(message)
-        }
-      },
-    })
-    const path = NodePath.get({
-      hub: hub,
-      parentPath: null,
-      parent: ast,
-      container: ast,
-      key: "program",
-    }).setContext()
-
-    // On order to capture duplicate declaration errors I have to build a
-    // scope to get access to a "hub" that returns the error I need to catch.
-    //
-    // https://github.com/babel/babel/issues/4640
-    traverse(ast, visitors, path.scope)
+    traverse(ast, visitors)
   } catch (e) {
+    debug("Error traversing", e)
     /* istanbul ignore else */
     if (e[parseErrorTag]) {
-      return { parseError: e }
+      return { type: "parse-error", parseError: e }
     } else {
       /* This should never trigger, it just rethrows unexpected errors */
       throw e
@@ -348,7 +350,11 @@ export default function parseCode(code: string): Info {
   }
 
   return {
+    type: "info",
     scopes,
+    // Cannot return object literal because possibly uninitialized variable [1]
+    // is incompatible with string [2] in property moduleName of array element
+    // of property externalModules. - $FlowFixMe
     externalModules,
     exports,
     paths,

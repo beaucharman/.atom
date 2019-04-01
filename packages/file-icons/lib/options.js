@@ -37,7 +37,9 @@ class Options{
 		this.addCommand("toggle-tab-icons",    () => this.toggle("tabPaneIcon"));
 		
 		this.disposables.add(this.observe("coloured", on => {
-			document.body.classList.toggle(NS + "-colourless", !on);
+			const classes = document.body.classList;
+			classes.toggle(NS + "-colourless", !on);
+			classes.toggle(NS + "-coloured",    on);
 		}));
 	}
 	
@@ -95,17 +97,6 @@ class Options{
 	 */
 	get colourMode(){
 		return this.coloured ? ~~UI.lightTheme : null;
-	}
-	
-	
-	/**
-	 * Namespace prefixing everything the package registers with Atom.
-	 *
-	 * @property {String}
-	 * @readonly
-	 */
-	get namespace(){
-		return NS;
 	}
 	
 	
