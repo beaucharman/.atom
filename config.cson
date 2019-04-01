@@ -99,6 +99,8 @@
   "prettier-atom":
     formatOnSaveOptions:
       enabled: true
+    useEslint: true
+    useStylelint: true
   react: {}
   tabs:
     usePreviewTabs: true
