@@ -47,7 +47,7 @@
     "@babel/plugin-syntax-throw-expressions": "^7.0.0",
     "acorn-to-esprima": "^1.0.4",
     "atom-package-deps": "^4.6.0",
-    "debug": "^4.1.0",
+    "debug": "^3.1.0",
     "escope": "^3.2.0",
     "resolve": "^1.1.6"
   },
